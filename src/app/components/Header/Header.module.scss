@@ -1,0 +1,9 @@
+.nav_list{
+    display: flex;
+}
+.nav_listItem{
+    &:not(:first-child){
+       margin-left: 40px; 
+    }
+      
+}

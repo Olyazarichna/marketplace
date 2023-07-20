@@ -1,19 +1,22 @@
-import styles from './Header.module.scss';
+import styles from "./Header.module.scss";
 
 const Header = () => {
   return (
-    <header>
-        <h3 className={styles.heading}>Header</h3>
+    <header className={styles.header}>
+      <h3 className={styles.heading}>Logo</h3>
       <nav className={styles.nav}>
-        <ul  className={styles.nav_list}>
-          <li  className={styles.nav_listItem}>
-            <a href="">example nav 1</a>
+        <ul className={styles.nav_list}>
+          <li className={styles.nav_listItem}>
+            <a href="">Київ</a>
           </li>
           <li className={styles.nav_listItem}>
-            <a href="">example nav 2</a>
+            <a href="">Події у Києві</a>
           </li>
         </ul>
       </nav>
+      <input type="text" placeholder="Пошук" />
+      <button>Пропоную дозвілля</button>
+      <button>Вхід</button>
     </header>
   );
 };

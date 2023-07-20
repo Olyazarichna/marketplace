@@ -1,0 +1,15 @@
+@import "../../../scss/utils/mixin";
+.footer {
+  display: flex;
+  align-items: center;
+}
+.list {
+  @include mq(desktop) {
+    display: flex;
+    align-items: center;
+  }
+}
+.iconList {
+  display: flex;
+  align-items: center;
+}

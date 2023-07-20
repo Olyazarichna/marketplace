@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import '../scss/main.scss';
 import styles from './page.module.scss'
-
+import AboutUs from './components/AboutUs/AboutUs';
 export default function Home() {
   return (
     <main>
-      <h2>Home Page</h2>
+      < AboutUs />
       <Link href="/userProfile" className={styles.link}>Profile</Link>
     </main>
   )

@@ -1,14 +1,37 @@
-.header{
-    display: flex;
-    align-items: center;
+@import "../../../scss/utils/mixin";
+.header {
+  display: flex;
+  align-items: center;
+}
+.btn {
+  border-color: transparent;
+  background-color: transparent;
+  @include mq(tablet) {
+    // display: none;
+    // visibility: hidden;
+  }
 }
 
-.nav_list{
-    display: flex;
+.list {
+  display: flex;
 }
-.nav_listItem{
-    &:not(:first-child){
-       margin-left: 40px; 
-    }
-      
+.list__btn {
+  padding: 0;
+  border-color: transparent;
+  background-color: transparent;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
+.dropdown {
+  display: none;
+}
+// .list__btn:hover .dropdown,
+// .list__btn:focus .dropdown {
+//   display: block;
+// }
+.list__dropdown:hover .dropdown,
+.list__dropdown:focus .dropdown {
+  display: block;
 }

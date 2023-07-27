@@ -5,7 +5,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 export default function Home() {
   return (
     <main>
-      < AboutUs />
+      <AboutUs />
       <Link href="/userProfile" className={styles.link}>Profile</Link>
     </main>
   )

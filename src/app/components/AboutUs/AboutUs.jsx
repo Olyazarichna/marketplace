@@ -3,7 +3,7 @@ import ImageSlider from "../ImageSlider/ImageSlider";
 
 const AboutUs = () => {
   return (
-    <section className={`${'container'} ${styles.wrapper}`}>   
+    <section className={styles.wrapper}>
       <div className={styles.textWrapper}>
         <h2 className={styles.heading}>Знайди своє дозвілля!</h2>
         <p className={styles.text}>
@@ -20,11 +20,13 @@ const AboutUs = () => {
           </li>
           <li className={styles.textList__item}>
             <h3 className={styles.textList__heading}>Дозвілля для усіх</h3>
-            <p className={styles.textList__text}>Події, гуртки та розваги для дорослих та малих!</p>
+            <p className={styles.textList__text}>
+              Події, гуртки та розваги для дорослих та малих!
+            </p>
           </li>
         </ul>
       </div>
-      <ImageSlider/>
+      <ImageSlider />
     </section>
   );
 };

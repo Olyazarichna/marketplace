@@ -1,0 +1,29 @@
+@import "../../../scss/utils/mixin";
+.imgWrapper {
+  border-radius: 10px;
+  overflow: hidden;
+  width: 280px;
+  height: auto;
+  position: relative;
+  @include mq(tablet) {
+    width: 228px;
+  }
+  @include mq(desktop) {
+    width: 400px;
+  }
+}
+
+.favBtn {
+  width: 28px;
+  height: 24px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border-color: transparent;
+  background: url("../../../../public/icons/favorite.svg") no-repeat;
+  &:hover,
+  &:focus {
+    background: url("../../../../public/icons/favoriteRed.svg") no-repeat;
+  }
+}

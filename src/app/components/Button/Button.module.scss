@@ -1,0 +1,9 @@
+@import '../../../scss/utils/mixin';
+
+.btn{
+    background-color: var(--accent-bnt-cl);
+    padding: 10px 63px;
+    font-size: 18px;
+    border-radius: 5px;
+    border-color: transparent;
+}

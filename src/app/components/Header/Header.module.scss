@@ -2,20 +2,100 @@
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding-top: 25px;
+  @include mq(tablet) {
+    justify-content: center;
+  }
 }
 .btn {
+  display: block;
   border-color: transparent;
   background-color: transparent;
   @include mq(tablet) {
-    // display: none;
-    // visibility: hidden;
+    display: none;
   }
 }
 
+.heading {
+  width: 90px;
+}
 .list {
   display: flex;
 }
+.list__dropdown {
+  display: none;
+  @include mq(tablet) {
+    display: block;
+    margin-left: 20px;
+  }
+  @include mq(desktop) {
+    display: block;
+    margin-left: 55px;
+  }
+}
+
+.button {
+  font-size: 14px;
+  display: none;
+  @include mq(tablet) {
+    display: block;
+    margin-left: 20px;
+    padding: 3px 20px;
+    background-color: var(--accent-bnt-cl);
+    border-radius: 5px;
+    border-color: transparent;
+  }
+  @include mq(desktop) {
+    font-size: 18px;
+    margin-left: 55px;
+    padding: 10px 32px;
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+.inputWrapper {
+  position: relative;
+}
+.input {
+  display: none;
+  @include mq(tablet) {
+    display: block;
+    padding: 10px 25px 10px 5px;
+    margin-left: 20px;
+    border-radius: 5px;
+  }
+  @include mq(desktop) {
+    margin-left: 55px;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+.searchBtn {
+  position: absolute;
+  top: -8px;
+  right: 0;
+  padding: 0;
+  background-color: transparent;
+  border-color: transparent;
+  @include mq(tablet) {
+    top: 10px;
+    right: 3px;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
 .list__btn {
+  font-size: 14px;
   padding: 0;
   border-color: transparent;
   background-color: transparent;
@@ -23,15 +103,47 @@
   &:focus {
     cursor: pointer;
   }
+  @include mq(desktop) {
+    font-size: 18px;
+  }
 }
-.dropdown {
-  display: none;
-}
-// .list__btn:hover .dropdown,
-// .list__btn:focus .dropdown {
-//   display: block;
-// }
+
 .list__dropdown:hover .dropdown,
 .list__dropdown:focus .dropdown {
   display: block;
+}
+
+.btnList__item {
+  @include mq(tablet) {
+    &:first-child {
+      margin-left: 20px;
+    }
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
+  }
+  @include mq(desktop) {
+    &:first-child {
+      margin-left: 73px;
+    }
+    &:not(:first-child) {
+      margin-left: 16px;
+    }
+  }
+}
+
+.btnList {
+  display: none;
+  @include mq(tablet) {
+    display: flex;
+  }
+}
+.btnList__btn {
+  padding: 0;
+  border-color: transparent;
+  background-color: transparent;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
 }

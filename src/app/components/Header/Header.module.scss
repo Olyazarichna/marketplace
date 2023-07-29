@@ -5,7 +5,7 @@
   justify-content: space-between;
   padding-top: 25px;
   @include mq(tablet) {
-    justify-content: center;
+    // justify-content: center;
   }
 }
 .btn {

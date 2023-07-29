@@ -10,7 +10,7 @@ const Header = () => {
           height="17"
           fill="none"
         >
-          <path stroke="#000" stroke-width="2" d="M0 1h20M0 8.3h20M0 15.5h20" />
+          <path stroke="#000" strokeWidth="2" d="M0 1h20M0 8.3h20M0 15.5h20" />
         </svg>
       </button>
       <h3 className={styles.heading}>Навколо дозвілля</h3>

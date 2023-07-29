@@ -1,9 +1,10 @@
+import Link from 'next/link';
 import styles from './Footer.module.scss';
 
 const Footer=()=>{
     return(
         <footer className={`${'container'} ${styles.footer}`}>
-            <h3 className={styles.logo}>Навколо дозвілля</h3>
+            <Link href="/" className={styles.logo}>Навколо дозвілля</Link>
             <ul className={styles.list}>
                 <li className={styles.list__items}><a href='#'>Про нас</a></li>
                 <li className={styles.list__items}><a href='#'>Дозвілля</a></li>

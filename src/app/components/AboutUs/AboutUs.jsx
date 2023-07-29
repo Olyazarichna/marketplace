@@ -1,8 +1,6 @@
 import styles from "./AboutUs.module.scss";
-import Image from "next/image";
-import img from "../../../../public/images/aboutUs1x.jpg";
-
 import ImageSlider from "../ImageSlider/ImageSlider";
+
 const AboutUs = () => {
   return (
     <section className={`${'container'} ${styles.wrapper}`}>   
@@ -27,7 +25,6 @@ const AboutUs = () => {
         </ul>
       </div>
       <ImageSlider/>
-      {/* <Image src={img} alt="bicycle" width={615} height={500} /> */}
     </section>
   );
 };

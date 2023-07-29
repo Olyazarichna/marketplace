@@ -1,5 +1,5 @@
 import styles from "./Header.module.scss";
-
+import Link from "next/link";
 const Header = () => {
   return (
     <header className={`${"container"} ${styles.header}`}>
@@ -13,7 +13,10 @@ const Header = () => {
           <path stroke="#000" strokeWidth="2" d="M0 1h20M0 8.3h20M0 15.5h20" />
         </svg>
       </button>
-      <h3 className={styles.heading}>Навколо дозвілля</h3>
+      <Link href="/" className={styles.logo}>
+        Навколо дозвілля
+      </Link>
+      {/* <h3 className={styles.heading}>Навколо дозвілля</h3> */}
 
       <ul className={styles.list}>
         <li className={styles.list__dropdown}>
@@ -79,7 +82,8 @@ const Header = () => {
           </button>
         </li>
         <li className={styles.btnList__item}>
-          <button className={styles.btnList__btn}>
+          {/* <button className={styles.btnList__btn}> */}
+          <Link href="/cart" className={styles.btnList__btn}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -91,7 +95,9 @@ const Header = () => {
                 d="M16 16a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM0 0h3.3l1 2H19a1 1 0 0 1 1 1l-.1.5-3.6 6.5c-.3.6-1 1-1.8 1H7.2l-.9 1.6v.2a.3.3 0 0 0 .2.2H18v2H6a2 2 0 0 1-1.8-3l1.4-2.4L2 2H0V0Zm6 16a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm9-7 2.8-5H5l2.4 5H15Z"
               />
             </svg>
-          </button>
+          </Link>
+
+          {/* </button> */}
         </li>
       </ul>
     </header>

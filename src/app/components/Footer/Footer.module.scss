@@ -11,10 +11,9 @@
   width: 90px;
 }
 .list {
-   display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
   @include mq(desktop) {
-   
   }
 }
 .list__items {
@@ -28,21 +27,24 @@
 .iconList {
   display: flex;
   align-items: center;
+
+  @include mq(desktop) {
+  }
 }
 .iconList__item {
- &:not(:first-child) {
+  &:not(:first-child) {
     margin-left: 10px;
   }
 
-  @include mq(tablet){
- &:first-child {
-    margin-left: 48px;
-  }
-  }
- 
-  @include mq(desktop){
+  @include mq(tablet) {
     &:first-child {
-       margin-left: 120px;
-     }
-     }
+      margin-left: 48px;
+    }
+  }
+
+  @include mq(desktop) {
+    &:first-child {
+      margin-left: 120px;
+    }
+  }
 }

@@ -1,3 +1,35 @@
+@import '../../../scss/utils/mixin';
+
 .wrapper{
+
     display: flex;
+    margin-top: 55px;
+@include mq(tablet){
+     margin-top: 80px;
+}
+   
+}
+.textWrapper{
+    width: 550px;
+    margin-right: 66px;
+}
+.heading{
+    font-size: 48px;
+    font-weight: 700;
+}
+.text{
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.textList__item{
+    margin-top: 24px;
+}
+
+.textList__heading{
+    font-size: 36px;
+}
+.textList__text{
+    font-size: 18px;
+    margin-top: 10px;
 }

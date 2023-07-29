@@ -1,18 +1,33 @@
 import styles from "./AboutUs.module.scss";
 import Image from "next/image";
-import img from "../../../../public/images/things.jpg";
+import img from "../../../../public/images/aboutUs1x.jpg";
+
+import ImageSlider from "../ImageSlider/ImageSlider";
 const AboutUs = () => {
   return (
-    <section className={styles.wrapper}>
-      <Image src={img} alt="things" width={180} height={215} />
-      <div>
-        <h2>Про нас</h2>
-        <p>
-          Маркетплейс допомагає українцям знайти дозвілля в своєму місті, а
-          також онлайн. Допомагаємо бізнесу донести свою пропозицію цільовій
+    <section className={`${'container'} ${styles.wrapper}`}>   
+      <div className={styles.textWrapper}>
+        <h2 className={styles.heading}>Знайди своє дозвілля!</h2>
+        <p className={styles.text}>
+          Наш ресурс допомагає українцям знайти дозвілля в своєму місті, а також
+          онлайн. Допомагаємо бізнесу донести свою пропозицію цільовій
           аудиторії.
         </p>
+        <ul className={styles.textList}>
+          <li className={styles.textList__item}>
+            <h3 className={styles.textList__heading}>Події</h3>
+            <p className={styles.textList__text}>
+              Відкрийте для себе захопливі події свого міста на будь-який смак!
+            </p>
+          </li>
+          <li className={styles.textList__item}>
+            <h3 className={styles.textList__heading}>Дозвілля для усіх</h3>
+            <p className={styles.textList__text}>Події, гуртки та розваги для дорослих та малих!</p>
+          </li>
+        </ul>
       </div>
+      <ImageSlider/>
+      {/* <Image src={img} alt="bicycle" width={615} height={500} /> */}
     </section>
   );
 };

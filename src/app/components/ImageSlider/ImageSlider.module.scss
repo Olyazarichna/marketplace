@@ -1,0 +1,25 @@
+.imgWrapper{
+    border-radius: 10px;
+    overflow: hidden;
+}
+.btnWrapper{
+    margin-top: 16px;
+    text-align: center;
+}
+.btn{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+    &:not(:first-child){
+        margin-left: 6px;
+    }
+    &:hover, &:focus{
+        cursor: pointer;
+    }
+}
+.activeBnt{
+    @extend .btn;
+    background-color: #000000;
+}

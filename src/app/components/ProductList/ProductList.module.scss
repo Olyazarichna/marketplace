@@ -2,6 +2,7 @@
 
 .mainSection {
   margin-top: 45px;
+  text-align: center;
   @include mq(tablet) {
     margin-top: 99px;
   }
@@ -14,15 +15,20 @@
   }
 }
 .productList {
-  // margin-top: 40px;
+  margin-top: 40px;
+  margin-bottom: 58px;
   @include mq(tablet) {
     display: flex;
   }
 }
 .productList__item {
-  margin-top: 24px;
+  &:not(:first-child) {
+    margin-top: 24px;
+  }
+
   @include mq(tablet) {
     &:not(:first-child) {
+      margin-top: 0;
       margin-left: 16px;
     }
   }

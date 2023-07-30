@@ -1,0 +1,87 @@
+@import "../../../scss/utils/mixin";
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  @include mq(tablet) {
+    padding: 77px 16px;
+    width: 592px;
+  }
+}
+.heading {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  @include mq(tablet) {
+    font-size: 36px;
+  }
+}
+.span {
+  color: #b4b4b4;
+}
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.form__wrapper {
+  position: relative;
+  &:not(:first-child) {
+    margin-top: 18px;
+  }
+}
+.form__label {
+  font-size: 16px;
+  @include mq(tablet) {
+    font-size: 20px;
+  }
+}
+.form__input {
+  margin-top: 8px;
+  width: 100%;
+  padding: 10px;
+}
+.form__btnIcon {
+  position: absolute;
+  top: 37px;
+  right: 2px;
+  background-color: transparent;
+  border-color: transparent;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
+.form__icon {
+  &:hover,
+  &:focus {
+    fill: #f77f00;
+  }
+}
+.form__btn {
+  padding-top: 23px;
+  padding-bottom: 23px;
+  color: #fff;
+  background-color: var(--form-btn-bg);
+  border-radius: 5px;
+  margin-top: 70px;
+  font-size: 16px;
+  font-weight: 700;
+  @include mq(tablet) {
+    font-size: 24px;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+.info {
+  font-size: 14px;
+  display: inline-block;
+  margin-top: 22px;
+}
+
+.info__accent {
+  color: #f77f00;
+}

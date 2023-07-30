@@ -1,0 +1,31 @@
+@import "../../../scss/utils/mixin";
+
+.modal {
+  position: relative;
+  margin: 50px auto 0;
+  width: 280px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  @include mq(tablet) {
+    width: 592px;
+  }
+}
+.modal__btn {
+  border-color: transparent;
+  background-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  top: 4px;
+  right: 4px;
+  transition: background-color 0.3s ease-out;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: var(--accent-btn-cl);
+  }
+}

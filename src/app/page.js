@@ -6,6 +6,10 @@ export default function Home() {
     <main className={"container"}>
       <AboutUs />
       <ProductList title="Події у Києві" />
+      <ProductList title="Активний відпочинок в Києві" />
+      <ProductList title="Популярні хобі" />
+      <ProductList title="Курси в Києві" />
+      <ProductList title="Курси онлайн" />
     </main>
   );
 }

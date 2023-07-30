@@ -50,7 +50,7 @@
     display: block;
     margin-left: 20px;
     padding: 3px 20px;
-    background-color: var(--accent-bnt-cl);
+    background-color: var(--accent-btn-cl);
     border-radius: 5px;
     border-color: transparent;
   }
@@ -144,6 +144,7 @@
   display: none;
   @include mq(tablet) {
     display: flex;
+    align-items: center;
   }
 }
 .btnList__btn {

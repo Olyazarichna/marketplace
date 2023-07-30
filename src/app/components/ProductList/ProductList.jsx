@@ -3,6 +3,8 @@
 import styles from "./ProductList.module.scss";
 import ProductCard from "../ProductCard/ProductCard";
 import img1 from "../../../../public/images/aboutUs1x.jpg";
+import img2 from "../../../../public/images/girls.jpg";
+import img3 from "../../../../public/images/group.jpg";
 import Button from "../Button/Button";
 const products = [
   {
@@ -14,7 +16,7 @@ const products = [
     time: "15:00",
   },
   {
-    img: img1,
+    img: img2,
     id: "1234",
     title: "Благодійний музичний вечір органної музики",
     date: "2023-08-01",
@@ -22,7 +24,7 @@ const products = [
     time: "10:30",
   },
   {
-    img: img1,
+    img: img3,
     id: "1235",
     title: "Онлайн майтсер-класи для дітей та дорослих",
     date: "2023-08-01",

@@ -3,7 +3,7 @@
   border-radius: 10px;
   overflow: hidden;
   width: 280px;
-  height: auto;
+  max-height:256px;
   position: relative;
   @include mq(tablet) {
     width: 228px;
@@ -25,5 +25,40 @@
   &:hover,
   &:focus {
     background: url("../../../../public/icons/favoriteRed.svg") no-repeat;
+  }
+}
+
+.textItem,
+.title {
+  margin-top: 8px;
+}
+.date {
+  display: flex;
+  align-items: center;
+  &:before {
+    margin-right: 10px;
+    display: inline-block;
+    content: "";
+    background: url("../../../../public/icons/date.svg");
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+.location {
+  @extend .date;
+  &:before {
+    background: url("../../../../public/icons/location.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+.time {
+  @extend .date;
+  &:before {
+    background: url("../../../../public/icons/time.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 }

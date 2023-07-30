@@ -10,11 +10,18 @@ const ProductCard = ({ img, onClick, title, date, location, time }) => {
         <Image src={img} alt={title} />
         <button className={styles.favBtn} onClick={onClick}></button>
       </div>
-
-      <h3>{title}</h3>
-      <p>{date}</p>
-      <p>{location}</p>
-      <p>{time}</p>
+      <h3 className={styles.title}>{title}</h3>
+      <ul>
+        <li className={styles.textItem}>
+          <p className={styles.date}>{date}</p>
+        </li>
+        <li className={styles.textItem}>
+          <p className={styles.location}>{location}</p>
+        </li>
+        <li className={styles.textItem}>
+          <p className={styles.time}>{time}</p>
+        </li>
+      </ul>
     </>
   );
 };

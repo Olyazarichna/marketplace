@@ -1,7 +1,10 @@
 @import "../../../scss/utils/mixin";
 
 .mainSection {
-  margin-top: 99px;
+  margin-top: 45px;
+  @include mq(tablet) {
+    margin-top: 99px;
+  }
 }
 .heading {
   font-size: 24px;
@@ -11,12 +14,13 @@
   }
 }
 .productList {
-  margin-top: 40px;
+  // margin-top: 40px;
   @include mq(tablet) {
     display: flex;
   }
 }
 .productList__item {
+  margin-top: 24px;
   @include mq(tablet) {
     &:not(:first-child) {
       margin-left: 16px;

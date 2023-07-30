@@ -1,35 +1,55 @@
-@import '../../../scss/utils/mixin';
+@import "../../../scss/utils/mixin";
 
-.wrapper{
-
-    display: flex;
-    margin-top: 55px;
-@include mq(tablet){
-     margin-top: 80px;
+.wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 55px;
+  @include mq(tablet) {
+    flex-direction: row;
+    margin-top: 80px;
+  }
 }
-   
-}
-.textWrapper{
-    width: 550px;
+.textWrapper {
+  width: 550px;
+  margin-left: 20px;
+  @include mq(tablet) {
+    margin-left: 0;
     margin-right: 66px;
+  }
 }
-.heading{
+.heading {
+  font-size: 24px;
+  font-weight: 700;
+  @include mq(tablet) {
     font-size: 48px;
-    font-weight: 700;
+  }
 }
-.text{
+.text {
+  font-size: 14px;
+  margin-top: 5px;
+  @include mq(tablet) {
     font-size: 18px;
     margin-top: 10px;
+  }
 }
 
-.textList__item{
-    margin-top: 24px;
+.textList__item {
+  margin-top: 24px;
 }
 
-.textList__heading{
+.textList__heading {
+    
+  display: none;
+  @include mq(tablet) {
+    display: block;
     font-size: 36px;
+  }
 }
-.textList__text{
+.textList__text {
+  display: none;
+  @include mq(tablet) {
+    display: block;
     font-size: 18px;
     margin-top: 10px;
+  }
 }

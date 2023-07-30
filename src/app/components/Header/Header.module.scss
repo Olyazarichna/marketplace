@@ -20,12 +20,13 @@
 .logo {
   width: 90px;
   font-weight: 700;
- @include mq(tablet){
-  font-size: 24px ;
- }
- &:hover, &:focus{
-  cursor: pointer;
- }
+  @include mq(tablet) {
+    font-size: 24px;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
 }
 .list {
   display: flex;

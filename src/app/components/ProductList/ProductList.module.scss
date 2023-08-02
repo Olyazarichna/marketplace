@@ -19,6 +19,7 @@
   margin-bottom: 58px;
   @include mq(tablet) {
     display: flex;
+    justify-content: center;
   }
 }
 .productList__item {

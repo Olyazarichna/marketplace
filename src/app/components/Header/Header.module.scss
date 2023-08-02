@@ -18,14 +18,21 @@
 }
 
 .logo {
-  width: 90px;
   font-weight: 700;
+  line-height: 1;
+  transition: all ease-in-out 300ms;
   @include mq(tablet) {
+    font-size: 16px;
+    width: 168px;
+  }
+  @include mq(desktop) {
     font-size: 24px;
+    width: 168px;
   }
   &:hover,
   &:focus {
     cursor: pointer;
+    transform: scale(1.05);
   }
 }
 .list {
@@ -36,19 +43,27 @@
   @include mq(tablet) {
     display: block;
     margin-left: 20px;
+    border-bottom: transparent 2px solid;
+    transition: all ease-in-out 300ms;
   }
   @include mq(desktop) {
     display: block;
     margin-left: 55px;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    border-bottom: #f77f00 2px solid;
   }
 }
 
 .button {
   font-size: 14px;
   display: none;
+  transition: all ease-in-out 300ms;
   @include mq(tablet) {
     display: block;
-    margin-left: 20px;
+    margin-left: 16px;
     padding: 3px 20px;
     background-color: var(--accent-btn-cl);
     border-radius: 5px;
@@ -56,7 +71,7 @@
   }
   @include mq(desktop) {
     font-size: 18px;
-    margin-left: 55px;
+    margin-left: 25px;
     padding: 10px 32px;
   }
 
@@ -64,26 +79,40 @@
   &:focus {
     cursor: pointer;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background-color: var(--form-btn-bg);
+    color: #ffffff;
   }
 }
 .inputWrapper {
   position: relative;
+  transition: all ease-in-out 300ms;
+  &:hover,
+  &:focus {
+    fill: #ffffff;
+  }
 }
 .input {
   display: none;
   @include mq(tablet) {
     display: block;
     padding: 10px 25px 10px 5px;
-    margin-left: 20px;
+    margin-left: 16px;
     border-radius: 5px;
+    background-color: #efefef;
+    border-color: transparent;
+    transition: all ease-in-out 300ms;
   }
   @include mq(desktop) {
-    margin-left: 55px;
+    margin-left: 25px;
+    padding: 12px 25px 12px 5px;
   }
   &:hover,
   &:focus {
     cursor: pointer;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+  &::placeholder {
+    color: #000000;
   }
 }
 .searchBtn {
@@ -97,34 +126,31 @@
     top: 10px;
     right: 3px;
   }
-  &:hover,
-  &:focus {
-    cursor: pointer;
-  }
 }
 .list__btn {
   font-size: 14px;
   padding: 0;
   border-color: transparent;
   background-color: transparent;
+  transition: all ease-in-out 300ms;
+  @include mq(desktop) {
+    font-size: 18px;
+  }
   &:hover,
   &:focus {
     cursor: pointer;
   }
-  @include mq(desktop) {
-    font-size: 18px;
-  }
 }
 
-.list__dropdown:hover .dropdown,
-.list__dropdown:focus .dropdown {
-  display: block;
-}
+// .list__dropdown:hover .dropdown,
+// .list__dropdown:focus .dropdown {
+//   display: block;
+// }
 
 .btnList__item {
   @include mq(tablet) {
     &:first-child {
-      margin-left: 20px;
+      margin-left: 16px;
     }
     &:not(:first-child) {
       margin-left: 10px;
@@ -132,7 +158,7 @@
   }
   @include mq(desktop) {
     &:first-child {
-      margin-left: 73px;
+      margin-left: 25px;
     }
     &:not(:first-child) {
       margin-left: 16px;
@@ -151,8 +177,16 @@
   padding: 0;
   border-color: transparent;
   background-color: transparent;
+  transition: all ease-in-out 300ms;
   &:hover,
   &:focus {
     cursor: pointer;
+  }
+}
+.btnList__icon {
+  transition: all ease-in-out 300ms;
+  &:hover,
+  &:focus {
+    fill: var(--accent-btn-cl);
   }
 }

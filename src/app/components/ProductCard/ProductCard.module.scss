@@ -1,16 +1,12 @@
 @import "../../../scss/utils/mixin";
 .imgWrapper {
-  border-radius: 10px;
   overflow: hidden;
-  width: 280px;
-  height: auto;
-  position: relative;
-  @include mq(tablet) {
-    width: 228px; 
-    height:145px;
-  }
-  @include mq(desktop) {
-    width: 400px;
+   position: relative;
+   height: auto;
+   @include mq(tablet){
+ height: 150px;
+   }
+   @include mq(desktop){
     height: 256px;
   }
 }
@@ -29,9 +25,22 @@
     background: url("../../../../public/icons/favoriteRed.svg") no-repeat;
   }
 }
+.textWrapper{
+  padding-top: 18px;
+  padding-left:  23px;
+  padding-right: 23px;
+  padding-bottom: 54px;
+}
+.title{
+  text-align: left;
+  font-size: 14px;
+ 
+  @include mq(tablet){
+font-size: 18px;
+  }
 
-.textItem,
-.title {
+}
+.textItem {
   margin-top: 8px;
   text-align: left;
 }

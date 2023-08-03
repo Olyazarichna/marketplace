@@ -2,7 +2,7 @@
 
 .mainSection {
   margin-top: 45px;
-  text-align: center;
+text-align: center;
   @include mq(tablet) {
     margin-top: 99px;
   }
@@ -17,20 +17,32 @@
 .productList {
   margin-top: 40px;
   margin-bottom: 58px;
+
   @include mq(tablet) {
     display: flex;
     justify-content: center;
   }
 }
 .productList__item {
+  width: 280px;
+  height: auto;
+  border: 10px;
+  box-shadow: 0 1px 20px 0 rgba(0, 19, 29, 0.25);
+  border-radius: 12px;
+  overflow: hidden;
   &:not(:first-child) {
     margin-top: 24px;
   }
-
   @include mq(tablet) {
+    width: 228px;
     &:not(:first-child) {
       margin-top: 0;
       margin-left: 16px;
     }
+  }
+
+  @include mq(desktop) {
+    width: 400px;
+    // height: 256px;
   }
 }

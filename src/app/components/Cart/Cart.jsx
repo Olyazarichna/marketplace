@@ -1,3 +1,4 @@
+'use client'
 import ProductList from '../ProductList/ProductList';
 import CartItem from '../CartItem/CartItem';
 import { useState } from 'react';

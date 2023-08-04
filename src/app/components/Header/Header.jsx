@@ -83,7 +83,7 @@ const Header = () => {
           </button>
         </li>
         <li className={styles.btnList__item}>
-          <Link href="/cart" className={styles.btnList__btn}>
+          <Link href="/cartPage" className={styles.btnList__btn}>
             <svg
               className={styles.btnList__icon}
               xmlns="http://www.w3.org/2000/svg"

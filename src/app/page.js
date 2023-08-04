@@ -4,6 +4,8 @@ import ProductList from "./components/ProductList/ProductList";
 import img1 from "../../public/images/aboutUs1x.jpg";
 import img2 from "../../public/images/girls.jpg";
 import img3 from "../../public/images/group.jpg";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 export default function Home() {
   const products = [
@@ -59,13 +61,18 @@ export default function Home() {
 
 
   return (
-    <main className={"container"}>
-      <AboutUs />
-      <ProductList title="Події у Києві" products={products} />
-      <ProductList title="Активний відпочинок в Києві" products={products} />
-      <ProductList title="Популярні хобі" products={products} />
-      <ProductList title="Курси в Києві" products={products} />
-      <ProductList title="Курси онлайн" products={products} />
-    </main>
+    <>
+      <Header />
+      <main className={"container"}>
+        <AboutUs />
+        <ProductList title="Події у Києві" products={products} />
+        <ProductList title="Активний відпочинок в Києві" products={products} />
+        <ProductList title="Популярні хобі" products={products} />
+        <ProductList title="Курси в Києві" products={products} />
+        <ProductList title="Курси онлайн" products={products} />
+      </main>
+      <Footer />
+    </>
+
   );
 }

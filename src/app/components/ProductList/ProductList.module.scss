@@ -2,7 +2,7 @@
 
 .mainSection {
   margin-top: 45px;
-text-align: center;
+  text-align: center;
   @include mq(tablet) {
     margin-top: 99px;
   }
@@ -14,13 +14,24 @@ text-align: center;
     font-size: 36px;
   }
 }
+.icon {
+  @include mq(desktop) {
+    width: 56px;
+  }
+}
 .productList {
   margin-top: 40px;
-  margin-bottom: 58px;
+  margin-bottom: 18px;
+  margin-left: 12px;
+  margin-right: 12px;
 
   @include mq(tablet) {
     display: flex;
     justify-content: center;
+  }
+  @include mq(desktop) {
+    margin-left: 16px;
+    margin-right: 16px;
   }
 }
 .productList__item {
@@ -42,7 +53,24 @@ text-align: center;
   }
 
   @include mq(desktop) {
-    width: 400px;
+    width: 342px;
     // height: 256px;
+  }
+}
+.listWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  padding: 0;
+  background-color: transparent;
+  border-color: transparent;
+  transition: all ease-in-out 300ms;
+  height: 110px;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: #efefef;
   }
 }

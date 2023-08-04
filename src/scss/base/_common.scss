@@ -20,7 +20,6 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   box-sizing: border-box;
-  // background-color:  rgba(11, 29, 38, 0.8);
 }
 h1,
 h2,
@@ -40,7 +39,7 @@ ol {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
+  height: 100%;
 }
 a {
   color: inherit;

@@ -2,60 +2,90 @@
 
 import styles from "./ProductList.module.scss";
 import ProductCard from "../ProductCard/ProductCard";
-import img1 from "../../../../public/images/aboutUs1x.jpg";
-import img2 from "../../../../public/images/girls.jpg";
-import img3 from "../../../../public/images/group.jpg";
 import Button from "../Button/Button";
-const products = [
-  {
-    img: img1,
-    id: "123",
-    title: "Вуличний театр для дітей",
-    date: "2023-07-30",
-    location: "Some Location 1",
-    time: "15:00",
-  },
-  {
-    img: img2,
-    id: "1234",
-    title: "Благодійний музичний вечір органної музики",
-    date: "2023-08-01",
-    location: "Some Location 2",
-    time: "10:30",
-  },
-  {
-    img: img3,
-    id: "1235",
-    title: "Онлайн майтсер-класи для дітей та дорослих",
-    date: "2023-08-01",
-    location: "Some Location 2",
-    time: "10:30",
-  },
-];
+import { useState } from "react";
 
-const ProductList = ({ title }) => {
+const ProductList = ({ title, products }) => {
+  const [startIndex, setStartIndex] = useState(0);
+  const [productsPerPage, setProductsPerPage] = useState(3);
+
+  const totalProducts = products.length;
+  const maxStartIndex = totalProducts - productsPerPage;
+
+  const goToNext = () => {
+    if (startIndex < maxStartIndex) {
+      setStartIndex(startIndex + 1);
+    }
+  };
+
+  const goToPrev = () => {
+    if (startIndex > 0) {
+      setStartIndex(startIndex - 1);
+    }
+  };
+
+  const showMore = () => {
+    console.log("show more");
+  };
+
   const addToFavorite = () => {
-    console.log("add to favorite");
+    console.log("add to fav");
   };
   return (
     <section className={styles.mainSection}>
       <h3 className={styles.heading}>{title}</h3>
-      <ul className={styles.productList}>
-        {products &&
-          products.map(({ img, id, title, location, time, date }) => (
-            <li key={id} className={styles.productList__item}>
-              <ProductCard
-                img={img}
-                onClick={addToFavorite}
-                title={title}
-                location={location}
-                time={time}
-                date={date}
-              />
-            </li>
-          ))}
-      </ul>
-      <Button title="Більше подій" />
+      <div className={styles.listWrapper}>
+        <button
+          className={styles.btn}
+          onClick={goToPrev}
+          disabled={startIndex === 0}
+        >
+          <svg
+            className={styles.icon}
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="102"
+            fill="none"
+          >
+            <path stroke="#003049" d="M51 101 1 51 51 1" />
+          </svg>
+        </button>
+
+        <ul className={styles.productList}>
+          {products
+            .slice(startIndex, startIndex + productsPerPage)
+            .map(({ img, id, title, location, time, date }) => (
+              <li key={id} className={styles.productList__item}>
+                <ProductCard
+                  img={img}
+                  onClick={addToFavorite}
+                  title={title}
+                  location={location}
+                  time={time}
+                  date={date}
+                />
+              </li>
+            ))}
+        </ul>
+
+        <button
+          className={styles.btn}
+          onClick={goToNext}
+          disabled={startIndex >= maxStartIndex}
+        >
+          <svg
+            className={styles.icon}
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="110"
+            fill="none"
+          >
+            <path stroke="#003049" d="m1 5 50 50-50 50" />
+          </svg>
+        </button>
+      </div>
+
+      <Button title="Більше подій" onClick={showMore} />
     </section>
   );
 };

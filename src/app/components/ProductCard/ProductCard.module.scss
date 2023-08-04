@@ -1,14 +1,16 @@
 @import "../../../scss/utils/mixin";
 .imgWrapper {
   overflow: hidden;
-   position: relative;
-   height: auto;
-   @include mq(tablet){
- height: 150px;
-   }
-   @include mq(desktop){
-    height: 256px;
-  }
+  position: relative;
+  height: 256px;
+  object-fit: cover;
+  //    height: auto;
+  //    @include mq(tablet){
+  //  height: 150px;
+  //    }
+  //    @include mq(desktop){
+  //     height: 256px;
+  //   }
 }
 
 .favBtn {
@@ -25,20 +27,26 @@
     background: url("../../../../public/icons/favoriteRed.svg") no-repeat;
   }
 }
-.textWrapper{
-  padding-top: 18px;
-  padding-left:  23px;
+.textWrapper {
+  // display: flex;
+  // padding-top: 18px;
+  padding-left: 23px;
   padding-right: 23px;
   padding-bottom: 54px;
 }
-.title{
+.title {
   text-align: left;
   font-size: 14px;
- 
-  @include mq(tablet){
-font-size: 18px;
-  }
+  margin-top: 18px;
 
+  @include mq(tablet) {
+    font-size: 18px;
+  }
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .textItem {
   margin-top: 8px;

@@ -117,8 +117,7 @@ const LogInForm = () => {
         </form>
         <span className={styles.info}>
           Під час входу, ви погоджуєтесь з
-          <Link href="" className={styles.info__accent}>
-            умовами користування
+          <Link href="" className={styles.info__accent}> умовами користування
           </Link>
         </span>
       </div>

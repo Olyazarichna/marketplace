@@ -81,6 +81,9 @@
   margin-top: 8px;
   width: 100%;
   padding: 10px;
+  background-color: #d9d9d9;
+  border-color: transparent;
+  border-radius: 5px;
 }
 .form__btnIcon {
   position: absolute;
@@ -88,14 +91,11 @@
   right: 2px;
   background-color: transparent;
   border-color: transparent;
-  &:hover,
-  &:focus {
-    cursor: pointer;
-  }
 }
 .form__icon {
   &:hover,
   &:focus {
+    cursor: pointer;
     fill: #f77f00;
   }
 }
@@ -105,7 +105,7 @@
   color: #fff;
   background-color: var(--form-btn-bg);
   border-radius: 5px;
-  margin-top: 70px;
+  margin-top: 63px;
   font-size: 16px;
   font-weight: 700;
   @include mq(tablet) {

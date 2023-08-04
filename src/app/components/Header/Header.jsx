@@ -37,7 +37,8 @@ const Header = () => {
           </ul> */}
         </li>
       </ul>
-      <button className={styles.button}>Пропоную дозвілля</button>
+      <Link href='/addLaisurePage' className={styles.button}>Пропоную дозвілля</Link>
+      {/* <button className={styles.button}>Пропоную дозвілля</button> */}
       <div className={styles.inputWrapper}>
         <input type="text" placeholder="Пошук" className={styles.input} />
         <button className={styles.searchBtn}>

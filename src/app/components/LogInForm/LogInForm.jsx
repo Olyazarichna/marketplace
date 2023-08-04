@@ -2,6 +2,7 @@
 import styles from "./LogInForm.module.scss";
 import { useState } from "react";
 import Link from "next/link";
+import BtnBack from "../BtnBack/BtnBack";
 
 const LogInForm = () => {
   const [email, setEmail] = useState("");
@@ -41,9 +42,7 @@ const LogInForm = () => {
 
   return (
     <div className={"container"}>
-      <Link href="/" className={styles.btn}>
-        Назад
-      </Link>
+      <BtnBack/>
       <div className={styles.formContainer}>
         <div className={styles.btnWrapper}>
           <button

@@ -1,0 +1,26 @@
+.btn {
+  margin-top: 127px;
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  background-color: transparent;
+  border-color: transparent;
+  transition: all ease-in-out 300ms;
+  width: 95px;
+  &:before {
+    margin-right: 10px;
+    display: inline-block;
+    content: "";
+    background: url("../../../../public/icons/back.svg");
+    width: 26px;
+    height: 26px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    border-bottom: 2px solid #f77f00;
+  }
+}

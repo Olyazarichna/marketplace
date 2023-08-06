@@ -1,6 +1,22 @@
 import styles from "./WelcomeModal.module.scss";
+import { useState, useEffect } from "react";
+import getCity from "@/services/getCity";
 
 const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo }) => {
+  const [city, setCity] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getCity();
+        setCity(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className={styles.modal}>
       <button className={styles.modal__btn} onClick={closeModal}>
@@ -20,7 +36,7 @@ const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo }) => {
           />
         </svg>
       </button>
-      <h3 className={styles.modal__text}>Ваше місто Київ?</h3>
+      <h3 className={styles.modal__text}>Ваше місто {city ? city : "Київ"}?</h3>
       <div>
         <button className={styles.btnYes} onClick={handleBtnYes}>
           Так

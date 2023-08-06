@@ -10,9 +10,10 @@ import Footer from "./components/Footer/Footer";
 import { useState, useEffect } from "react";
 import Backdrop from "./components/Backdrop/Backdrop.jsx";
 import WelcomeModal from "./components/WelcomeModal/WelcomeModal";
-
+import ChooseCityModal from "./ChooseCityModal/ChooseCityModal";
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
+  const [showNextModal, setShowNextModal] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -76,7 +77,15 @@ export default function Home() {
   };
 
   const openModal = () => {
-    alert("тут буде ще одна модалка");
+    setShowModal(!showModal);
+    setShowNextModal(!showNextModal);
+  };
+  const closeCitiesModal = () => {
+    setShowNextModal(!showNextModal);
+  };
+  const chooseCity = () => {
+    alert("choose city");
+    setShowNextModal(!showNextModal);
   };
   return (
     <>
@@ -96,6 +105,14 @@ export default function Home() {
             closeModal={handleModalToggle}
             handleBtnYes={handleModalToggle}
             handleBtnNo={openModal}
+          />
+        </Backdrop>
+      )}
+      {showNextModal && (
+        <Backdrop>
+          <ChooseCityModal
+            closeCitiesModal={closeCitiesModal}
+            chooseCity={chooseCity}
           />
         </Backdrop>
       )}

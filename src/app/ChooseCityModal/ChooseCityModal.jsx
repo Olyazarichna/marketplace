@@ -1,5 +1,5 @@
 "use client";
-import styles from "./chooseCityModal.module.scss";
+import styles from "./ChooseCityModal.module.scss";
 import Button from "../components/Button/Button";
 const ChooseCityModal = ({ closeCitiesModal }) => {
   const cities = [

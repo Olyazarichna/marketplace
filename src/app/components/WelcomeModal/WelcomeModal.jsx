@@ -16,7 +16,7 @@ const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo }) => {
     };
     fetchData();
   }, []);
-
+console.log('city', city);
   return (
     <div className={styles.modal}>
       <button className={styles.modal__btn} onClick={closeModal}>

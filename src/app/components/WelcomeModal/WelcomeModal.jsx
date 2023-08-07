@@ -1,6 +1,7 @@
+'use client';
 import styles from "./WelcomeModal.module.scss";
 import { useState, useEffect } from "react";
-import getCity from "@/services/getCity";
+import getCity from "../../services/getCity";
 
 const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo }) => {
   const [city, setCity] = useState(null);
@@ -9,14 +10,15 @@ const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo }) => {
     const fetchData = async () => {
       try {
         const data = await getCity();
-        setCity(data);
+        console.log("data", data);
+        setCity(data.city);
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
   }, []);
-console.log('city', city);
+
   return (
     <div className={styles.modal}>
       <button className={styles.modal__btn} onClick={closeModal}>
@@ -36,7 +38,7 @@ console.log('city', city);
           />
         </svg>
       </button>
-      <h3 className={styles.modal__text}>Ваше місто {city ? city : "Київ"}?</h3>
+      <h3 className={styles.modal__text}>Ваше місто {city ? city : "Київ"} ?</h3>
       <div>
         <button className={styles.btnYes} onClick={handleBtnYes}>
           Так

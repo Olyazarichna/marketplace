@@ -10,10 +10,14 @@ import Footer from "./components/Footer/Footer";
 import { useState, useEffect } from "react";
 import Backdrop from "./components/Backdrop/Backdrop.jsx";
 import WelcomeModal from "./components/WelcomeModal/WelcomeModal";
-import ChooseCityModal from "./ChooseCityModal/ChooseCityModal";
+import ChooseCityModal from "./components/ChooseCityModal/ChooseCityModal.jsx";
+// import getAllActivities from "./services/getAllActivities";
+
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
   const [showNextModal, setShowNextModal] = useState(false);
+  const [activities, setActivities] = useState([]);
+
 
   useEffect(() => {
     setTimeout(() => {
@@ -21,6 +25,19 @@ export default function Home() {
     }, 3000);
   }, []);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const data = await getAllActivities();
+  //       console.log('a', data);
+  //       setActivities(data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
+  // console.log(activities);
   const products = [
     {
       img: img1,

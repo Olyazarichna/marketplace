@@ -7,7 +7,7 @@ const ProductCard = ({ img, onClick, title, date, location, time }) => {
   return (
     <>
       <div className={styles.imgWrapper}>
-        <Image src={img} alt={title}/>
+        <Image src={img} alt={title} />
         <button className={styles.favBtn} onClick={onClick}></button>
       </div>
       <div className={styles.textWrapper}>
@@ -22,10 +22,9 @@ const ProductCard = ({ img, onClick, title, date, location, time }) => {
           <li className={styles.textItem}>
             <p className={styles.location}>{location}</p>
           </li>
-         
         </ul>
       </div>
-      </>
+    </>
   );
 };
 

@@ -1,7 +1,18 @@
+'use client';
 import styles from "./Header.module.scss";
 import Link from "next/link";
-
+import { useState } from "react";
+import getAllActivities from "@/app/services/getAllActivities";
 const Header = () => {
+  const [activities, setActivities]= useState([]);
+
+  const viewActivities=async()=>{
+    const data= await getAllActivities();
+    console.log('data', data)
+
+    
+
+  }
   return (
     <header className={`${"container"} ${styles.header}`}>
       <button className={styles.btn}>
@@ -21,24 +32,13 @@ const Header = () => {
       <ul className={styles.list}>
         <li className={styles.list__dropdown}>
           <button className={styles.list__btn}>Моє місто</button>
-          {/* <ul class={styles.dropdown}>
-            <li class={styles.dropdown__content} href=""><button>Київ</button></li>
-            <li class={styles.dropdown__content} href=""><button>Львів</button></li>
-            <li class={styles.dropdown__content} href=""><button>Харків</button></li>
-          </ul> */}
         </li>
 
         <li className={styles.list__dropdown}>
-          <button className={styles.list__btn}>Види дозвілля</button>
-          {/* <ul class={styles.dropdown}>
-            <li class={styles.dropdown__content} href="#"><a href="#">Курси</a></li>
-            <li class={styles.dropdown__content} href="#"><a href="#">Активний відпочинок</a></li>
-            <li class={styles.dropdown__content} href="#"><a href="#">Події</a></li>
-          </ul> */}
+          <button className={styles.list__btn} onClick={viewActivities}>Види дозвілля</button>
         </li>
       </ul>
       <Link href='/addLaisurePage' className={styles.button}>Пропоную дозвілля</Link>
-      {/* <button className={styles.button}>Пропоную дозвілля</button> */}
       <div className={styles.inputWrapper}>
         <input type="text" placeholder="Пошук" className={styles.input} />
         <button className={styles.searchBtn}>

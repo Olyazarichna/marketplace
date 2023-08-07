@@ -2,15 +2,11 @@
 .imgWrapper {
   overflow: hidden;
   position: relative;
-  height: 256px;
+  height: auto;
   object-fit: cover;
-  //    height: auto;
-  //    @include mq(tablet){
-  //  height: 150px;
-  //    }
-  //    @include mq(desktop){
-  //     height: 256px;
-  //   }
+  @include mq(tablet) {
+    height: 256px;
+  }
 }
 
 .favBtn {
@@ -28,8 +24,6 @@
   }
 }
 .textWrapper {
-  // display: flex;
-  // padding-top: 18px;
   padding-left: 23px;
   padding-right: 23px;
   padding-bottom: 54px;

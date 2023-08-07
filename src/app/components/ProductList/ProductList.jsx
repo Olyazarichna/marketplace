@@ -73,15 +73,7 @@ const ProductList = ({ title, products }) => {
           onClick={goToNext}
           disabled={startIndex >= maxStartIndex}
         >
-          <svg
-            className={styles.icon}
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="110"
-            fill="none"
-          >
-            <path stroke="#003049" d="m1 5 50 50-50 50" />
-          </svg>
+          <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" width="30" height="102" fill="none"><path stroke="#003049" d="m1 1 50 50-50 50"/></svg>
         </button>
       </div>
 

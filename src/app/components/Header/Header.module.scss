@@ -142,11 +142,6 @@
   }
 }
 
-// .list__dropdown:hover .dropdown,
-// .list__dropdown:focus .dropdown {
-//   display: block;
-// }
-
 .btnList__item {
   @include mq(tablet) {
     &:first-child {

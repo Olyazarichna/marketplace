@@ -1,7 +1,7 @@
 "use client";
 import styles from "./ChooseCityModal.module.scss";
 
-const ChooseCityModal = ({ closeCitiesModal }) => {
+const ChooseCityModal = ({closeCitiesModal,chooseCity}) => {
   const cities = [
     {
       id: 111,
@@ -29,9 +29,7 @@ const ChooseCityModal = ({ closeCitiesModal }) => {
     },
   ];
 
-  const chooseCity = () => {
-    alert("зміна міста");
-  };
+
   return (
     <div className={styles.modal}>
       <button className={styles.modal__btn} onClick={closeCitiesModal}>
@@ -69,7 +67,7 @@ const ChooseCityModal = ({ closeCitiesModal }) => {
         type="text"
         placeholder="Черкаси, Черкаська область"
       />
-      <button className={styles.button} onClick={chooseCity}>
+      <button className={styles.button} onClick={closeCitiesModal}>
         Готово
       </button>
     </div>

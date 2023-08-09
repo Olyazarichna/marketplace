@@ -1,4 +1,4 @@
-@import "../../../scss/utils/mixin";
+@import '../../../scss/utils/mixin';
 .header {
   display: flex;
   align-items: center;
@@ -37,22 +37,14 @@
 .list {
   display: flex;
 }
-.list__dropdown {
+.list__item {
   display: none;
-  @include mq(tablet) {
-    display: block;
-    margin-left: 20px;
-    border-bottom: transparent 2px solid;
-    transition: all ease-in-out 300ms;
-  }
   @include mq(desktop) {
-    display: block;
-    margin-left: 55px;
-  }
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    border-bottom: #f77f00 2px solid;
+    display: flex;
+    align-content: center;
+    &:last-child {
+      margin-left: 20px;
+    }
   }
 }
 
@@ -98,9 +90,9 @@
     margin-left: 16px;
     border-radius: 5px;
     background-color: #efefef;
-    border-color:transparent;
+    border-color: transparent;
     transition: all ease-in-out 300ms;
-    outline:none;
+    outline: none;
   }
   @include mq(desktop) {
     margin-left: 25px;
@@ -127,18 +119,48 @@
     right: 3px;
   }
 }
-.list__btn {
+.location {
+  display: flex;
+  align-items: center;
   font-size: 14px;
-  padding: 0;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 8px 16px;
   border-color: transparent;
-  background-color: transparent;
+  background-color: var(--form-btn-bg);
   transition: all ease-in-out 300ms;
   @include mq(desktop) {
-    font-size: 18px;
+    font-size: 16px;
+  }
+  &:before {
+    margin-right: 16px;
+    content: '';
+    background: url('../../../../public/icons/location-white.svg');
+    display: inline-block;
+    width: 20px;
+    height: 24px;
+    stroke: #ffffff;
+    background-repeat: no-repeat;
   }
   &:hover,
   &:focus {
     cursor: pointer;
+  }
+}
+.list__btn {
+  font-size: 14px;
+  padding: 0;
+  background-color: transparent;
+  border: transparent;
+  transition: all ease-in-out 300ms;
+  @include mq(desktop) {
+    font-size: 16px;
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    border-bottom: #f77f00 2px solid;
   }
 }
 

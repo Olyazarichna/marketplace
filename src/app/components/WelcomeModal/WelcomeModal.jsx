@@ -1,23 +1,10 @@
 'use client';
 import styles from "./WelcomeModal.module.scss";
 import { useState, useEffect } from "react";
-import getCity from "../../services/getCity";
+// import getCity from "../../services/getCity";
 
-const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo }) => {
-  const [city, setCity] = useState(null);
+const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo,city }) => {
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getCity();
-        console.log("data", data);
-        setCity(data.city);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
 
   return (
     <div className={styles.modal}>

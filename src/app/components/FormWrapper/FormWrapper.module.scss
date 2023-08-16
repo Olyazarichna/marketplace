@@ -1,0 +1,44 @@
+@import '../../../scss/utils/mixin';
+
+.formContainer {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+    @include mq(tablet) {
+      padding: 73px 16px;
+      width: 592px;
+    }
+  }
+  .btnWrapper {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    @include mq(tablet) {
+      font-size: 24px;
+    }
+    @include mq(desktop) {
+      font-size: 36px;
+    }
+  }
+  .headingBtn,
+  .spanBtn {
+    background-color: transparent;
+    border-color: transparent;
+    color: #b4b4b4;
+    padding: 16px 18px;
+  }
+  
+  .active {
+    color: var(--form-btn-bg);
+    border-bottom: 2px solid #f77f00;
+  }
+  .info {
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 22px;
+  }
+  .info__accent {
+    color: #f77f00;
+  }

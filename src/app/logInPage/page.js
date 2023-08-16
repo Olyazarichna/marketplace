@@ -1,9 +1,8 @@
-import LogInForm from "../components/LogInForm/LogInForm";
-
+import FormWrapper from "../components/FormWrapper/FormWrapper";
 
 const LogInPage = () => {
     return (
-        <LogInForm />
+        <FormWrapper/>
     )
 }
 

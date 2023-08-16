@@ -13,11 +13,11 @@ import WelcomeModal from './components/WelcomeModal/WelcomeModal';
 import ChooseCityModal from './components/ChooseCityModal/ChooseCityModal.jsx';
 // import getAllActivities from "./services/getAllActivities";
 import getCity from './services/getCity';
+
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
   const [showNextModal, setShowNextModal] = useState(false);
   // const [activities, setActivities] = useState([]);
-
   const [city, setCity] = useState(null);
 
   useEffect(() => {
@@ -42,13 +42,14 @@ export default function Home() {
   //       const data = await getAllActivities();
   //       console.log('a', data);
   //       setActivities(data);
+  //       console.log(activities);
   //     } catch (error) {
   //       console.log(error);
   //     }
   //   };
   //   fetchData();
-  // }, []);
-  // console.log(activities);
+  // }, [activities]);
+ 
   const products = [
     {
       img: img1,
@@ -116,7 +117,7 @@ export default function Home() {
   };
   return (
     <>
-      <Header city={city} />
+      <Header city={city}/>
       <main className={'container'}>
         <AboutUs />
         <ProductList title="Події у Києві" products={products} />

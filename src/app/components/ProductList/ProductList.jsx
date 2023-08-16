@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import styles from "./ProductList.module.scss";
-import ProductCard from "../ProductCard/ProductCard";
-import Button from "../Button/Button";
-import { useState } from "react";
+import styles from './ProductList.module.scss';
+import ProductCard from '../ProductCard/ProductCard';
+import Button from '../Button/Button';
+import { useState } from 'react';
 
 const ProductList = ({ title, products }) => {
   const [startIndex, setStartIndex] = useState(0);
@@ -25,32 +25,16 @@ const ProductList = ({ title, products }) => {
   };
 
   const showMore = () => {
-    console.log("show more");
+    console.log('show more');
   };
 
   const addToFavorite = () => {
-    console.log("add to fav");
+    console.log('add to fav');
   };
   return (
     <section className={styles.mainSection}>
       <h3 className={styles.heading}>{title}</h3>
       <div className={styles.listWrapper}>
-        <button
-          className={styles.btn}
-          onClick={goToPrev}
-          disabled={startIndex === 0}
-        >
-          <svg
-            className={styles.icon}
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="102"
-            fill="none"
-          >
-            <path stroke="#003049" d="M51 101 1 51 51 1" />
-          </svg>
-        </button>
-
         <ul className={styles.productList}>
           {products
             .slice(startIndex, startIndex + productsPerPage)
@@ -67,14 +51,30 @@ const ProductList = ({ title, products }) => {
               </li>
             ))}
         </ul>
-
-        <button
-          className={styles.btn}
-          onClick={goToNext}
-          disabled={startIndex >= maxStartIndex}
-        >
-          <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" width="30" height="102" fill="none"><path stroke="#003049" d="m1 1 50 50-50 50"/></svg>
-        </button>
+        <div className={styles.btnWrapper}>
+          <button className={styles.btn} onClick={goToPrev} disabled={startIndex === 0}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
+              <path
+                stroke="#fff"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M7 1 1 7l6 6"
+              />
+            </svg>
+          </button>
+          <button className={styles.btn} onClick={goToNext} disabled={startIndex >= maxStartIndex}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+              <path
+                stroke="#fff"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m9 18 6-6-6-6"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
 
       <Button title="Більше подій" onClick={showMore} />

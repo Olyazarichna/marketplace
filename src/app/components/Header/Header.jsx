@@ -4,12 +4,15 @@ import Link from 'next/link';
 // import { useState } from 'react';
 // import getAllActivities from '@/app/services/getAllActivities';
 
-const Header = ({ city }) => {
+const Header = ({ city}) => {
   // const [activities, setActivities] = useState([]);
 
   const viewActivities = async () => {
     // const data = await getAllActivities();
     // console.log('data', data);
+  };
+  const openModal = () => {
+    console.log('open modal');
   };
   return (
     <header className={`${'container'} ${styles.header}`}>
@@ -24,7 +27,7 @@ const Header = ({ city }) => {
 
       <ul className={styles.list}>
         <li className={styles.list__item}>
-          <button className={styles.location}>{city ? city : 'Київ'}</button>
+          <button className={styles.location} onClick={openModal}>{city ? city : 'Київ'}</button>
         </li>
 
         <li className={styles.list__item}>

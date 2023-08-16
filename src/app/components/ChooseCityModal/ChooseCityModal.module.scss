@@ -12,9 +12,6 @@
   padding: 72px 16px;
   text-align: center;
   z-index: 10;
-  &:last-child {
-    text-align: right;
-  }
   @include mq(tablet) {
     width: 616px;
   }
@@ -44,8 +41,13 @@
 .listBtn {
   margin-top: 56px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+  @include mq(tablet){
+    grid-template-columns: repeat(3, 1fr);
+
+  }
+  
 }
 .cityBtn {
   display: inline-block;
@@ -74,18 +76,26 @@
   margin-top: 56px;
 }
 .input {
+  font-size: 14px;
   display: block;
-  padding: 26px 10px;
+  padding: 10px;
   background-color: #efefef;
   border-color: transparent;
   border-radius: 5px;
   margin-top: 8px;
   width: 100%;
+  @include mq(tablet){
+    font-size: 16px;
+  }
 }
 .button {
+  font-size: 16px;
   @extend .cityBtn;
-  padding: 16px 0;
+  padding: 10px 0;
   width: 256px;
-  font-size: 20px;
   margin-top: 89px;
+  @include mq(tablet){
+    font-size: 20px;
+    padding: 16px 0;
+  }
 }

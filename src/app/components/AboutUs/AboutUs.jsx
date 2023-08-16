@@ -4,6 +4,7 @@ import ImageSlider from "../ImageSlider/ImageSlider";
 const AboutUs = () => {
   return (
     <section className={styles.wrapper}>
+        <ImageSlider /> 
       <div className={styles.textWrapper}>
         <h2 className={styles.heading}>Знайди своє дозвілля!</h2>
         <p className={styles.text}>
@@ -26,7 +27,7 @@ const AboutUs = () => {
           </li>
         </ul>
       </div>
-      <ImageSlider />
+          {/* <ImageSlider />   */}
     </section>
   );
 };

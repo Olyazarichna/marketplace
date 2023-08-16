@@ -2,15 +2,14 @@
 
 .container{
     height: 100%;
- 
 }
 
 .imgWrapper{
     border-radius: 10px;
     overflow: hidden;
-    width: 182px;
+     width: 100%;
     @include mq(tablet){
-        width: 100%;
+       
     }
 }
 .btnWrapper{

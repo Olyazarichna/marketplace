@@ -49,16 +49,16 @@
 }
 
 .button {
-  font-size: 14px;
   display: none;
-  transition: all ease-in-out 300ms;
   @include mq(tablet) {
+    font-size: 14px;
+    padding: 13px 20px;
     display: block;
     margin-left: 16px;
-    padding: 3px 20px;
     background-color: var(--accent-btn-cl);
     border-radius: 5px;
     border-color: transparent;
+    transition: all ease-in-out 300ms;
   }
   @include mq(desktop) {
     font-size: 18px;

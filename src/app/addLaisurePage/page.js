@@ -1,15 +1,16 @@
-import styles from "../page.module.scss";
+
 import Header from '../components/Header/Header.jsx';
 import Footer from '../components/Footer/Footer.jsx';
-import BtnBack from "../components/BtnBack/BtnBack";
+
+import AddActivityForm from "./components/AddActivityForm/AddActivityForm";
 
 const LaisurePage = () => {
     return (
         <>
             <Header />
             <main className={"container"}>
-                <BtnBack />
-                <h2 style={{ color: "red", textAlign: "center" }}>додати подію</h2>
+              
+                <AddActivityForm/>
             </main>
             <Footer />
         </>

@@ -5,6 +5,7 @@ import BtnBack from '../BtnBack/BtnBack';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import LoginForm from '../LoginForm/LoginForm';
 import Link from 'next/link';
+
 const FormWrapper = () => {
   const [activeButton, setActiveButton] = useState('login');
 

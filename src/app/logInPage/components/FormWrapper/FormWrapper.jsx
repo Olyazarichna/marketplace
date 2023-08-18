@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import styles from './FormWrapper.module.scss';
-import BtnBack from '../BtnBack/BtnBack';
+import BtnBack from '../../../components/BtnBack/BtnBack';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import LoginForm from '../LoginForm/LoginForm';
 import Link from 'next/link';

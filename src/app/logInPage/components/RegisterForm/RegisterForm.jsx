@@ -1,8 +1,8 @@
 'use client';
 import styles from './RegisterForm.module.scss';
 import { useState } from 'react';
-import register from '../../services/auth';
-import InputField from '../InputField/InputField';
+import register from '../../../services/auth';
+import InputField from '../../../components/InputField/InputField';
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState('');

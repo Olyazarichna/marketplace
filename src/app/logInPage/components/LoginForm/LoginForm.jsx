@@ -1,8 +1,8 @@
 'use client';
 import styles from './LoginForm.module.scss';
-import InputField from '../InputField/InputField';
+import InputField from '../../../components/InputField/InputField';
 import { useState } from 'react';
-import login from '../../services/login';
+import login from '../../../services/login';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');

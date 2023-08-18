@@ -1,4 +1,4 @@
-import FormWrapper from "../components/FormWrapper/FormWrapper";
+import FormWrapper from "./components/FormWrapper/FormWrapper";
 
 const LogInPage = () => {
     return (

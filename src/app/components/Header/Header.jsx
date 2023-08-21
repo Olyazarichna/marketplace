@@ -1,13 +1,14 @@
 'use client';
 import styles from './Header.module.scss';
 import Link from 'next/link';
-// import { useState } from 'react';
-// import getAllActivities from '@/app/services/getAllActivities';
-
+import { useState } from 'react';
 const Header = ({ city}) => {
-  // const [activities, setActivities] = useState([]);
+  const [isOpen, setIsOpen]=useState(false);
+
+
 
   const viewActivities = async () => {
+    setIsOpen(!isOpen);
     // const data = await getAllActivities();
     // console.log('data', data);
   };
@@ -31,9 +32,21 @@ const Header = ({ city}) => {
         </li>
 
         <li className={styles.list__item}>
-          <button className={styles.list__btn} onClick={viewActivities}>
+          <button className={isOpen ? styles.list__btnOpen : styles.list__btn } onClick={viewActivities}>
             Види дозвілля
           </button>
+          {isOpen &&(
+            <ul className={styles.activityList}>
+              <li className={styles.activityList__item}>
+               <button className={styles.activityList__btn}>Для дорослих</button> <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none"><path stroke="#003049" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6-6 6"/></svg>
+              </li>
+              <li className={styles.activityList__item}><button className={styles.activityList__btn}>Для дітей 
+              </button><svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none"><path stroke="#003049" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6-6 6"/></svg>
+
+              </li>
+   
+            </ul>
+          )}
         </li>
       </ul>
       <Link href="/addLaisurePage" className={styles.button}>

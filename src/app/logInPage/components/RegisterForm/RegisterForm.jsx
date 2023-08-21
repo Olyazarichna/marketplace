@@ -3,7 +3,7 @@ import styles from './RegisterForm.module.scss';
 import { useState } from 'react';
 import register from '../../../services/auth';
 import InputField from '../../../components/InputField/InputField';
-
+import Link from 'next/link';
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -35,7 +35,7 @@ const RegisterForm = () => {
         break;
     }
   };
-  const handleSubmit = e => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (password.trim() === '' || email.trim === '') {
       alert('Email and password are required fields');
@@ -48,7 +48,7 @@ const RegisterForm = () => {
       password,
     };
 
-    register(user);
+    await register(user);
     reset();
     alert('registration sucesfull');
   };

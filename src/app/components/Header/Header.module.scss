@@ -42,10 +42,116 @@
   @include mq(desktop) {
     display: flex;
     align-content: center;
+    position: relative;
     &:last-child {
       margin-left: 20px;
     }
   }
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 8px 16px;
+  border-color: transparent;
+  background-color: var(--form-btn-bg);
+  transition: all ease-in-out 300ms;
+  @include mq(desktop) {
+    font-size: 16px;
+  }
+  &:before {
+    margin-right: 16px;
+    content: '';
+    background: url('../../../../public/icons/location-white.svg');
+    display: inline-block;
+    width: 20px;
+    height: 24px;
+    stroke: #ffffff;
+    background-repeat: no-repeat;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
+
+.list__btn {
+  font-size: 14px;
+  padding: 0;
+  background-color: transparent;
+  border: transparent;
+  transition: all ease-in-out 300ms;
+
+  &:after {
+    display: inline-block;
+    content: '';
+    background: url('../../../../public/icons/more.svg');
+    margin-left: 10px;
+    width: 8px;
+    height: 14px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  @include mq(desktop) {
+    font-size: 20px;
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    border-bottom: #f77f00 2px solid;
+  }
+}
+.list__btnOpen {
+  @extend .list__btn;
+  &:after {
+    display: inline-block;
+    content: '';
+    margin-left: 10px;
+    width: 15px;
+    height: 9px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background: url('../../../../public/icons/openMore.svg');
+  }
+}
+
+.activityList {
+  width: 175px;
+  position: absolute;
+  padding: 8px;
+  top: 50px;
+  left: -8px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.activityList__item {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: transparent 2px solid;
+  transition: all ease-in-out 300ms;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    border-bottom: #fcbf49 2px solid;
+  }
+  &:last-child {
+    margin-top: 8px;
+  }
+}
+.activityList__btn {
+  display: inline-block;
+  padding: 0;
+  margin-top: 0;
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 20px;
+  transition: all ease-in-out 300ms;
 }
 
 .button {
@@ -61,7 +167,7 @@
     transition: all ease-in-out 300ms;
   }
   @include mq(desktop) {
-    font-size: 18px;
+    font-size: 20px;
     margin-left: 25px;
     padding: 10px 32px;
   }
@@ -95,8 +201,9 @@
     outline: none;
   }
   @include mq(desktop) {
+    font-size: 20px;
     margin-left: 25px;
-    padding: 12px 25px 12px 5px;
+    padding: 8px 25px 8px 5px;
   }
   &:hover,
   &:focus {
@@ -119,48 +226,11 @@
     right: 3px;
   }
 }
-.location {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #ffffff;
-  border-radius: 5px;
-  padding: 8px 16px;
-  border-color: transparent;
-  background-color: var(--form-btn-bg);
-  transition: all ease-in-out 300ms;
-  @include mq(desktop) {
-    font-size: 16px;
-  }
-  &:before {
-    margin-right: 16px;
-    content: '';
-    background: url('../../../../public/icons/location-white.svg');
-    display: inline-block;
-    width: 20px;
-    height: 24px;
-    stroke: #ffffff;
-    background-repeat: no-repeat;
-  }
-  &:hover,
-  &:focus {
-    cursor: pointer;
-  }
-}
-.list__btn {
-  font-size: 14px;
-  padding: 0;
-  background-color: transparent;
-  border: transparent;
-  transition: all ease-in-out 300ms;
-  @include mq(desktop) {
-    font-size: 16px;
-  }
-
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    border-bottom: #f77f00 2px solid;
+.btnList {
+  display: none;
+  @include mq(tablet) {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -183,13 +253,6 @@
   }
 }
 
-.btnList {
-  display: none;
-  @include mq(tablet) {
-    display: flex;
-    align-items: center;
-  }
-}
 .btnList__btn {
   padding: 0;
   border-color: transparent;

@@ -34,7 +34,7 @@ const FormWrapper = () => {
         {activeButton === 'login' && <LoginForm />}
         {activeButton === 'register' && <RegisterForm />}
         <span className={styles.info}>
-          Під час входу, ви погоджуєтесь з
+          Під час входу, ви погоджуєтесь з &nbsp;
           <Link href="" className={styles.info__accent}>
             умовами користування
           </Link>

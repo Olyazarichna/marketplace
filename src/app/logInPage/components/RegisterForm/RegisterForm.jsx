@@ -2,7 +2,7 @@
 import styles from './RegisterForm.module.scss';
 import { useState } from 'react';
 import register from '../../../services/auth';
-import InputField from '@/app/loginPage/components/InputField/InputField';
+import InputField from '../InputField/InputField';
 import { useRouter } from 'next/navigation'
 
 const RegisterForm = () => {

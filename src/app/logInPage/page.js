@@ -1,9 +1,7 @@
-import FormWrapper from "./components/FormWrapper/FormWrapper";
+import FormWrapper from './components/FormWrapper/FormWrapper';
 
-const LogInPage = () => {
-    return (
-        <FormWrapper/>
-    )
-}
+const LoginPage = () => {
+  return <FormWrapper />;
+};
 
-export default LogInPage;
+export default LoginPage;

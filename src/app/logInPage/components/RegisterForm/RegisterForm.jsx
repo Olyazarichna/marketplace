@@ -2,15 +2,18 @@
 import styles from './RegisterForm.module.scss';
 import { useState } from 'react';
 import register from '../../../services/auth';
-import InputField from '../../../components/InputField/InputField';
-import Link from 'next/link';
+import InputField from '@/app/loginPage/components/InputField/InputField';
+import { useRouter } from 'next/navigation'
+
 const RegisterForm = () => {
+  const router= useRouter();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-
+  const [emailError, setEmailError]= useState(false);
+  const [isLoading, setIsLoading]= useState(false);
   const onPasswordClick = () => {
     setShowPassword(!showPassword);
   };
@@ -35,22 +38,34 @@ const RegisterForm = () => {
         break;
     }
   };
-  const handleSubmit = async(e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (password.trim() === '' || email.trim === '') {
       alert('Email and password are required fields');
       return;
     }
+    setIsLoading(true);
     const user = {
       firstName,
       lastName,
       email,
       password,
     };
-
-    await register(user);
-    reset();
-    alert('registration sucesfull');
+    const emailRegex = /^[A-Za-z0-9]+[A-Za-z0-9._]*@[A-Za-z0-9]+\.[A-Za-z]{2,}$/;
+    if(!emailRegex){
+      setEmailError(true);
+      setIsLoading(false);
+      return;
+    }
+    try {
+      await register(user);
+      router.push('/');
+      reset();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
   const reset = () => {
     setFirstName('');
@@ -60,7 +75,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit} autoComplete="off">
+    <form className={styles.form} onSubmit={handleSubmit} autoComplete="off" noValidate>
       <InputField
         htmlFor="firstName"
         label={`Ім'я`}
@@ -69,7 +84,7 @@ const RegisterForm = () => {
         id="firstName"
         value={firstName}
         onChange={handleChange}
-        placeholder="Name"
+        placeholder={`Ім'я`}
       />
       <InputField
         htmlFor="lastName"
@@ -91,6 +106,7 @@ const RegisterForm = () => {
         onChange={handleChange}
         placeholder="email@gmail.com"
       />
+      {emailError &&(<p>Некоректна електронна пошта</p>)}
       <div className={styles.passwordField}>
         <InputField
           htmlFor="password"
@@ -114,8 +130,8 @@ const RegisterForm = () => {
           </svg>
         </button>
       </div>
-      <button type="submit" className={styles.form__btn}>
-        Зареєструватись
+      <button type="submit" className={styles.form__btn} disabled={isLoading}>
+        {isLoading ? 'Зачекайте...' : 'Зареєструватись'}
       </button>
     </form>
   );

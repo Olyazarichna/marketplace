@@ -144,6 +144,7 @@
     margin-top: 8px;
   }
 }
+
 .activityList__btn {
   display: inline-block;
   padding: 0;
@@ -151,7 +152,6 @@
   background-color: transparent;
   border-color: transparent;
   font-size: 20px;
-  transition: all ease-in-out 300ms;
 }
 
 .button {
@@ -262,6 +262,9 @@
   &:focus {
     cursor: pointer;
   }
+}
+.btnList__btnLogout {
+  @extend .btnList__btn;
 }
 .btnList__icon {
   transition: all ease-in-out 300ms;

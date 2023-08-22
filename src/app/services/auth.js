@@ -17,7 +17,11 @@ const register = async ({ firstName, lastName, email, password }) => {
     });
     if (response.ok) {
       const data = await response.json();
+      const token = data.accessToken; 
       console.log('Registration successful:', data);
+      console.log('token:', token);
+      localStorage.setItem('authToken', token);
+      
     } else {
       console.error('Registration failed');
     }

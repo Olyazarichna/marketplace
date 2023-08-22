@@ -2,10 +2,11 @@
 import styles from './Header.module.scss';
 import Link from 'next/link';
 import { useState } from 'react';
-const Header = ({ city}) => {
-  const [isOpen, setIsOpen]=useState(false);
+// import logout from '@/app/services/logout';
 
-
+const Header = ({ city }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [token, setToken]= useState(localStorage.getItem('authToken'));
 
   const viewActivities = async () => {
     setIsOpen(!isOpen);
@@ -14,6 +15,9 @@ const Header = ({ city}) => {
   };
   const openModal = () => {
     console.log('open modal');
+  };
+  const logout = () => {
+    setToken('');
   };
   return (
     <header className={`${'container'} ${styles.header}`}>
@@ -28,23 +32,44 @@ const Header = ({ city}) => {
 
       <ul className={styles.list}>
         <li className={styles.list__item}>
-          <button className={styles.location} onClick={openModal}>{city ? city : 'Київ'}</button>
+          <button className={styles.location} onClick={openModal}>
+            {city ? city : 'Київ'}
+          </button>
         </li>
 
         <li className={styles.list__item}>
-          <button className={isOpen ? styles.list__btnOpen : styles.list__btn } onClick={viewActivities}>
+          <button
+            className={isOpen ? styles.list__btnOpen : styles.list__btn}
+            onClick={viewActivities}
+          >
             Види дозвілля
           </button>
-          {isOpen &&(
+          {isOpen && (
             <ul className={styles.activityList}>
               <li className={styles.activityList__item}>
-               <button className={styles.activityList__btn}>Для дорослих</button> <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none"><path stroke="#003049" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6-6 6"/></svg>
+                <button className={styles.activityList__btn}>Для дорослих</button>{' '}
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
+                  <path
+                    stroke="#003049"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 6 6-6 6"
+                  />
+                </svg>
               </li>
-              <li className={styles.activityList__item}><button className={styles.activityList__btn}>Для дітей 
-              </button><svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none"><path stroke="#003049" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6-6 6"/></svg>
-
+              <li className={styles.activityList__item}>
+                <button className={styles.activityList__btn}>Для дітей</button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
+                  <path
+                    stroke="#003049"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 6 6-6 6"
+                  />
+                </svg>
               </li>
-   
             </ul>
           )}
         </li>
@@ -63,16 +88,29 @@ const Header = ({ city}) => {
 
       <ul className={styles.btnList}>
         <li className={styles.btnList__item}>
-          <Link href="/logInPage ">
-            <svg
-              className={styles.btnList__icon}
-              xmlns="http://www.w3.org/2000/svg"
-              width="21"
-              height="20"
-            >
-              <path d="M10.5 0a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 12.5c5.5 0 10 2.2 10 5V20H.5v-2.5c0-2.8 4.5-5 10-5Z" />
-            </svg>
-          </Link>
+          {token ? (
+            <button className={styles.btnList__btnLogout} onClick={logout}>
+              <svg
+                className={styles.btnList__icon}
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+              >
+                <path d="m14 5-1.4 1.4L14.2 8H6v2h8.2l-1.6 1.6L14 13l4-4-4-4ZM2 2h7V0H2a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h7v-2H2V2Z" />
+              </svg>
+            </button>
+          ) : (
+            <Link href="/loginPage">
+              <svg
+                className={styles.btnList__icon}
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="20"
+              >
+                <path d="M10.5 0a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 12.5c5.5 0 10 2.2 10 5V20H.5v-2.5c0-2.8 4.5-5 10-5Z" />
+              </svg>
+            </Link>
+          )}
         </li>
         <li className={styles.btnList__item}>
           <button className={styles.btnList__btn}>

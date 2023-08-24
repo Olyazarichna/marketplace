@@ -1,9 +1,9 @@
 'use client';
 import styles from './LoginForm.module.scss';
-import InputField from '../InputField/InputField';
 import { useState } from 'react';
 import login from '../../../services/login';
 import { useRouter } from 'next/navigation';
+import InputField from '../InputField/InputField';
 
 const LoginForm = () => {
   const router = useRouter();
@@ -94,7 +94,7 @@ const LoginForm = () => {
       </div>
 
       <button type="submit" className={styles.form__btn} disabled={isLoading}>
-        {isLoading ? ' Зачекайте...' : 'Увійти'}
+        {isLoading ? 'Зачекайте...' : 'Увійти'}
       </button>
     </form>
   );

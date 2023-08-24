@@ -19,5 +19,4 @@ const InputField =({htmlFor, label, type, name, id, value, onChange, placeholder
       </div>
     )
 }
-
 export default InputField;

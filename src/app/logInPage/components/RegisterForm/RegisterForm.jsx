@@ -2,8 +2,8 @@
 import styles from './RegisterForm.module.scss';
 import { useState } from 'react';
 import register from '../../../services/auth';
-import InputField from '../InputField/InputField';
 import { useRouter } from 'next/navigation'
+import InputField from '../InputField/InputField';
 
 const RegisterForm = () => {
   const router= useRouter();

@@ -3,7 +3,7 @@ import styles from './LoginForm.module.scss';
 import { useState } from 'react';
 import login from '../../../services/login';
 import { useRouter } from 'next/navigation';
-// import InputField from '../InputField/InputField';
+import InputField from '../../../components/InputField';
 
 const LoginForm = () => {
   const router = useRouter();
@@ -69,7 +69,7 @@ const LoginForm = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit} autoComplete="off" noValidate>
-      {/* <InputField
+      <InputField
         htmlFor="email"
         label={`Eлектронна пошта`}
         type="email"
@@ -78,12 +78,12 @@ const LoginForm = () => {
         value={email}
         onChange={handleChange}
         placeholder="email@gmail.com"
-      /> */}
+      />
       {emailOrPassError && (
         <p className={styles.error}>Поля електронної пошти та пароля не можуть бути порожніми</p>
       )}
       <div className={styles.passwordField}>
-        {/* <InputField
+        <InputField
           htmlFor="password"
           label="Пароль"
           type={showPassword ? 'text' : 'password'}
@@ -92,7 +92,7 @@ const LoginForm = () => {
           value={password}
           onChange={handleChange}
           placeholder="aaaAA_1aaaa"
-        /> */}
+        />
         {emailOrPassError && (
           <p className={styles.error}>Поля електронної пошти та пароля не можуть бути порожніми</p>
         )}

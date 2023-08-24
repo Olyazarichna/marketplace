@@ -4,7 +4,6 @@ import { useState } from 'react';
 import register from '../../../services/auth';
 import { useRouter } from 'next/navigation';
 import InputField from '../../../components/InputField/InputField';
-// import InputField from '../InputField/InputField';
 
 const RegisterForm = () => {
   const router = useRouter();
@@ -81,15 +80,7 @@ const RegisterForm = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit} autoComplete="off" noValidate>
-      <InputField htmlFor="firstName"
-        label={`Ім'я`}
-        type="text"
-        name="firstName"
-        id="firstName"
-        value={firstName}
-        onChange={handleChange}
-        placeholder={`Ім'я`}/>
-      {/* <InputField
+      <InputField
         htmlFor="firstName"
         label={`Ім'я`}
         type="text"
@@ -108,8 +99,8 @@ const RegisterForm = () => {
         value={lastName}
         onChange={handleChange}
         placeholder="Прізвище"
-      /> */}
-      {/* <InputField
+      />
+      <InputField
         htmlFor="email"
         label={`Eлектронна пошта`}
         type="email"
@@ -118,13 +109,13 @@ const RegisterForm = () => {
         value={email}
         onChange={handleChange}
         placeholder="email@gmail.com"
-      /> */}
+      />
       {emailOrPassError && (
         <p className={styles.error}>Поля електронної пошти та пароля не можуть бути порожніми</p>
       )}
       {emailError && <p className={styles.error}>Некоректна електронна пошта</p>}
       <div className={styles.passwordField}>
-        {/* <InputField
+        <InputField
           htmlFor="password"
           label="Пароль"
           type={showPassword ? 'text' : 'password'}
@@ -133,7 +124,7 @@ const RegisterForm = () => {
           value={password}
           onChange={handleChange}
           placeholder="aaaAA_1aaaa"
-        /> */}
+        />
         {emailOrPassError && (
           <p className={styles.error}>Поля електронної пошти та пароля не можуть бути порожніми</p>
         )}

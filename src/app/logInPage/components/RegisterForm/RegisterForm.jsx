@@ -3,6 +3,7 @@ import styles from './RegisterForm.module.scss';
 import { useState } from 'react';
 import register from '../../../services/auth';
 import { useRouter } from 'next/navigation';
+import InputField from '../InputField/InputField';
 // import InputField from '../InputField/InputField';
 
 const RegisterForm = () => {
@@ -80,6 +81,14 @@ const RegisterForm = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit} autoComplete="off" noValidate>
+      <InputField htmlFor="firstName"
+        label={`Ім'я`}
+        type="text"
+        name="firstName"
+        id="firstName"
+        value={firstName}
+        onChange={handleChange}
+        placeholder={`Ім'я`}/>
       {/* <InputField
         htmlFor="firstName"
         label={`Ім'я`}

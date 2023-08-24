@@ -27,7 +27,6 @@ const AboutUs = () => {
           </li>
         </ul>
       </div>
-          {/* <ImageSlider />   */}
     </section>
   );
 };

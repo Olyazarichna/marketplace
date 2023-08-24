@@ -17,7 +17,7 @@ const ImageSlider = () => {
   return (
     <div className={styles.container}>
       <div className={styles.imgWrapper}>
-        <Image src={images[currentIndex]} alt="bicycle" width={615} height={500} />
+        <Image src={images[currentIndex]} alt="bicycle" width={615} height={500} priority/>
       </div>
 
       <div className={styles.btnWrapper}>

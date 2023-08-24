@@ -2,18 +2,19 @@
 import styles from './RegisterForm.module.scss';
 import { useState } from 'react';
 import register from '../../../services/auth';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 import InputField from '../InputField/InputField';
 
 const RegisterForm = () => {
-  const router= useRouter();
+  const router = useRouter();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [emailError, setEmailError]= useState(false);
-  const [isLoading, setIsLoading]= useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [emailOrPassError, setEmailOrPassError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const onPasswordClick = () => {
     setShowPassword(!showPassword);
   };
@@ -41,20 +42,22 @@ const RegisterForm = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (password.trim() === '' || email.trim === '') {
-      alert('Email and password are required fields');
+      setEmailOrPassError(true);
+      setEmailError(false);
       return;
     }
     setIsLoading(true);
     const user = {
-      firstName,
-      lastName,
+      firstName: firstName || '',
+      lastName: lastName || '',
       email,
       password,
     };
-    const emailRegex = /^[A-Za-z0-9]+[A-Za-z0-9._]*@[A-Za-z0-9]+\.[A-Za-z]{2,}$/;
-    if(!emailRegex){
+    const emailRegex = /^[A-Za-z0-9]+[A-Za-z0-9._]*@[A-Za-z]+\.[A-Za-z]{2,}$/;
+    if (!emailRegex.test(email)) {
       setEmailError(true);
       setIsLoading(false);
+      setEmailOrPassError(false);
       return;
     }
     try {
@@ -65,6 +68,7 @@ const RegisterForm = () => {
       console.log(error);
     } finally {
       setIsLoading(false);
+      setEmailOrPassError(false);
     }
   };
   const reset = () => {
@@ -106,7 +110,10 @@ const RegisterForm = () => {
         onChange={handleChange}
         placeholder="email@gmail.com"
       />
-      {emailError &&(<p>Некоректна електронна пошта</p>)}
+      {emailOrPassError && (
+        <p className={styles.error}>Поля електронної пошти та пароля не можуть бути порожніми</p>
+      )}
+      {emailError && <p className={styles.error}>Некоректна електронна пошта</p>}
       <div className={styles.passwordField}>
         <InputField
           htmlFor="password"
@@ -118,6 +125,9 @@ const RegisterForm = () => {
           onChange={handleChange}
           placeholder="aaaAA_1aaaa"
         />
+        {emailOrPassError && (
+          <p className={styles.error}>Поля електронної пошти та пароля не можуть бути порожніми</p>
+        )}
         <button className={styles.form__btnIcon} onClick={onPasswordClick} type="button">
           <svg
             className={styles.form__icon}

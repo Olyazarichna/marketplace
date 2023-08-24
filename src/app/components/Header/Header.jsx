@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const Header = ({ city }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [token, setToken]= useState(localStorage.getItem('authToken'));
+  const [token, setToken]= useState(localStorage?.getItem('authToken') || '');
 
   const viewActivities = async () => {
     setIsOpen(!isOpen);

@@ -11,6 +11,8 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [emailOrPassError, setEmailOrPassError] = useState(false);
 
   const onPasswordClick = () => {
     setShowPassword(!showPassword);
@@ -34,18 +36,26 @@ const LoginForm = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (password.trim() === '' || email.trim === '') {
-      alert('Email and password are required fields');
+      setEmailOrPassError(true);
       return;
     }
+
     setIsLoading(true);
     const user = {
       email,
       password,
     };
     try {
-      await login(user);
-      router.push('/');
-      reset();
+      const response = await login(user);
+
+      if (response?.accessToken) {
+        router.push('/');
+        reset();
+      } else {
+        setEmailError(true);
+        setEmailOrPassError(false);
+        setIsLoading(false);
+      }
     } catch (error) {
       console.log(error);
     } finally {
@@ -69,6 +79,9 @@ const LoginForm = () => {
         onChange={handleChange}
         placeholder="email@gmail.com"
       />
+      {emailOrPassError && (
+        <p className={styles.error}>Поля електронної пошти та пароля не можуть бути порожніми</p>
+      )}
       <div className={styles.passwordField}>
         <InputField
           htmlFor="password"
@@ -80,6 +93,10 @@ const LoginForm = () => {
           onChange={handleChange}
           placeholder="aaaAA_1aaaa"
         />
+        {emailOrPassError && (
+          <p className={styles.error}>Поля електронної пошти та пароля не можуть бути порожніми</p>
+        )}
+
         <button className={styles.form__btnIcon} onClick={onPasswordClick} type="button">
           <svg
             className={styles.form__icon}
@@ -92,7 +109,7 @@ const LoginForm = () => {
           </svg>
         </button>
       </div>
-
+      {emailError && <p className={styles.error}>Пароль або електронна пошта не вірні</p>}
       <button type="submit" className={styles.form__btn} disabled={isLoading}>
         {isLoading ? 'Зачекайте...' : 'Увійти'}
       </button>

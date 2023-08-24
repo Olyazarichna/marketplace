@@ -1,11 +1,15 @@
 const register = async ({ firstName, lastName, email, password }) => {
   const url = 'https://navkolodozvillya.onrender.com/auth/register';
   const userData = {
-    firstName,
-    lastName,
     email,
     password,
   };
+  if (firstName) {
+    userData.firstName = firstName;
+  }
+  if (lastName) {
+    userData.lastName = lastName;
+  }
 
   try {
     const response = await fetch(url, {

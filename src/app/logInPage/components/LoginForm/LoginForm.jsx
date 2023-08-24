@@ -3,7 +3,7 @@ import styles from './LoginForm.module.scss';
 import { useState } from 'react';
 import login from '../../../services/login';
 import { useRouter } from 'next/navigation';
-import InputField from '../../../components/InputField';
+import InputField from '../../../components/InputField/InputField';
 
 const LoginForm = () => {
   const router = useRouter();

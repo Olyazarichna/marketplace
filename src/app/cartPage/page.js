@@ -1,4 +1,4 @@
-import styles from "../page.module.scss";
+// import styles from "../page.module.scss";
 // import Cart from "../components/Cart/Cart";
 
 const CartPage = () => {

@@ -1,10 +1,10 @@
-'use client'
+import React, { useState } from 'react';
 import ProductList from '../../../components/ProductList/ProductList';
 import CartItem from '../CartItem/CartItem';
-import { useState } from 'react';
+import { Product } from './types';
 
-const Cart = () => {
-    const products = [
+const Cart: React.FC = () => {
+    const products: Product[] = [
         {
             id: 1,
             name: 'Product 1',
@@ -23,25 +23,24 @@ const Cart = () => {
             description: 'Description for Product 3',
             price: 30,
         },
-    ];
-    const [cartItems, setCartItems] = useState([]);
+      ];
+    const [cartItems, setCartItems] = useState<Product[]>([]); // State for cart items
 
-    const addToCart = (product) => {
-        setCartItems([...cartItems, product]);
+    const addToCart = (product: Product) => {
+        setCartItems([...cartItems, product]); // Add a product to the cart
     };
 
-    const removeFromCart = (productId) => {
-        setCartItems(cartItems.filter((item) => item.id !== productId));
+    const removeFromCart = (productId: number) => {
+        setCartItems(cartItems.filter((item) => item.id !== productId)); // Remove a product from the cart
     };
 
     const clearCart = () => {
-        setCartItems([]);
+        setCartItems([]); // Clear the entire cart
     };
 
     return (
         <div>
             <ProductList products={products} addToCart={addToCart} />
-
             <h2>Cart:</h2>
             {cartItems.length > 0 ? (
                 <div>
@@ -64,3 +63,5 @@ const Cart = () => {
 };
 
 export default Cart;
+
+

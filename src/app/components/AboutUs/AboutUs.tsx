@@ -1,10 +1,12 @@
-import styles from './AboutUs.module.scss';
+import React from 'react';
+import styles from './styles.module.scss';
+
 // import ImageSlider from "../ImageSlider/ImageSlider";
 
-const AboutUs = () => {
+const AboutUs: React.FC = () => {
   return (
     <section className={styles.wrapper}>
-      {/* <ImageSlider />  */}
+      {/* <ImageSlider /> */}
       <div className={'container'}>
         <div className={styles.textWrapper}>
           <h2 className={styles.heading}>Знайди своє дозвілля!</h2>
@@ -31,6 +33,7 @@ const AboutUs = () => {
     </section>
   );
 };
+
 
 {
   /* <ImageSlider />  */

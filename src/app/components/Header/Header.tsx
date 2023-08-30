@@ -1,29 +1,36 @@
-'use client';
-import styles from './Header.module.scss';
+'use client'
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { useState } from 'react';
-// import logout from '@/app/services/logout';
+import styles from './styles.module.scss';
 
-const Header = ({ city }) => {
+interface HeaderProps {
+  city: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [token, setToken]=  useState(
+  const [city, setCity] = useState<string>('');
+  const [token, setToken] = useState<string>(
     typeof localStorage !== 'undefined' ? localStorage.getItem('authToken') || '' : ''
-  );;
+  );
 
   const viewActivities = async () => {
     setIsOpen(!isOpen);
     // const data = await getAllActivities();
     // console.log('data', data);
   };
+
   const openModal = () => {
     console.log('open modal');
   };
+
   const logout = () => {
     setToken('');
   };
+
   return (
     <header className={`${'container'} ${styles.header}`}>
-      <button className={styles.btn}>
+      <button className={styles.btn} type='submit' aria-label="Toggle Menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" fill="none">
           <path stroke="#000" strokeWidth="2" d="M0 1h20M0 8.3h20M0 15.5h20" />
         </svg>
@@ -34,13 +41,15 @@ const Header = ({ city }) => {
 
       <ul className={styles.list}>
         <li className={styles.list__item}>
-          <button className={styles.location} onClick={openModal}>
+          <button className={styles.location} type='submit' aria-label="Toggle Menu" onClick={openModal}>
             {city ? city : 'Київ'}
           </button>
         </li>
 
         <li className={styles.list__item}>
           <button
+            type='submit'
+            aria-label="Toggle Menu"
             className={isOpen ? styles.list__btnOpen : styles.list__btn}
             onClick={viewActivities}
           >
@@ -49,7 +58,7 @@ const Header = ({ city }) => {
           {isOpen && (
             <ul className={styles.activityList}>
               <li className={styles.activityList__item}>
-                <button className={styles.activityList__btn}>Для дорослих</button>{' '}
+                <button className={styles.activityList__btn} aria-label="Toggle Menu" type='submit'>Для дорослих</button>{' '}
                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
                   <path
                     stroke="#003049"
@@ -61,7 +70,7 @@ const Header = ({ city }) => {
                 </svg>
               </li>
               <li className={styles.activityList__item}>
-                <button className={styles.activityList__btn}>Для дітей</button>
+                <button className={styles.activityList__btn} type='submit' aria-label="Toggle Menu">Для дітей</button>
                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
                   <path
                     stroke="#003049"
@@ -81,7 +90,7 @@ const Header = ({ city }) => {
       </Link>
       <div className={styles.inputWrapper}>
         <input type="text" placeholder="Пошук" className={styles.input} />
-        <button className={styles.searchBtn}>
+        <button className={styles.searchBtn} type='submit' aria-label="Toggle Menu">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
             <path d="m18.2 19.8-6.8-6.9a6.5 6.5 0 0 1-4.1 1.4c-2 0-3.6-.6-5-2s-2-3-2-5 .6-3.6 2-5 3-2 5-2 3.6.6 5 2 2 3 2 5a6.6 6.6 0 0 1-1.4 4.1l6.8 6.8-1.5 1.6Zm-11-7.6c1.4 0 2.6-.5 3.5-1.5 1-.9 1.5-2 1.5-3.4s-.5-2.5-1.5-3.5c-.9-1-2-1.4-3.4-1.4S4.8 3 3.8 3.8c-1 1-1.4 2.1-1.4 3.5 0 1.3.5 2.5 1.4 3.4 1 1 2.1 1.5 3.5 1.5Z" />
           </svg>
@@ -91,14 +100,14 @@ const Header = ({ city }) => {
       <ul className={styles.btnList}>
         <li className={styles.btnList__item}>
           {token ? (
-            <button className={styles.btnList__btnLogout} onClick={logout}>
+            <button className={styles.btnList__btnLogout} type='submit' aria-label="Toggle Menu" onClick={logout}>
               <svg
                 className={styles.btnList__icon}
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
                 height="18"
               >
-                <path d="m14 5-1.4 1.4L14.2 8H6v2h8.2l-1.6 1.6L14 13l4-4-4-4ZM2 2h7V0H2a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h7v-2H2V2Z" />
+                <path d="m14 5-1.4 1.4L14.2 8H6v2h8.2l-1.6 1.6L14 13l4-4-4-4ZM2 2h7V0H2a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h7v-2H2V2Zm6 16a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z" />
               </svg>
             </button>
           ) : (
@@ -115,7 +124,7 @@ const Header = ({ city }) => {
           )}
         </li>
         <li className={styles.btnList__item}>
-          <button className={styles.btnList__btn}>
+          <button className={styles.btnList__btn} type='submit' aria-label="Toggle Menu">
             <svg
               className={styles.btnList__icon}
               xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +143,7 @@ const Header = ({ city }) => {
               width="20"
               height="20"
             >
-              <path d="M16 16a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM0 0h3.3l1 2H19a1 1 0 0 1 1 1l-.1.5-3.6 6.5c-.3.6-1 1-1.8 1H7.2l-.9 1.6v.2a.3.3 0 0 0 .2.2H18v2H6a2 2 0 0 1-1.8-3l1.4-2.4L2 2H0V0Zm6 16a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm9-7 2.8-5H5l2.4 5H15Z" />
+              <path d="M16 16a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM0 0h3.3l1 2H19a1 1 0 0 1 1 1l-.1.5-3.6 6.5c-.3.6-1 1-1.8 1H7.2l-.9 1.6v.2a.3.3 0 0 0 .2.2H18v2H6a2 2 0 0 1-1.8-3l1.4-2.4L2 2H0V0Zm6 16a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z" />
             </svg>
           </Link>
         </li>
@@ -144,3 +153,4 @@ const Header = ({ city }) => {
 };
 
 export default Header;
+

@@ -1,14 +1,18 @@
-'use client';
-import styles from "./WelcomeModal.module.scss";
-import { useState, useEffect } from "react";
+import React from "react"; // Make sure to import React
+import styles from "./styles.module.scss";
 // import getCity from "../../services/getCity";
 
-const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo,city }) => {
+interface WelcomeModalProps {
+  closeModal: () => void;
+  handleBtnYes: () => void;
+  handleBtnNo: () => void;
+  city: string | null; // Keep the type as string | null
+}
 
-
+const WelcomeModal: React.FC<WelcomeModalProps> = ({ closeModal, handleBtnYes, handleBtnNo, city }) => {
   return (
     <div className={styles.modal}>
-      <button className={styles.modal__btn} onClick={closeModal}>
+      <button className={styles.modal__btn} type="submit" title="title" onClick={closeModal}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -27,10 +31,10 @@ const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo,city }) => {
       </button>
       <h3 className={styles.modal__text}>Ваше місто {city ? city : "Київ"} ?</h3>
       <div>
-        <button className={styles.btnYes} onClick={handleBtnYes}>
+        <button className={styles.btnYes} type="submit" onClick={handleBtnYes}>
           Так
         </button>
-        <button className={styles.btnNo} onClick={handleBtnNo}>
+        <button className={styles.btnNo} type="submit" onClick={handleBtnNo}>
           Ні
         </button>
       </div>
@@ -39,3 +43,4 @@ const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo,city }) => {
 };
 
 export default WelcomeModal;
+

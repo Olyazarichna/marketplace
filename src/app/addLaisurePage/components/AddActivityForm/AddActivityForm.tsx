@@ -1,11 +1,12 @@
-import styles from './AddActivityForm.module.scss';
-import BtnBack from '../../../../app/components/BtnBack/BtnBack';
+import React from 'react';
+import styles from './styles.module.scss';
+import BtnBack from '../../../components/BtnBack/BtnBack';
 
-const AddActivityForm = () => {
+const AddActivityForm: React.FC = () => {
   return (
     <>
       <h2 className={styles.title}>Додавання події</h2>
-      <BtnBack />
+      <BtnBack>Back</BtnBack>
       <h3 className={styles.heading}>Додайте інформацію про подію</h3>
       <form>
         <input placeholder="Вкажіть детальну назву" />
@@ -21,3 +22,6 @@ const AddActivityForm = () => {
 };
 
 export default AddActivityForm;
+
+
+

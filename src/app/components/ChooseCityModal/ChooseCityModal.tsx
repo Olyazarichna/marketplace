@@ -1,8 +1,18 @@
-"use client";
-import styles from "./ChooseCityModal.module.scss";
+import React from 'react';
+import styles from './styles.module.scss';
 
-const ChooseCityModal = ({closeCitiesModal,chooseCity}) => {
-  const cities = [
+interface City {
+  id: number;
+  city: string;
+}
+
+interface ChooseCityModalProps {
+  closeCitiesModal: () => void;
+  chooseCity: () => void;
+}
+
+const ChooseCityModal: React.FC<ChooseCityModalProps> = ({ closeCitiesModal, chooseCity }) => {
+  const cities: City[] = [
     {
       id: 111,
       city: "Київ",
@@ -29,10 +39,9 @@ const ChooseCityModal = ({closeCitiesModal,chooseCity}) => {
     },
   ];
 
-
   return (
     <div className={styles.modal}>
-      <button className={styles.modal__btn} onClick={closeCitiesModal}>
+      <button className={styles.modal__btn} type='submit' onClick={closeCitiesModal} title="Close Modal">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -75,3 +84,4 @@ const ChooseCityModal = ({closeCitiesModal,chooseCity}) => {
 };
 
 export default ChooseCityModal;
+

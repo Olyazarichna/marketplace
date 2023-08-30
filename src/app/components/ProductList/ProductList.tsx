@@ -1,11 +1,15 @@
-'use client';
-
 import styles from './ProductList.module.scss';
 import ProductCard from '../ProductCard/ProductCard';
 import Button from '../Button/Button';
 import { useState } from 'react';
+import { Product } from './types';
 
-const ProductList = ({ title, products }) => {
+interface ProductListProps {
+  title: string;
+  products: Product[];
+}
+
+const ProductList: React.FC<ProductListProps> = ({ title, products }) => {
   const [startIndex, setStartIndex] = useState(0);
   const [productsPerPage, setProductsPerPage] = useState(3);
 
@@ -31,6 +35,7 @@ const ProductList = ({ title, products }) => {
   const addToFavorite = () => {
     console.log('add to fav');
   };
+
   return (
     <section className={styles.mainSection}>
       <h3 className={styles.heading}>{title}</h3>
@@ -52,7 +57,7 @@ const ProductList = ({ title, products }) => {
             ))}
         </ul>
         <div className={styles.btnWrapper}>
-          <button className={styles.btn} onClick={goToPrev} disabled={startIndex === 0}>
+          <button className={styles.btn} type='submit' title='title' onClick={goToPrev} disabled={startIndex === 0}>
             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" fill="none">
               <path
                 stroke="#fff"
@@ -63,7 +68,7 @@ const ProductList = ({ title, products }) => {
               />
             </svg>
           </button>
-          <button className={styles.btn} onClick={goToNext} disabled={startIndex >= maxStartIndex}>
+          <button className={styles.btn} type='submit' title='title' onClick={goToNext} disabled={startIndex >= maxStartIndex}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
               <path
                 stroke="#fff"
@@ -83,3 +88,4 @@ const ProductList = ({ title, products }) => {
 };
 
 export default ProductList;
+

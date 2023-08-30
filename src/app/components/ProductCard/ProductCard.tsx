@@ -1,4 +1,4 @@
-import styles from "./ProductCard.module.scss";
+import styles from "./styles.module.scss";
 import Image from "next/image";
 
 interface ProductCardProps {

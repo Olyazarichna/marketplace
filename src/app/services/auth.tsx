@@ -1,6 +1,21 @@
-const register = async ({ firstName, lastName, email, password }) => {
+const register = async ({
+  firstName,
+  lastName,
+  email,
+  password,
+}: {
+  firstName?: string;
+  lastName?: string;
+  email: string;
+  password: string;
+}): Promise<void> => {
   const url = 'https://navkolodozvillya.onrender.com/auth/register';
-  const userData = {
+  const userData: {
+    email: string;
+    password: string;
+    firstName?: string;
+    lastName?: string;
+  } = {
     email,
     password,
   };
@@ -21,11 +36,10 @@ const register = async ({ firstName, lastName, email, password }) => {
     });
     if (response.ok) {
       const data = await response.json();
-      const token = data.accessToken; 
+      const token = data.accessToken;
       console.log('Registration successful:', data);
       console.log('token:', token);
       localStorage.setItem('authToken', token);
-      
     } else {
       console.error('Registration failed');
     }
@@ -35,5 +49,6 @@ const register = async ({ firstName, lastName, email, password }) => {
 };
 
 export default register;
+
 
 

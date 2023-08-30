@@ -1,4 +1,4 @@
-const logout = async () => {
+const logout = async (): Promise<void> => {
   const url = 'https://navkolodozvillya.onrender.com/auth/logout';
   try {
     const response = await fetch(url, {
@@ -16,3 +16,4 @@ const logout = async () => {
 };
 
 export default logout;
+

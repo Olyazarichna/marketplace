@@ -1,5 +1,5 @@
-const getCity = async () => {
-  const url = 'https://navkolodozvillya.onrender.com/city';
+const getAllActivities = async (): Promise<any> => {
+  const url = 'https://navkolodozvillya.onrender.com/offerings';
   try {
     const response = await fetch(url, { cache: 'no-cache' });
     if (!response.ok) {
@@ -9,9 +9,12 @@ const getCity = async () => {
     console.log('data', data);
     return data;
   } catch (error) {
-    console.log(error);
+    const errorMessage = (error as Error).message; // Cast error to Error type
+    console.log(errorMessage);
     throw error;
   }
 };
 
-export default getCity;
+export default getAllActivities;
+
+

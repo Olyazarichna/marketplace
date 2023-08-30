@@ -1,4 +1,4 @@
-import styles from './ProductList.module.scss';
+import styles from './styles.module.scss';
 import ProductCard from '../ProductCard/ProductCard';
 import Button from '../Button/Button';
 import { useState } from 'react';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './Header.module.scss';
+import styles from './styles.module.scss';
 import Link from 'next/link';
 
 interface HeaderProps {

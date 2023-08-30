@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import styles from './InputField.module.scss';
+import styles from './styles.module.scss';
 
 interface InputFieldProps {
   htmlFor: string;

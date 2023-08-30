@@ -1,5 +1,11 @@
-const login = async ({ email, password }) => {
-  const url = 'https://navkolodozvillya.onrender.com/auth/authenticate';
+const login = async ({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }): Promise<any | void> => {
+    const url = 'https://navkolodozvillya.onrender.com/auth/authenticate';
   const user = {
     email,
     password,
@@ -28,9 +34,6 @@ const login = async ({ email, password }) => {
   } catch (error) {
     console.log(error);
   }
-};
-
-export default login;
-
-//gg@gg.gf
-//ggg_898GGG
+  };
+  
+  export default login;

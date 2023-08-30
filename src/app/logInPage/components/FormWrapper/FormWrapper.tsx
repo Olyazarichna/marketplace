@@ -1,13 +1,13 @@
-'use client';
-import { useState } from 'react';
-import styles from './FormWrapper.module.scss';
+'use client'
+import React, { useState } from 'react';
+import styles from './styles.module.scss';
 import BtnBack from '../../../components/BtnBack/BtnBack';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import LoginForm from '../LoginForm/LoginForm';
 import Link from 'next/link';
 
-const FormWrapper = () => {
-  const [activeButton, setActiveButton] = useState('login');
+const FormWrapper: React.FC = () => {
+  const [activeButton, setActiveButton] = useState<'login' | 'register'>('login');
 
   const handleSetActive = () => {
     setActiveButton('register');
@@ -15,16 +15,18 @@ const FormWrapper = () => {
 
   return (
     <div className={'container'}>
-      <BtnBack />
+      <BtnBack>Back</BtnBack>
       <div className={styles.formContainer}>
         <div className={styles.btnWrapper}>
           <button
+            type='submit'
             className={`${styles.headingBtn} ${activeButton === 'login' ? styles.active : ''}`}
             onClick={() => setActiveButton('login')}
           >
             Увійти
           </button>
           <button
+            type='submit'
             className={`${styles.spanBtn} ${activeButton === 'register' ? styles.active : ''}`}
             onClick={handleSetActive}
           >

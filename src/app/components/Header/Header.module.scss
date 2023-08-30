@@ -21,6 +21,7 @@
   font-weight: 700;
   line-height: 1;
   transition: all ease-in-out 300ms;
+  margin-bottom: 10px;
   @include mq(tablet) {
     font-size: 16px;
     width: 168px;
@@ -127,10 +128,10 @@
   left: -8px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  background-color: #fff;
 }
 .activityList__item {
   display: flex;
-
   justify-content: space-between;
   align-items: center;
   border-bottom: transparent 2px solid;

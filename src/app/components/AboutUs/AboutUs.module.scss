@@ -1,19 +1,24 @@
 @import '../../../scss/utils/mixin';
 
 .wrapper {
-  margin-top: 55px;
+  color: #fff;
+  background-image: url(../../../../public/images/aboutUs.jpg);
+  background-position: center;
+  background-size: cover;
+  padding-top: 100px;
+  padding-bottom: 73px;
   @include mq(tablet) {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-top: 80px;
+    padding-top: 210px;
+  }
+  @include mq(desktop) {
+    padding-top: 286px;
   }
 }
 .textWrapper {
-  margin-top: 20px;
+  text-align: left;
   @include mq(tablet) {
-    width: 550px;
-    margin-right: 66px;
-    margin-top: 0;
+    padding: 0;
+    width: 555px;
   }
 }
 .heading {
@@ -26,6 +31,7 @@
     font-size: 48px;
   }
 }
+
 .text {
   font-size: 14px;
   margin-top: 10px;

@@ -118,7 +118,7 @@ export default function Home() {
   return (
     <>
       <Header city={city}/>
-      <main className={'container'}>
+      <main>
         <AboutUs />
         <ProductList title="Події у Києві" products={products} />
         <ProductList title="Активний відпочинок в Києві" products={products} />

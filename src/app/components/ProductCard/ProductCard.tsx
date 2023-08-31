@@ -1,8 +1,8 @@
 import styles from "./styles.module.scss";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface ProductCardProps {
-  img: string;
+  img: StaticImageData;
   onClick: () => void;
   title: string;
   date: string;

@@ -15,7 +15,7 @@ const FormWrapper: React.FC = () => {
 
   return (
     <div className={'container'}>
-      <BtnBack>Back</BtnBack>
+      <BtnBack />
       <div className={styles.formContainer}>
         <div className={styles.btnWrapper}>
           <button

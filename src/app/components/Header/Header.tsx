@@ -7,9 +7,8 @@ interface HeaderProps {
   city: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ }) => {
+const Header: React.FC<HeaderProps> = ({ city }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [city, setCity] = useState<string>('');
   const [token, setToken] = useState<string>(
     typeof localStorage !== 'undefined' ? localStorage.getItem('authToken') || '' : ''
   );
@@ -153,4 +152,3 @@ const Header: React.FC<HeaderProps> = ({ }) => {
 };
 
 export default Header;
-

@@ -1,13 +1,13 @@
-import React, { ReactNode } from 'react';
-import styles from './styles.module.scss';
+import React from "react";
+import styles from "./styles.module.scss";
+import Link from "next/link";
 
-interface BackdropProps {
-  children: ReactNode;
-}
-
-const Backdrop: React.FC<BackdropProps> = ({ children }) => {
-  return <div className={styles.backdrop}>{children}</div>;
+const BtnBack: React.FC = () => {
+  return (
+    <Link href="/" passHref>
+      <li className={styles.btn}>Назад</li>
+    </Link>
+  );
 };
 
-export default Backdrop;
-
+export default BtnBack;

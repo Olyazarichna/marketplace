@@ -6,7 +6,7 @@ const AddActivityForm: React.FC = () => {
   return (
     <>
       <h2 className={styles.title}>Додавання події</h2>
-      <BtnBack>Back</BtnBack>
+      <BtnBack />
       <h3 className={styles.heading}>Додайте інформацію про подію</h3>
       <form>
         <input placeholder="Вкажіть детальну назву" />
@@ -22,6 +22,3 @@ const AddActivityForm: React.FC = () => {
 };
 
 export default AddActivityForm;
-
-
-

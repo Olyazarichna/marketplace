@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import styles from './styles.module.scss';
 
@@ -12,7 +13,7 @@ interface ChooseCityModalProps {
 }
 
 const ChooseCityModal: React.FC<ChooseCityModalProps> = ({ closeCitiesModal, chooseCity }) => {
-  const cities: City[] = [
+  const cities = [
     {
       id: 111,
       city: "Київ",
@@ -41,7 +42,7 @@ const ChooseCityModal: React.FC<ChooseCityModalProps> = ({ closeCitiesModal, cho
 
   return (
     <div className={styles.modal}>
-      <button className={styles.modal__btn} type='submit' onClick={closeCitiesModal} title="Close Modal">
+      <button className={styles.modal__btn} type='button' onClick={closeCitiesModal} title="Close Modal">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -62,7 +63,7 @@ const ChooseCityModal: React.FC<ChooseCityModalProps> = ({ closeCitiesModal, cho
       <ul className={styles.listBtn}>
         {cities.map(({ id, city }) => (
           <li key={id}>
-            <button className={styles.cityBtn} onClick={chooseCity}>
+            <button className={styles.cityBtn} type='button' onClick={chooseCity}>
               {city}
             </button>
           </li>
@@ -76,7 +77,7 @@ const ChooseCityModal: React.FC<ChooseCityModalProps> = ({ closeCitiesModal, cho
         type="text"
         placeholder="Черкаси, Черкаська область"
       />
-      <button className={styles.button} onClick={closeCitiesModal}>
+      <button className={styles.button} type='button' onClick={closeCitiesModal}>
         Готово
       </button>
     </div>
@@ -84,4 +85,3 @@ const ChooseCityModal: React.FC<ChooseCityModalProps> = ({ closeCitiesModal, cho
 };
 
 export default ChooseCityModal;
-

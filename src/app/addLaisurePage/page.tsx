@@ -6,7 +6,7 @@ import AddActivityForm from './components/AddActivityForm/AddActivityForm';
 const LaisurePage: React.FC = () => {
   return (
     <>
-      <Header city={''}/>
+      <Header city={''} />
       <main className={'container'}>
         <AddActivityForm />
       </main>
@@ -15,4 +15,4 @@ const LaisurePage: React.FC = () => {
   );
 };
 
-  export default LaisurePage;
+export default LaisurePage;

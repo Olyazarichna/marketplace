@@ -1,11 +1,7 @@
 'use client';
 import '../scss/main.scss';
-import Image from 'next/image';
 import AboutUs from './components/AboutUs/AboutUs';
 import ProductList from './components/ProductList/ProductList';
-import img1 from '../../public/images/aboutUs1x.jpg';
-import img2 from '../../public/images/girls.jpg';
-import img3 from '../../public/images/group.jpg';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { useState, useEffect } from 'react';
@@ -14,7 +10,6 @@ import WelcomeModal from './components/WelcomeModal/WelcomeModal';
 import ChooseCityModal from './components/ChooseCityModal/ChooseCityModal';
 // import getAllActivities from "./services/getAllActivities";
 import getCity from './services/getCity';
-import { Product } from './components/ProductList/types';
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -54,7 +49,7 @@ export default function Home() {
  
   const products = [
     {
-      img: img1,
+      img: '../../public/images/aboutUs1x.jpg',
       id: '123',
       title: 'Вуличний театр для дітей',
       date: '2023-07-30',
@@ -62,7 +57,7 @@ export default function Home() {
       time: '15:00',
     },
     {
-      img: img2,
+      img: '../../public/images/girls.jpg',
       id: '237',
       title: 'Благодійний музичний вечір органної музики',
       date: '2023-07-30',
@@ -70,7 +65,7 @@ export default function Home() {
       time: '15:00',
     },
     {
-      img: img3,
+      img: '../../public/images/group.jpg',
       id: '1235',
       title: 'Онлайн майтсер-класи для дітей та дорослих',
       date: '2023-07-30',
@@ -78,7 +73,7 @@ export default function Home() {
       time: '15:00',
     },
     {
-      img: img1,
+      img: '../../public/images/aboutUs1x.jpg',
       id: '1234545',
       title: 'Онлайн майтсер-класи для дітей та дорослих',
       date: '2023-07-30',
@@ -86,7 +81,7 @@ export default function Home() {
       time: '15:00',
     },
     {
-      img: img1,
+      img: '../../public/images/aboutUs1x.jpg',
       id: '123422',
       title: 'Онлайн майтсер-класи для дітей та дорослих',
       date: '2023-07-30',
@@ -94,7 +89,7 @@ export default function Home() {
       time: '15:00',
     },
     {
-      img: img1,
+      img: '../../public/images/group.jpg',
       id: '123884',
       title: 'Онлайн майтсер-класи для дітей та дорослих',
       date: '2023-07-30',
@@ -119,9 +114,8 @@ export default function Home() {
   };
   return (
     <>
-      <Header city={city} />
+      <Header city={''} />
       <main>
-        
         <AboutUs />
         <ProductList title="Події у Києві" products={products} />
         <ProductList title="Активний відпочинок в Києві" products={products} />

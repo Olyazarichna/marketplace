@@ -23,6 +23,7 @@
     fill: #f77f00;
   }
 }
+
 .form__btn {
   padding-top: 23px;
   padding-bottom: 23px;
@@ -39,6 +40,15 @@
   &:focus {
     cursor: pointer;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+.form__btnDisabled{
+  @extend .form__btn;
+  background-color: #EFEFEF;
+  &:hover,
+  &:focus {
+    cursor:default;
+    box-shadow: none;
   }
 }
 .error {

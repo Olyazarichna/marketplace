@@ -2,21 +2,18 @@
 import styles from './Header.module.scss';
 import Link from 'next/link';
 import { useState } from 'react';
-// import logout from '@/app/services/logout';
 
 const Header = ({ city }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [token, setToken]=  useState(
+  const [token, setToken] = useState(
     typeof localStorage !== 'undefined' ? localStorage.getItem('authToken') || '' : ''
-  );;
+  );
 
-  const viewActivities = async () => {
+  const chooseCategory = async () => {
     setIsOpen(!isOpen);
-    // const data = await getAllActivities();
-    // console.log('data', data);
   };
   const openModal = () => {
-    console.log('open modal');
+    console.log('open choose city modal ');
   };
   const logout = () => {
     setToken('');
@@ -42,7 +39,7 @@ const Header = ({ city }) => {
         <li className={styles.list__item}>
           <button
             className={isOpen ? styles.list__btnOpen : styles.list__btn}
-            onClick={viewActivities}
+            onClick={chooseCategory}
           >
             Види дозвілля
           </button>

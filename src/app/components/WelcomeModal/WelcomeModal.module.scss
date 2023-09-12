@@ -1,7 +1,7 @@
 @import '../../../scss/utils/mixin';
 .modal {
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
@@ -14,6 +14,7 @@
   z-index: 10;
   @include mq(tablet) {
     width: 616px;
+    top: 50%;
   }
 }
 .modal__btn {

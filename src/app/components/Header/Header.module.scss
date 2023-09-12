@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 25px;
+  // position: relative;
   @include mq(tablet) {
     // justify-content: center;
   }
@@ -35,6 +36,30 @@
     transform: scale(1.05);
   }
 }
+// .mobileMenu{
+//   background-color: rgba($color: #003049, $alpha:.9);
+//   position: absolute;
+//   top:58px;
+//   left:0;
+//   width: 100%;
+//   color: #fff;
+//   padding: 27px 22px;
+//   @include mq(tablet){
+//   //  background-color: transparent;
+//    position: static;
+//   }
+// }
+
+// .btnClose{
+//   @extend .btn;
+//   position: absolute;
+//   top:22px;
+//   right: 0;
+//   @include mq(tablet){
+//     display: none;
+//   }
+
+// }
 .list {
   display: flex;
 }
@@ -217,7 +242,7 @@
 }
 .searchBtn {
   position: absolute;
-  top: -8px;
+  top: -16px;
   right: 0;
   padding: 0;
   background-color: transparent;

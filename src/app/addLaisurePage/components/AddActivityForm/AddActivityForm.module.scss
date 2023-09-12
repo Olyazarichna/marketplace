@@ -1,6 +1,198 @@
 @import '../../../../scss/utils/mixin';
+.title {
+  margin-top: 32px;
+  font-size: 32px;
+  @include mq(desktop) {
+    font-size: 48px;
+  }
+}
+.heading {
+  font-size: 18px;
+  margin-top: 36px;
+  margin-bottom: 40px;
+}
+.form {
+  display: flex;
+  justify-content: space-between;
+}
+.inputWrapper {
+  width: 340px;
+  @include mq(desktop) {
+    width: 534px;
+  }
+}
 
-.heading{
+.input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #efefef;
+  border-color: transparent;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 21px;
+  &::placeholder {
+    color: #000;
+  }
+}
+.locationWrapper {
+  display: flex;
+}
+.locationWrapper > .input {
+  &:not(:first-child) {
+    margin-left: 10px;
+  }
+}
+
+.textarea {
+  @extend .input;
+  height: 100px;
+  @include mq(desktop) {
+    height: 200px;
+  }
+}
+
+.textWrapper {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  margin-top: 40px;
+  display: flex;
+  font-size: 14px;
+  @include mq(desktop) {
+    font-size: 36px;
+  }
+}
+
+.price__input {
+  font-size: 14px;
+  padding: 8px 0;
+  margin-left: 8px;
+  margin-right: 8px;
+  background-color: #efefef;
+  border-radius: 5px;
+  border: 1px solid #000;
+  text-align: center;
+  @include mq(desktop) {
     font-size: 18px;
+    padding: 15px 0;
+    margin-left: 17px;
+    margin-right: 17px;
+  }
+}
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
 
+.checkbox {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #efefef;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  @include mq(desktop) {
+    width: 28px;
+    height: 28px;
+  }
+  &:checked {
+    background-color: var(--accent-btn-cl);
+  }
+}
+
+.photoContainer {
+  width: 320px;
+  @include mq(desktop) {
+    width: 528px;
+  }
+}
+
+.photoWrapper {
+  border: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+.photoAddLabel {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 130px;
+  border-radius: 10px;
+  background-color: #efefef;
+  @include mq(desktop) {
+    width: 256px;
+    height: 168px;
+  }
+}
+
+.photoInput {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.formText {
+  margin-top: 15px;
+  font-size: 14px;
+}
+.chooseActivity {
+  margin-top: 60px;
+  text-align: right;
+  font-size: 14px;
+}
+.chooseActivity__label {
+  &:not(:last-child) {
+    margin-right: 8px;
+    @include mq(desktop) {
+      margin-right: 16px;
+    }
+  }
+}
+.chooseActivity__input {
+  margin-right: 8px;
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+  appearance: none;
+  display: inline-block;
+  border: 1px solid #efefef;
+  border-radius: 50%;
+  @include mq(desktop) {
+    height: 28px;
+    width: 28px;
+    margin-right: 10px;
+  }
+  &:checked {
+    background-color: var(--accent-btn-cl);
+  }
+}
+.btnWrapper {
+  text-align: right;
+}
+.formBtn {
+  font-size: 14px;
+  background-color: var(--accent-btn-cl);
+  padding: 12px 60px;
+  border-color: transparent;
+  border-radius: 10px;
+  margin-top: 60px;
+  @include mq(desktop) {
+    font-size: 20px;
+    padding: 16px 94px;
+  }
 }

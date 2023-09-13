@@ -1,34 +1,43 @@
-"use client";
-import styles from "./ChooseCityModal.module.scss";
+'use client';
+import styles from './ChooseCityModal.module.scss';
+import { useState, useEffect } from 'react';
+import { citiesBtn } from './citiesBtn';
+import getAllCity from '../../services/getAllCity';
 
-const ChooseCityModal = ({closeCitiesModal,chooseCity}) => {
-  const cities = [
-    {
-      id: 111,
-      city: "Київ",
-    },
-    {
-      id: 121,
-      city: "Львів",
-    },
-    {
-      id: 113,
-      city: "Тернопіль",
-    },
-    {
-      id: 211,
-      city: "Одеса",
-    },
-    {
-      id: 11551,
-      city: "Дніпро",
-    },
-    {
-      id: 1144,
-      city: "Харків",
-    },
-  ];
+const ChooseCityModal = ({ closeCitiesModal, chooseCity }) => {
+  const [cities, setCities] = useState([]);
+  const [filteredCities, setFilteredCities] = useState([]);
+  const [searchCity, setSearchCity] = useState('');
+  const [selectedCity, setSelectedCity] = useState('');
 
+  useEffect(() => {
+    const getAllCities = async () => {
+      try {
+        const data = await getAllCity();
+        const filter = data.filter(city => city.uaCityName !== null);
+        setCities(filter);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAllCities();
+  }, []);
+
+  useEffect(() => {
+    const filtered = cities.filter(({ uaCityName }) =>
+      uaCityName.toLowerCase().startsWith(searchCity.toLowerCase())
+    );
+    setFilteredCities(filtered);
+  }, [cities, searchCity]);
+
+  const handleChange = event => {
+    setSearchCity(event.target.value);
+  };
+
+  const handleCitySelection = (cityName) => {
+    setSelectedCity(cityName);
+    setSearchCity(cityName);
+  };
 
   return (
     <div className={styles.modal}>
@@ -51,23 +60,44 @@ const ChooseCityModal = ({closeCitiesModal,chooseCity}) => {
       </button>
       <h3 className={styles.modal__text}>Виберіть своє місто</h3>
       <ul className={styles.listBtn}>
-        {cities.map(({ id, city }) => (
+        {citiesBtn.map(({ id, city }) => (
           <li key={id}>
-            <button className={styles.cityBtn} onClick={chooseCity}>
+            <button className={styles.cityBtn} onClick={() => handleCitySelection(city)}>
               {city}
             </button>
           </li>
         ))}
       </ul>
-      <label className={styles.label} htmlFor="">
+      <label className={styles.label} htmlFor="searchCity">
         Або знайдіть своє місто тут
       </label>
       <input
         className={styles.input}
         type="text"
-        placeholder="Черкаси, Черкаська область"
+        id="searchCity"
+        placeholder="Черкаси"
+        value={searchCity}
+        onChange={handleChange}
       />
-      <button className={styles.button} onClick={closeCitiesModal}>
+      {searchCity && (
+        <div className={styles.filteredCity}>
+          <ul className={styles.filteredCity__list}>
+            {filteredCities?.map(({ geonameId, uaCityName }) => {
+              return (
+                <li key={geonameId} className={styles.filteredCity__item}>
+                  <button
+                    className={styles.filteredCity__btn}
+                    onClick={() => handleCitySelection(uaCityName)}
+                  >
+                    {uaCityName}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
+      <button className={styles.button} onClick={() => chooseCity(selectedCity)}>
         Готово
       </button>
     </div>

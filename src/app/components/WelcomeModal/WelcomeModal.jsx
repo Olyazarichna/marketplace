@@ -1,11 +1,7 @@
 'use client';
 import styles from "./WelcomeModal.module.scss";
-import { useState, useEffect } from "react";
-// import getCity from "../../services/getCity";
 
 const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo,city }) => {
-
-
   return (
     <div className={styles.modal}>
       <button className={styles.modal__btn} onClick={closeModal}>

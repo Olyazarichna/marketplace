@@ -1,4 +1,4 @@
-@import "../../../scss/utils/mixin";
+@import '../../../scss/utils/mixin';
 .modal {
   position: fixed;
   top: 50%;
@@ -43,11 +43,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-  @include mq(tablet){
+  @include mq(tablet) {
     grid-template-columns: repeat(3, 1fr);
-
   }
-  
 }
 .cityBtn {
   display: inline-block;
@@ -84,7 +82,7 @@
   border-radius: 5px;
   margin-top: 8px;
   width: 100%;
-  @include mq(tablet){
+  @include mq(tablet) {
     font-size: 16px;
   }
 }
@@ -94,8 +92,45 @@
   padding: 10px 0;
   width: 256px;
   margin-top: 89px;
-  @include mq(tablet){
+  @include mq(tablet) {
     font-size: 20px;
     padding: 16px 0;
+  }
+}
+.filteredCity {
+  position: relative;
+}
+.filteredCity__list {
+  width: 100%;
+  background-color: #efefef;
+  position: absolute;
+  border-radius: 5px;
+  z-index: 1;
+  margin-top: 8px;
+  height: auto;
+  overflow: scroll;
+}
+.filteredCity__item {
+  font-size: 14px;
+  text-align: left;
+  transition: all ease-in-out 300ms;
+  @include mq(tablet) {
+    font-size: 16px;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: rgba(252, 191, 73, 0.8);
+  }
+}
+
+.filteredCity__btn {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border-color: transparent;
+  &:hover,
+  &:focus {
+    cursor: pointer;
   }
 }

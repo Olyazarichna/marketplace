@@ -11,18 +11,67 @@ import { useState, useEffect } from 'react';
 import Backdrop from './components/Backdrop/Backdrop.jsx';
 import WelcomeModal from './components/WelcomeModal/WelcomeModal';
 import ChooseCityModal from './components/ChooseCityModal/ChooseCityModal.jsx';
-// import getAllActivities from "./services/getAllActivities";
 import getCity from './services/getCity';
 
+const products = [
+  {
+    img: img1,
+    id: '123',
+    title: 'Вуличний театр для дітей',
+    date: '2023-07-30',
+    location: 'Some Location 1',
+    time: '15:00',
+  },
+  {
+    img: img2,
+    id: '1237',
+    title: 'Благодійний музичний вечір органної музики',
+    date: '2023-07-30',
+    location: 'Some Location 1',
+    time: '15:00',
+  },
+  {
+    img: img3,
+    id: '1235',
+    title: 'Онлайн майтсер-класи для дітей та дорослих',
+    date: '2023-07-30',
+    location: 'Some Location 1',
+    time: '15:00',
+  },
+  {
+    img: img1,
+    id: '1234545',
+    title: 'Онлайн майтсер-класи для дітей та дорослих',
+    date: '2023-07-30',
+    location: 'Some Location 1',
+    time: '15:00',
+  },
+  {
+    img: img1,
+    id: '123422',
+    title: 'Онлайн майтсер-класи для дітей та дорослих',
+    date: '2023-07-30',
+    location: 'Some Location 1',
+    time: '15:00',
+  },
+  {
+    img: img1,
+    id: '123884',
+    title: 'Онлайн майтсер-класи для дітей та дорослих',
+    date: '2023-07-30',
+    location: 'Some Location 1',
+    time: '15:00',
+  },
+];
+
 export default function Home() {
-  const [showModal, setShowModal] = useState(false);
-  const [showNextModal, setShowNextModal] = useState(false);
-  // const [activities, setActivities] = useState([]);
+  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+  const [showCityModal, setShowCityModal] = useState(false);
   const [city, setCity] = useState(null);
 
   useEffect(() => {
     setTimeout(() => {
-      setShowModal(true);
+      setShowWelcomeModal(true);
     }, 3000);
     const fetchData = async () => {
       try {
@@ -36,88 +85,29 @@ export default function Home() {
     fetchData();
   }, []);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const data = await getAllActivities();
-  //       console.log('a', data);
-  //       setActivities(data);
-  //       console.log(activities);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [activities]);
- 
-  const products = [
-    {
-      img: img1,
-      id: '123',
-      title: 'Вуличний театр для дітей',
-      date: '2023-07-30',
-      location: 'Some Location 1',
-      time: '15:00',
-    },
-    {
-      img: img2,
-      id: '1237',
-      title: 'Благодійний музичний вечір органної музики',
-      date: '2023-07-30',
-      location: 'Some Location 1',
-      time: '15:00',
-    },
-    {
-      img: img3,
-      id: '1235',
-      title: 'Онлайн майтсер-класи для дітей та дорослих',
-      date: '2023-07-30',
-      location: 'Some Location 1',
-      time: '15:00',
-    },
-    {
-      img: img1,
-      id: '1234545',
-      title: 'Онлайн майтсер-класи для дітей та дорослих',
-      date: '2023-07-30',
-      location: 'Some Location 1',
-      time: '15:00',
-    },
-    {
-      img: img1,
-      id: '123422',
-      title: 'Онлайн майтсер-класи для дітей та дорослих',
-      date: '2023-07-30',
-      location: 'Some Location 1',
-      time: '15:00',
-    },
-    {
-      img: img1,
-      id: '123884',
-      title: 'Онлайн майтсер-класи для дітей та дорослих',
-      date: '2023-07-30',
-      location: 'Some Location 1',
-      time: '15:00',
-    },
-  ];
-
   const handleModalToggle = () => {
-    setShowModal(!showModal);
+    setShowWelcomeModal(!showWelcomeModal);
   };
 
-  const openModal = () => {
-    setShowModal(!showModal);
-    setShowNextModal(!showNextModal);
+  const openCityModal = () => {
+    setShowWelcomeModal(!showWelcomeModal);
+    setShowCityModal(!showCityModal);
   };
+
   const closeCitiesModal = () => {
-    setShowNextModal(!showNextModal);
+    setShowCityModal(!showCityModal);
   };
-  const chooseCity = () => {
-    alert('choose city');
+
+  const chooseCity = selectedCity => {
+    console.log(`Обране місто: ${selectedCity}`);
+    setCity(selectedCity);
+    setShowCityModal(!showCityModal);
+    //отримати події у selectedCity
   };
+
   return (
     <>
-      <Header city={city}/>
+      <Header city={city} setCity={setCity} />
       <main>
         <AboutUs />
         <ProductList title="Події у Києві" products={products} />
@@ -127,17 +117,17 @@ export default function Home() {
         <ProductList title="Курси онлайн" products={products} />
       </main>
       <Footer />
-      {showModal && (
+      {showWelcomeModal && (
         <Backdrop>
           <WelcomeModal
             closeModal={handleModalToggle}
             handleBtnYes={handleModalToggle}
-            handleBtnNo={openModal}
+            handleBtnNo={openCityModal}
             city={city}
           />
         </Backdrop>
       )}
-      {showNextModal && (
+      {showCityModal && (
         <Backdrop>
           <ChooseCityModal closeCitiesModal={closeCitiesModal} chooseCity={chooseCity} />
         </Backdrop>

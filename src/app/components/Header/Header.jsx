@@ -2,22 +2,32 @@
 import styles from './Header.module.scss';
 import Link from 'next/link';
 import { useState } from 'react';
+import ChooseCityModal from '../ChooseCityModal/ChooseCityModal';
 
-const Header = ({ city }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Header = ({ city, setCity }) => {
+  const [showCategory, setShowCategory] = useState(false);
   const [token, setToken] = useState(
     typeof localStorage !== 'undefined' ? localStorage.getItem('authToken') || '' : ''
   );
+  const [showCityModal, setShowCityModal] = useState(false);
 
   const chooseCategory = async () => {
-    setIsOpen(!isOpen);
+    setShowCategory(!showCategory);
   };
-  const openModal = () => {
-    console.log('open choose city modal ');
+  const openModalChangeCity = () => {
+    setShowCityModal(true);
   };
   const logout = () => {
     setToken('');
   };
+
+  const chooseCity = selectedCity => {
+    console.log(`Обране місто: ${selectedCity}`);
+    setCity(selectedCity);
+    setShowCityModal(!showCityModal);
+    //отримати події у selectedCity
+  };
+
   return (
     <header className={`${'container'} ${styles.header}`}>
       <button className={styles.btn}>
@@ -31,19 +41,19 @@ const Header = ({ city }) => {
 
       <ul className={styles.list}>
         <li className={styles.list__item}>
-          <button className={styles.location} onClick={openModal}>
+          <button className={styles.location} onClick={openModalChangeCity}>
             {city ? city : 'Київ'}
           </button>
         </li>
 
         <li className={styles.list__item}>
           <button
-            className={isOpen ? styles.list__btnOpen : styles.list__btn}
+            className={showCategory ? styles.list__btnOpen : styles.list__btn}
             onClick={chooseCategory}
           >
             Види дозвілля
           </button>
-          {isOpen && (
+          {showCategory && (
             <ul className={styles.activityList}>
               <li className={styles.activityList__item}>
                 <button className={styles.activityList__btn}>Для дорослих</button>{' '}
@@ -136,6 +146,9 @@ const Header = ({ city }) => {
           </Link>
         </li>
       </ul>
+      {showCityModal && (
+        <ChooseCityModal closeCitiesModal={() => setShowCityModal(false)} chooseCity={chooseCity} />
+      )}
     </header>
   );
 };

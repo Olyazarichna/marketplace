@@ -1,5 +1,6 @@
 'use client';
 import '../scss/main.scss';
+import 'normalize.css/normalize.css';
 import AboutUs from './components/AboutUs/AboutUs';
 import ProductList from './components/ProductList/ProductList';
 import img1 from '../../public/images/aboutUs1x.jpg';
@@ -123,7 +124,8 @@ export default function Home() {
             closeModal={handleModalToggle}
             handleBtnYes={handleModalToggle}
             handleBtnNo={openCityModal}
-            city={city}
+            title={`Ваше місто ${city ? city : "Київ"} ?`}
+            // city={city}
           />
         </Backdrop>
       )}

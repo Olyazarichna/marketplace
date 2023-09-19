@@ -1,7 +1,7 @@
 'use client';
 import styles from "./WelcomeModal.module.scss";
 
-const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo,city }) => {
+const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo,title }) => {
   return (
     <div className={styles.modal}>
       <button className={styles.modal__btn} onClick={closeModal}>
@@ -21,7 +21,8 @@ const WelcomeModal = ({ closeModal, handleBtnYes, handleBtnNo,city }) => {
           />
         </svg>
       </button>
-      <h3 className={styles.modal__text}>Ваше місто {city ? city : "Київ"} ?</h3>
+      <h3 className={styles.modal__text}>{title}</h3>
+      {/* <h3 className={styles.modal__text}>Ваше місто {city ? city : "Київ"} ?</h3> */}
       <div>
         <button className={styles.btnYes} onClick={handleBtnYes}>
           Так

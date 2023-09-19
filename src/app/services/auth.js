@@ -1,3 +1,5 @@
+// import { API_BASE_URL } from "../constants/apiUrls";
+//   const url = `${API_BASE_URL}/auth/register`;
 const register = async ({ firstName, lastName, email, password }) => {
   const url = 'https://navkolodozvillya.onrender.com/auth/register';
   const userData = {

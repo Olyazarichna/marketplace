@@ -1,5 +1,6 @@
+import { API_BASE_URL } from "../constants/apiUrls";
 const getAllActivities = async () => {
-  const url = 'https://navkolodozvillya.onrender.com/offerings';
+  const url = `${API_BASE_URL}/offerings`;
   try {
     const response = await fetch(url, { cache: 'no-cache' });
     if (!response.ok) {

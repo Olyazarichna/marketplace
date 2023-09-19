@@ -2,7 +2,9 @@
 import styles from './Header.module.scss';
 import Link from 'next/link';
 import { useState } from 'react';
+import Backdrop from '../Backdrop/Backdrop';
 import ChooseCityModal from '../ChooseCityModal/ChooseCityModal';
+import ConfirmationModal from '../ConfirmationModal/ConfirmationModal';
 
 const Header = ({ city, setCity }) => {
   const [showCategory, setShowCategory] = useState(false);
@@ -10,7 +12,7 @@ const Header = ({ city, setCity }) => {
     typeof localStorage !== 'undefined' ? localStorage.getItem('authToken') || '' : ''
   );
   const [showCityModal, setShowCityModal] = useState(false);
-
+const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const chooseCategory = async () => {
     setShowCategory(!showCategory);
   };
@@ -18,9 +20,12 @@ const Header = ({ city, setCity }) => {
     setShowCityModal(true);
   };
   const logout = () => {
+    setShowConfirmationModal(false); 
     setToken('');
   };
-
+  const handleModalToggle = () => {
+    setShowConfirmationModal(!showConfirmationModal);
+  };
   const chooseCity = selectedCity => {
     console.log(`Обране місто: ${selectedCity}`);
     setCity(selectedCity);
@@ -98,7 +103,7 @@ const Header = ({ city, setCity }) => {
       <ul className={styles.btnList}>
         <li className={styles.btnList__item}>
           {token ? (
-            <button className={styles.btnList__btnLogout} onClick={logout}>
+            <button className={styles.btnList__btnLogout} onClick={handleModalToggle}>
               <svg
                 className={styles.btnList__icon}
                 xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +152,19 @@ const Header = ({ city, setCity }) => {
         </li>
       </ul>
       {showCityModal && (
-        <ChooseCityModal closeCitiesModal={() => setShowCityModal(false)} chooseCity={chooseCity} />
+<Backdrop>
+  <ChooseCityModal closeCitiesModal={() => setShowCityModal(false)} chooseCity={chooseCity} />
+</Backdrop>
+      )}  
+       {showConfirmationModal && (
+        <Backdrop>
+          <ConfirmationModal
+            closeModal={handleModalToggle}
+            handleBtnYes={logout}
+            handleBtnNo={handleModalToggle}
+            title='Бажаєте вийти з акаунта?'
+          />
+        </Backdrop>
       )}
     </header>
   );

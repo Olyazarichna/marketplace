@@ -1,5 +1,7 @@
+import { API_BASE_URL } from "../constants/apiUrls";
+
 const logout = async () => {
-  const url = 'https://navkolodozvillya.onrender.com/auth/logout';
+  const url = `${API_BASE_URL}/auth/logout`;
   try {
     const response = await fetch(url, {
       method: 'POST',

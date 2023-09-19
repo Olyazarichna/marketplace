@@ -1,5 +1,6 @@
+import { API_BASE_URL } from "../constants/apiUrls";
 const getAllCity = async () => {
-    const url = 'http://54.175.43.71/city/getAll';
+    const url = `${API_BASE_URL}/city/getAll`;
     try {
       const response = await fetch(url, { cache: 'no-cache' });
       if (!response.ok) {

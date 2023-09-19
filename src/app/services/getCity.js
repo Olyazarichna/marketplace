@@ -1,5 +1,6 @@
+import { API_BASE_URL } from "../constants/apiUrls";
 const getCity = async () => {
-  const url = 'https://navkolodozvillya.onrender.com/city';
+  const url = `${API_BASE_URL}/city`;
   try {
     const response = await fetch(url, { cache: 'no-cache' });
     if (!response.ok) {

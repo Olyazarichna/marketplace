@@ -55,7 +55,7 @@ export default function Home() {
 
   return (
     <>
-      <Header city={city} setCity={setCity} />
+      <Header city={city} chooseCity={chooseCity } handleModalToggle={handleModalToggle} openCityModal={openCityModal} />
       <main>
         <AboutUs />
         <ProductList title="Події у Києві" products={products} />
@@ -64,7 +64,7 @@ export default function Home() {
         <ProductList title="Курси в Києві" products={products} />
         <ProductList title="Курси онлайн" products={products} />
       </main>
-      <Footer />
+      {/* <Footer /> */}
       {showConfirmationModal && (
         <Backdrop>
           <ConfirmationModal 
@@ -73,9 +73,9 @@ export default function Home() {
             handleBtnNo={openCityModal}
             title={`Ваше місто ${city ? city : "Київ"} ?`}
           />
-        </Backdrop>
-      )}
-      {showCityModal && (
+        </Backdrop> 
+      )} 
+       {showCityModal && (
         <Backdrop>
           <ChooseCityModal closeCitiesModal={closeCitiesModal} chooseCity={chooseCity} />
         </Backdrop>

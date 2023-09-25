@@ -5,11 +5,11 @@
   background-image: url(../../../../public/images/aboutUs.jpg);
   background-position: center;
   background-size: cover;
-  padding-top: 100px;
-  padding-bottom: 73px;
-  @include mq(tablet) {
-    padding-top: 210px;
-  }
+  padding-top: 260px;
+  padding-bottom: 20px;
+  // @include mq(tablet) {
+  //   padding-top: 210px;
+  // }
   @include mq(desktop) {
     padding-top: 286px;
   }

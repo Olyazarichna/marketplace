@@ -22,7 +22,7 @@ const ConfirmationModal = ({ closeModal, handleBtnYes, handleBtnNo,title }) => {
         </svg>
       </button>
       <h3 className={styles.modal__text}>{title}</h3>
-      <div>
+      <div className={styles.btn_wrapper}>
         <button className={styles.btnYes} onClick={handleBtnYes}>
           Так
         </button>

@@ -1,5 +1,7 @@
+import { API_BASE_URL } from "../constants/apiUrls";
+
 const login = async ({ email, password }) => {
-  const url = 'https://navkolodozvillya.onrender.com/auth/authenticate';
+  const url = `${API_BASE_URL}/auth/authenticate`;
   const user = {
     email,
     password,

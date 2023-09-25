@@ -4,10 +4,6 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 25px;
-  // position: relative;
-  @include mq(tablet) {
-    // justify-content: center;
-  }
 }
 .btn {
   display: block;
@@ -36,55 +32,30 @@
     transform: scale(1.05);
   }
 }
-// .mobileMenu{
-//   background-color: rgba($color: #003049, $alpha:.9);
-//   position: absolute;
-//   top:58px;
-//   left:0;
-//   width: 100%;
-//   color: #fff;
-//   padding: 27px 22px;
-//   @include mq(tablet){
-//   //  background-color: transparent;
-//    position: static;
-//   }
-// }
 
-// .btnClose{
-//   @extend .btn;
-//   position: absolute;
-//   top:22px;
-//   right: 0;
-//   @include mq(tablet){
-//     display: none;
-//   }
-
-// }
-.list {
-  display: flex;
-}
-.list__item {
+.categoryWrapper {
   display: none;
   @include mq(desktop) {
     display: flex;
     align-content: center;
     position: relative;
-    &:last-child {
-      margin-left: 20px;
-    }
+    margin-left: 20px;
   }
 }
 
 .location {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #ffffff;
-  border-radius: 5px;
-  padding: 8px 16px;
-  border-color: transparent;
-  background-color: var(--form-btn-bg);
-  transition: all ease-in-out 300ms;
+  display: none;
+  @include mq(tablet) {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 8px 16px;
+    border-color: transparent;
+    background-color: var(--form-btn-bg);
+    transition: all ease-in-out 300ms;
+  }
   @include mq(desktop) {
     font-size: 16px;
   }
@@ -101,6 +72,7 @@
   &:hover,
   &:focus {
     cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.28);
   }
 }
 
@@ -183,14 +155,15 @@
 .button {
   display: none;
   @include mq(tablet) {
-    font-size: 14px;
-    padding: 13px 20px;
-    display: block;
-    margin-left: 16px;
     background-color: var(--accent-btn-cl);
+    font-size: 14px;
+    padding: 5px 10px;
+    display: block;
+    text-align: center;
     border-radius: 5px;
     border-color: transparent;
     transition: all ease-in-out 300ms;
+    margin-left: 16px;
   }
   @include mq(desktop) {
     font-size: 20px;
@@ -206,67 +179,94 @@
     color: #ffffff;
   }
 }
-.inputWrapper {
-  position: relative;
+.buttonAddActivity {
+  position: absolute;
+  top: 120px;
+  left: 22px;
+  background-color: var(--accent-btn-cl);
+  font-size: 12px;
+  padding: 13px 10px;
+  display: block;
+  border-radius: 5px;
+  border-color: transparent;
   transition: all ease-in-out 300ms;
-  &:hover,
-  &:focus {
-    fill: #ffffff;
-  }
-}
-.input {
-  display: none;
   @include mq(tablet) {
-    display: block;
-    padding: 10px 25px 10px 5px;
-    margin-left: 16px;
-    border-radius: 5px;
-    background-color: #efefef;
-    border-color: transparent;
-    transition: all ease-in-out 300ms;
-    outline: none;
-  }
-  @include mq(desktop) {
-    font-size: 20px;
-    margin-left: 25px;
-    padding: 8px 25px 8px 5px;
+    display: none;
   }
   &:hover,
   &:focus {
     cursor: pointer;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.28);
-  }
-  &::placeholder {
-    color: #000000;
   }
 }
-.searchBtn {
-  position: absolute;
-  top: -16px;
-  right: 0;
-  padding: 0;
+.openBtn {
   background-color: transparent;
   border-color: transparent;
   @include mq(tablet) {
-    top: 10px;
-    right: 3px;
+    display: none;
   }
 }
+.closeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border-color: transparent;
+  @include mq(tablet) {
+    display: none;
+  }
+}
+
 .btnList {
   display: none;
+  position: absolute;
+  top: 59px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px;
+  background-color: rgba($color: #003049, $alpha: 0.9);
   @include mq(tablet) {
+    position: static;
+    height: auto;
+    width: auto;
+    background-color: transparent;
     display: flex;
     align-items: center;
   }
 }
+.btnListNav {
+  position: absolute;
+  top: 59px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px;
+  background-color: rgba($color: #003049, $alpha: 0.9);
+  @include mq(tablet) {
+    display: none;
+  }
+}
 
 .btnList__item {
+  &:nth-child(2) {
+    position: absolute;
+    top: 13px;
+    right: 20px;
+  }
+  &:not(:first-child) {
+    margin-top: 10px;
+  }
   @include mq(tablet) {
     &:first-child {
+      display: none;
+    }
+    &:nth-child(2) {
       margin-left: 16px;
+      position: static;
     }
     &:not(:first-child) {
       margin-left: 10px;
+      margin-top: 0;
     }
   }
   @include mq(desktop) {
@@ -277,25 +277,63 @@
       margin-left: 16px;
     }
   }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
 }
-
-.btnList__btn {
-  padding: 0;
-  border-color: transparent;
+.locationNav {
+  color: #fff;
   background-color: transparent;
+  border-color: transparent;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding: 0;
+  transition: all ease-in-out 300ms;
+  &:before {
+    margin-right: 8px;
+    content: '';
+    background: url('../../../../public/icons/location-white.svg');
+    display: inline-block;
+    width: 20px;
+    height: 24px;
+    stroke: #ffffff;
+    background-repeat: no-repeat;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
+.btnList__btn {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+  border: none;
   transition: all ease-in-out 300ms;
   &:hover,
   &:focus {
     cursor: pointer;
   }
 }
-.btnList__btnLogout {
-  @extend .btnList__btn;
-}
 .btnList__icon {
+  fill: #fff;
   transition: all ease-in-out 300ms;
+  @include mq(tablet) {
+    fill: #000;
+  }
   &:hover,
   &:focus {
     fill: var(--accent-btn-cl);
+  }
+}
+
+.btnList__text {
+  color: #fff;
+  margin-left: 8px;
+  @include mq(tablet) {
+    display: none;
   }
 }

@@ -76,7 +76,6 @@ const ProductList = ({ title, products }) => {
           </button>
         </div>
       </div>
-
       <Button title="Більше подій" onClick={showMore} />
     </section>
   );

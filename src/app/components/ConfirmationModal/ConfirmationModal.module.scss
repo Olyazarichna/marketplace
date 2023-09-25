@@ -4,23 +4,25 @@
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
+  width: 286px;
   border-radius: 10px;
   background-color: #ffffff;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   color: var(--form-btn-bg);
-  padding: 87px 77px;
+  padding: 22px;
   text-align: center;
   z-index: 10;
   @include mq(tablet) {
+    padding: 87px 77px;
     width: 616px;
     top: 50%;
   }
 }
+
 .modal__btn {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 6px;
+  right: 10px;
   background-color: transparent;
   border-color: transparent;
   transition: all ease-in-out 300ms;
@@ -39,11 +41,13 @@
     font-size: 24px;
   }
 }
+.btn_wrapper {
+  margin-top: 24px;
+}
 .btnYes,
 .btnNo {
-  margin-top: 14px;
   display: inline-block;
-  width: 130px;
+  width: 75px;
   font-size: 14px;
   padding: 8px 0;
   transition: all ease-in-out 300ms;
@@ -51,7 +55,6 @@
   border-color: transparent;
   @include mq(tablet) {
     width: 184px;
-    margin-top: 24px;
   }
 
   &:hover,
@@ -67,10 +70,7 @@
 .btnNo {
   background-color: var(--form-btn-bg);
   color: #ffffff;
-  margin-left: 6px;
-  font-size: 14px;
-  margin-left: 0;
+  margin-left: 24px;
   @include mq(tablet) {
-    margin-left: 24px;
   }
 }

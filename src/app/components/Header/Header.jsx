@@ -117,7 +117,7 @@ const Header = ({ city, openCityModal, handleModalToggle, chooseCity }) => {
           </svg>
         </button>
       )}
-      {(showSearchField || window.innerWidth >= 768) && <SearchForm />}
+      {showSearchField && <SearchForm />}
 
       <ul className={showNavigation ? styles.btnListNav : styles.btnList}>
         <li className={styles.btnList__item}>

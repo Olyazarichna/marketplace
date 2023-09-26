@@ -33,12 +33,7 @@ export default function Home() {
     fetchData();
   }, []);
 
-  const handleModalToggle = () => {
-    setShowConfirmationModal(!showConfirmationModal);
-  };
-
   const openCityModal = () => {
-    setShowConfirmationModal(!showConfirmationModal);
     setShowCityModal(!showCityModal);
   };
 
@@ -55,7 +50,7 @@ export default function Home() {
 
   return (
     <>
-      <Header city={city} chooseCity={chooseCity } handleModalToggle={handleModalToggle} openCityModal={openCityModal} />
+      <Header city={city} openCityModal={openCityModal} />
       <main>
         <AboutUs />
         <ProductList title="Події у Києві" products={products} />
@@ -68,8 +63,8 @@ export default function Home() {
       {showConfirmationModal && (
         <Backdrop>
           <ConfirmationModal 
-            closeModal={handleModalToggle}
-            handleBtnYes={handleModalToggle}
+            closeModal={()=>setShowConfirmationModal(false)}
+            handleBtnYes={()=>setShowConfirmationModal(false)}
             handleBtnNo={openCityModal}
             title={`Ваше місто ${city ? city : "Київ"} ?`}
           />

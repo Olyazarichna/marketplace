@@ -6,7 +6,7 @@ import getAllCity from '../../services/getAllCity';
 
 const ChooseCityModal = ({ closeCitiesModal, chooseCity }) => {
   const [cities, setCities] = useState([]);
-  const [filteredCities, setFilteredCities] = useState([]);
+  const [filter, setFilter] = useState([]);
   const [searchCity, setSearchCity] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
 
@@ -27,14 +27,14 @@ const ChooseCityModal = ({ closeCitiesModal, chooseCity }) => {
     const filtered = cities.filter(({ uaCityName }) =>
       uaCityName.toLowerCase().startsWith(searchCity.toLowerCase())
     );
-    setFilteredCities(filtered);
+   setFilter(filtered);
   }, [cities, searchCity]);
 
   const handleChange = event => {
     setSearchCity(event.target.value);
   };
 
-  const handleCitySelection = (cityName) => {
+  const selectCity = (cityName) => {
     setSelectedCity(cityName);
     setSearchCity(cityName);
   };
@@ -62,7 +62,7 @@ const ChooseCityModal = ({ closeCitiesModal, chooseCity }) => {
       <ul className={styles.listBtn}>
         {citiesBtn.map(({ id, city }) => (
           <li key={id}>
-            <button className={styles.cityBtn} onClick={() => handleCitySelection(city)}>
+            <button className={styles.cityBtn} onClick={() => selectCity(city)}>
               {city}
             </button>
           </li>
@@ -82,12 +82,12 @@ const ChooseCityModal = ({ closeCitiesModal, chooseCity }) => {
       {searchCity && (
         <div className={styles.filteredCity}>
           <ul className={styles.filteredCity__list}>
-            {filteredCities?.map(({ geonameId, uaCityName }) => {
+            {filter?.map(({ geonameId, uaCityName }) => {
               return (
                 <li key={geonameId} className={styles.filteredCity__item}>
                   <button
                     className={styles.filteredCity__btn}
-                    onClick={() => handleCitySelection(uaCityName)}
+                    onClick={() => selectCity(uaCityName)}
                   >
                     {uaCityName}
                   </button>

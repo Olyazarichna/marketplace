@@ -33,7 +33,7 @@ const AddActivityForm = () => {
         break;
 
       default:
-        break;
+        return;
     }
   };
   return (
@@ -41,7 +41,7 @@ const AddActivityForm = () => {
       <h2 className={styles.title}>Додавання події</h2>
       <BtnBack />
 
-      <form className={styles.form}>
+      <form className={styles.form} autoComplete="off">
         <div className={styles.inputWrapper}>
           <h3 className={styles.heading}>Додайте інформацію про подію</h3>
           <input

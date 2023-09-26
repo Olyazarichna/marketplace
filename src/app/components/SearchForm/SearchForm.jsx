@@ -1,6 +1,6 @@
 import styles from './SearchForm.module.scss';
 import { useState } from 'react';
-const SearchForm = () => {
+const SearchForm = ({showSearchField}) => {
   const [search, setSearch] = useState('');
 
   const handleSubmit = event => {
@@ -8,12 +8,11 @@ const SearchForm = () => {
     alert('Пошук');
   };
   return (
-    <form className={styles.formWrapper} onSubmit={handleSubmit}>
+    <form className={styles.formWrapper} onSubmit={handleSubmit} autoComplete="off">
       <input
         type="text"
         placeholder="Пошук"
-        className={styles.input}
-        autoComplete="off"
+        className={showSearchField ? styles.inputMob : styles.input}
         autoFocus
         value={search}
         onChange={e => setSearch(e.target.value)}

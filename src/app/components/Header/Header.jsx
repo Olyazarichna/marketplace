@@ -3,18 +3,15 @@ import styles from './Header.module.scss';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import Backdrop from '../Backdrop/Backdrop';
-import ChooseCityModal from '../ChooseCityModal/ChooseCityModal';
 import ConfirmationModal from '../ConfirmationModal/ConfirmationModal';
 import SearchForm from '../SearchForm/SearchForm';
 
-const Header = ({ city, openCityModal, handleModalToggle, chooseCity }) => {
+const Header = ({ city, openCityModal }) => {
   const [showCategory, setShowCategory] = useState(false);
   const [token, setToken] = useState(
     typeof localStorage !== 'undefined' ? localStorage.getItem('authToken') || '' : ''
   );
-
-  const [showCityModal, setShowCityModal] = useState(false);
-  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [showLogoutConfirmationModal, setShowLogoutConfirmationModal] = useState(false);
   const [showNavigation, setShowNavigation] = useState(false);
   const [showSearchField, setShowSearchField] = useState(false);
 
@@ -35,8 +32,11 @@ const Header = ({ city, openCityModal, handleModalToggle, chooseCity }) => {
   };
 
   const logout = () => {
-    setShowConfirmationModal(false);
+    setShowLogoutConfirmationModal(false);
     setToken('');
+  };
+  const toggleSearchField = () => {
+    setShowSearchField(!showSearchField);
   };
 
   return (
@@ -92,7 +92,7 @@ const Header = ({ city, openCityModal, handleModalToggle, chooseCity }) => {
         Пропоную дозвілля
       </Link>
       {showSearchField && (
-        <button className={styles.closeBtn} onClick={() => setShowSearchField(false)}>
+        <button className={styles.closeBtn} onClick={toggleSearchField}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="22"
@@ -110,15 +110,12 @@ const Header = ({ city, openCityModal, handleModalToggle, chooseCity }) => {
           </svg>
         </button>
       )}
-      {!showSearchField && (
-        <button className={styles.openBtn} onClick={() => setShowSearchField(true)}>
+        <button className={styles.openBtn} onClick={toggleSearchField}>
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
             <path d="m18.2 19.8-6.8-6.9a6.5 6.5 0 0 1-4.1 1.4c-2 0-3.6-.6-5-2s-2-3-2-5 .6-3.6 2-5 3-2 5-2 3.6.6 5 2 2 3 2 5a6.6 6.6 0 0 1-1.4 4.1l6.8 6.8-1.5 1.6Zm-11-7.6c1.4 0 2.6-.5 3.5-1.5 1-.9 1.5-2 1.5-3.4s-.5-2.5-1.5-3.5c-.9-1-2-1.4-3.4-1.4S4.8 3 3.8 3.8c-1 1-1.4 2.1-1.4 3.5 0 1.3.5 2.5 1.4 3.4 1 1 2.1 1.5 3.5 1.5Z" />
           </svg>
         </button>
-      )}
-      {showSearchField && <SearchForm />}
-
+      <SearchForm showSearchField={showSearchField} />
       <ul className={showNavigation ? styles.btnListNav : styles.btnList}>
         <li className={styles.btnList__item}>
           <button className={styles.locationNav} onClick={openCityModal}>
@@ -127,7 +124,10 @@ const Header = ({ city, openCityModal, handleModalToggle, chooseCity }) => {
         </li>
         <li className={styles.btnList__item}>
           {token ? (
-            <button className={styles.btnList__btn} onClick={handleModalToggle}>
+            <button
+              className={styles.btnList__btn}
+              onClick={() => setShowLogoutConfirmationModal(true)}
+            >
               <svg
                 className={styles.btnList__icon}
                 xmlns="http://www.w3.org/2000/svg"
@@ -180,20 +180,12 @@ const Header = ({ city, openCityModal, handleModalToggle, chooseCity }) => {
           </Link>
         </li>
       </ul>
-      {showCityModal && (
-        <Backdrop>
-          <ChooseCityModal
-            closeCitiesModal={() => setShowCityModal(false)}
-            chooseCity={chooseCity}
-          />
-        </Backdrop>
-      )}
-      {showConfirmationModal && (
+      {showLogoutConfirmationModal && (
         <Backdrop>
           <ConfirmationModal
-            closeModal={handleModalToggle}
+            closeModal={() => setShowLogoutConfirmationModal(false)}
             handleBtnYes={logout}
-            handleBtnNo={handleModalToggle}
+            handleBtnNo={() => setShowLogoutConfirmationModal(false)}
             title="Бажаєте вийти з акаунта?"
           />
         </Backdrop>

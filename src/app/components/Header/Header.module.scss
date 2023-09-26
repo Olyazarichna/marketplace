@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 25px;
+  margin-bottom: 10px;
 }
 .btn {
   display: block;
@@ -18,7 +19,7 @@
   font-weight: 700;
   line-height: 1;
   transition: all ease-in-out 300ms;
-  margin-bottom: 10px;
+  font-size: 14px;
   @include mq(tablet) {
     font-size: 16px;
     width: 168px;
@@ -199,6 +200,9 @@
   }
 }
 .openBtn {
+  position: absolute;
+  top:25px;
+  right: 16px;
   background-color: transparent;
   border-color: transparent;
   @include mq(tablet) {
@@ -208,7 +212,7 @@
 .closeBtn {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 16px;
   background-color: transparent;
   border-color: transparent;
   @include mq(tablet) {
@@ -223,7 +227,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 20px 20px;
   background-color: rgba($color: #003049, $alpha: 0.9);
   @include mq(tablet) {
     position: static;

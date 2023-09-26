@@ -3,10 +3,10 @@
 .formWrapper {
   position: relative;
 }
-.input {
+.inputMob {
   position: absolute;
   top: 26px;
-  right: 20px;
+  right: 0;
   display: block;
   width: 286px;
   padding: 10px 25px 10px 5px;
@@ -15,7 +15,31 @@
   border-color: transparent;
   transition: all ease-in-out 300ms;
   outline: none;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.28);
+  }
+  &::placeholder {
+    color: #000000;
+  }
   @include mq(tablet) {
+    display: none;
+  }
+}
+.input {
+  display: none;
+  @include mq(tablet) {
+    display: block;
+    position: absolute;
+    top: 26px;
+    right: 0;
+    padding: 10px 25px 10px 5px;
+    border-radius: 5px;
+    background-color: #efefef;
+    border-color: transparent;
+    transition: all ease-in-out 300ms;
+    outline: none;
     position: static;
     width: 256px;
     margin-left: 16px;
@@ -36,13 +60,14 @@
 }
 
 .searchBtn {
-  position: absolute;
-  top: 35px;
-  right: 27px;
-  padding: 0;
-  background-color: transparent;
-  border-color: transparent;
+  display: none;
+
   @include mq(tablet) {
+    display: block;
+    position: absolute;
+    padding: 0;
+    background-color: transparent;
+    border-color: transparent;
     top: 10px;
     right: 3px;
   }

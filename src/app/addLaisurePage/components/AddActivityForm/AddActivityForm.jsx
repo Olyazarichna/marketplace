@@ -2,6 +2,7 @@
 import styles from './AddActivityForm.module.scss';
 import BtnBack from '../../../../app/components/BtnBack/BtnBack';
 import { useState } from 'react';
+import AgreementRadioButton from '../AgreementRadioButton/AgreementRadioButton';
 
 const AddActivityForm = () => {
   const [title, setTitle] = useState('');
@@ -10,7 +11,6 @@ const AddActivityForm = () => {
   const [aboutActivity, setAboutActivity] = useState('');
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState(null);
-
   const handleChange = event => {
     event.preventDefault();
     const name = event.target.name;
@@ -37,7 +37,7 @@ const AddActivityForm = () => {
     }
   };
   return (
-    <>
+    <main className={'container'}>
       <h2 className={styles.title}>Додавання події</h2>
       <BtnBack />
 
@@ -108,12 +108,7 @@ const AddActivityForm = () => {
               грн.
             </label>
           </div>
-
-          <div className={styles.checkboxWrapper}>
-            <input type="checkbox" className={styles.checkbox} />
-            <label htmlFor="">Я ознайомлений з правилами і умовами угоди.</label>
-            {/* <p>.</p> */}
-          </div>
+          <AgreementRadioButton />
         </div>
 
         <div className={styles.photoContainer}>
@@ -240,7 +235,7 @@ const AddActivityForm = () => {
           </div>
         </div>
       </form>
-    </>
+    </main>
   );
 };
 

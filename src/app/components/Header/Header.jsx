@@ -8,7 +8,7 @@ import SearchForm from '../SearchForm/SearchForm';
 
 const Header = ({ city, openCityModal }) => {
   const [showCategory, setShowCategory] = useState(false);
-  const [token, setToken] = useState(
+  const [token, setToken] = useState(()=>
     typeof localStorage !== 'undefined' ? localStorage.getItem('authToken') || '' : ''
   );
   const [showLogoutConfirmationModal, setShowLogoutConfirmationModal] = useState(false);

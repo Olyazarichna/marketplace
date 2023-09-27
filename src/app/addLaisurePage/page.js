@@ -7,10 +7,11 @@ const LaisurePage = () => {
   return (
     <>
       <Header />
-      <main className={'container'}>
+      {/* <main className={'container'}> */}
+      {/* <main> */}
         <AddActivityForm />
-      </main>
-      <Footer />
+      {/* </main> */}
+      {/* <Footer /> */}
     </>
   );
 };

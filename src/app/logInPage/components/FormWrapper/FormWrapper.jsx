@@ -35,7 +35,7 @@ const FormWrapper = () => {
         {activeButton === 'register' && <RegisterForm />}
         <span className={styles.info}>
           Під час входу, ви погоджуєтесь з &nbsp;
-          <Link href="" className={styles.info__accent}>
+          <Link href="loginPage/termsPage" className={styles.info__accent}>
             умовами користування
           </Link>
         </span>

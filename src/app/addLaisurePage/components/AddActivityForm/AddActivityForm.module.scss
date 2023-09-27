@@ -8,15 +8,25 @@
 }
 .heading {
   font-size: 18px;
-  margin-top: 36px;
-  margin-bottom: 40px;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  @include mq(tablet) {
+    margin-top: 36px;
+    margin-bottom: 40px;
+  }
 }
 .form {
-  display: flex;
-  justify-content: space-between;
+  @include mq(tablet) {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 .inputWrapper {
-  width: 340px;
+  width: 100%;
+  @include mq(tablet) {
+    width: 340px;
+  }
+
   @include mq(desktop) {
     width: 534px;
   }
@@ -83,34 +93,9 @@
     margin-right: 17px;
   }
 }
-.checkboxWrapper {
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-.checkbox {
-  margin-right: 10px;
-  width: 20px;
-  height: 20px;
-  background-color: transparent;
-  border-radius: 50%;
-  border: 1px solid #efefef;
-  appearance: none;
-  -webkit-appearance: none;
-  cursor: pointer;
-  @include mq(desktop) {
-    width: 28px;
-    height: 28px;
-  }
-  &:checked {
-    background-color: var(--accent-btn-cl);
-  }
-}
 
 .photoContainer {
-  width: 320px;
+  width: 288px;
   @include mq(desktop) {
     width: 528px;
   }
@@ -120,8 +105,7 @@
   border: none;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 16px;
-  grid-row-gap: 16px;
+  gap: 16px;
   margin: 0;
   padding: 0;
   font-size: 14px;
@@ -131,8 +115,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 160px;
-  height: 130px;
+  width: 136px;
+  height: 104px;
   border-radius: 10px;
   background-color: #efefef;
   @include mq(desktop) {
@@ -151,14 +135,31 @@
   font-size: 14px;
 }
 .chooseActivity {
-  margin-top: 60px;
-  text-align: right;
+  margin-top: 24px;
+  text-align: left;
   font-size: 14px;
+  @include mq(desktop) {
+    margin-top: 60px;
+    text-align: right;
+  }
 }
 .chooseActivity__label {
-  &:not(:last-child) {
-    margin-right: 8px;
-    @include mq(desktop) {
+  display: block;
+  &:not(:first-child) {
+    margin-top: 8px;
+  }
+  @include mq(desktop) {
+    &:not(:first-child) {
+      margin-top: 0;
+    }
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  @include mq(desktop) {
+    &:not(:last-child) {
       margin-right: 16px;
     }
   }
@@ -190,9 +191,10 @@
   padding: 12px 60px;
   border-color: transparent;
   border-radius: 10px;
-  margin-top: 60px;
+  margin-top: 51px;
   @include mq(desktop) {
     font-size: 20px;
     padding: 16px 94px;
+    margin-top: 60px;
   }
 }

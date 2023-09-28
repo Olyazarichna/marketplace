@@ -25,17 +25,21 @@
 }
 
 .form__btn {
-  padding-top: 23px;
-  padding-bottom: 23px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   color: #fff;
   background-color: var(--form-btn-bg);
   border-radius: 5px;
-  margin-top: 63px;
-  font-size: 16px;
-  font-weight: 700;
+  margin-top: 48px;
+  font-size: 18px;
+  font-weight: 600;
   @include mq(tablet) {
     font-size: 24px;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    margin-top: 63px;
   }
+
   &:hover,
   &:focus {
     cursor: pointer;

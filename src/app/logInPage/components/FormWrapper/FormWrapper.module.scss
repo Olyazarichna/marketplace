@@ -2,20 +2,21 @@
 
 .formContainer {
     margin: 20px auto;
-    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+   
     @include mq(tablet) {
       padding: 73px 16px;
-      width: 592px;
+      width: 592px; 
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
     }
   }
   .btnWrapper {
     display: flex;
     justify-content: center;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 600;
     @include mq(tablet) {
+      font-weight: 700;
       font-size: 24px;
     }
     @include mq(desktop) {
@@ -37,7 +38,11 @@
   .info {
     font-size: 14px;
     display: inline-block;
-    margin-top: 22px;
+    margin-top: 8px;
+    @include mq(tablet){
+       margin-top: 22px;
+    }
+   
   }
   .info__accent {
     color: #f77f00;

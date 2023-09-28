@@ -1,11 +1,17 @@
 import styles from './SearchForm.module.scss';
 import { useState } from 'react';
-const SearchForm = ({showSearchField}) => {
-  const [search, setSearch] = useState('');
+const SearchForm = ({showSearchField, onSubmit}) => {
+  const [searchField, setSearchField] = useState('');
 
   const handleSubmit = event => {
     event.preventDefault();
+    if(searchField.trim()=== ''){
+      alert('введіть назву події');
+      return;
+    }
+    onSubmit(searchField);
     alert('Пошук');
+    setSearchField('');
   };
   return (
     <form className={styles.formWrapper} onSubmit={handleSubmit} autoComplete="off">
@@ -14,8 +20,8 @@ const SearchForm = ({showSearchField}) => {
         placeholder="Пошук"
         className={showSearchField ? styles.inputMob : styles.input}
         autoFocus
-        value={search}
-        onChange={e => setSearch(e.target.value)}
+        value={searchField}
+        onChange={e => setSearchField(e.target.value.toLowerCase())}
       />
       <button className={styles.searchBtn} type="submit">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">

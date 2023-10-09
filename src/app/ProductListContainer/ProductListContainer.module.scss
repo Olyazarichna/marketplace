@@ -1,0 +1,16 @@
+@import '../../scss/utils/mixin';
+
+.mainSection {
+    margin-top: 45px;
+    text-align: center;
+    @include mq(tablet) {
+      margin-top: 99px;
+    }
+  }
+  .heading {
+    font-size: 24px;
+    text-align: center;
+    @include mq(tablet) {
+      font-size: 36px;
+    }
+  }

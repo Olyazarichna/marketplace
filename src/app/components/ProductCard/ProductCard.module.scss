@@ -1,4 +1,4 @@
-@import "../../../scss/utils/mixin";
+@import '../../../scss/utils/mixin';
 .imgWrapper {
   position: relative;
   height: auto;
@@ -16,12 +16,27 @@
   right: 20px;
   background-color: transparent;
   border-color: transparent;
-  background: url("../../../../public/icons/favorite.svg") no-repeat;
+  background: url('../../../../public/icons/favorite.svg') no-repeat;
+  transition: all ease-in-out 300ms;
   &:hover,
   &:focus {
-    background: url("../../../../public/icons/favoriteRed.svg") no-repeat;
+    background: url('../../../../public/icons/favoriteRed.svg') no-repeat;
   }
 }
+.buyBtn {
+  border-color: transparent;
+  background-color: var(--accent-btn-cl);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 36px;
+  transition: all ease-in-out 300ms;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
+
 .textWrapper {
   padding-left: 23px;
   padding-right: 23px;
@@ -51,8 +66,8 @@
   &:before {
     margin-right: 10px;
     display: inline-block;
-    content: "";
-    background: url("../../../../public/icons/date.svg");
+    content: '';
+    background: url('../../../../public/icons/date.svg');
     width: 24px;
     height: 24px;
     background-size: contain;
@@ -62,7 +77,7 @@
 .location {
   @extend .date;
   &:before {
-    background: url("../../../../public/icons/location.svg");
+    background: url('../../../../public/icons/location.svg');
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -70,7 +85,7 @@
 .time {
   @extend .date;
   &:before {
-    background: url("../../../../public/icons/time.svg");
+    background: url('../../../../public/icons/time.svg');
     background-size: contain;
     background-repeat: no-repeat;
   }

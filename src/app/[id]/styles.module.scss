@@ -1,0 +1,99 @@
+@import '../../scss/utils/mixin';
+
+.cardWrapper {
+  margin-top: 97px;
+  @include mq(tablet) {
+    display: flex;
+  }
+}
+.heading {
+  font-size: 16px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+  @include mq(tablet) {
+    font-size: 32px;
+    margin-top: 0;
+  }
+}
+.img {
+  width: 345px;
+}
+.infoWrapper {
+  @include mq(tablet) {
+    margin-left: 40px;
+  }
+}
+.list {
+  margin-top: 40px;
+}
+.list__item {
+  margin-top: 16px;
+}
+.date {
+  display: flex;
+  align-items: center;
+  &:before {
+    margin-right: 10px;
+    display: inline-block;
+    content: '';
+    background: url('../../../public/icons/date.svg');
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+.location {
+  @extend .date;
+  &:before {
+    background: url('../../../public/icons/location.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+.time {
+  @extend .date;
+  &:before {
+    background: url('../../../public/icons/time.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+.price {
+  @extend .date;
+  &:before {
+    background: url('../../../public/icons/price.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.btn {
+  border-radius: 5px;
+  background-color: var(--accent-btn-cl);
+  border-color: transparent;
+  padding: 12px 0;
+  margin-top: 24px;
+  width: 100%;
+  @include mq(tablet) {
+    width: 258px;
+  }
+}
+.imgContainer {
+  margin-top: 24px;
+}
+.title {
+  font-size: 16px;
+  margin-bottom: 26px;
+  @include mq(tablet) {
+    font-size: 26px;
+  }
+}
+.activities {
+  margin-top: 61px;
+  text-align: center;
+}
+.text {
+  @extend .title;
+  margin-bottom: 0px;
+}

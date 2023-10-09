@@ -1,20 +1,5 @@
 @import '../../../scss/utils/mixin';
 
-.mainSection {
-  margin-top: 45px;
-  text-align: center;
-  @include mq(tablet) {
-    margin-top: 99px;
-  }
-}
-.heading {
-  font-size: 24px;
-  text-align: center;
-  @include mq(tablet) {
-    font-size: 36px;
-  }
-}
-
 .productList {
   margin-top: 40px;
   margin-bottom: 18px;
@@ -52,7 +37,7 @@
 }
 .btnWrapper {
   position: absolute;
-  top: 200px;
+  top: 140px;
   display: flex;
   width: 1000px;
   justify-content: space-between;

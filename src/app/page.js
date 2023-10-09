@@ -11,6 +11,7 @@ import ConfirmationModal from './components/ConfirmationModal/ConfirmationModal'
 import ChooseCityModal from './components/ChooseCityModal/ChooseCityModal.jsx';
 import getCity from './services/getCity';
 import { products } from './products';
+import ProductListContainer from './ProductListContainer/ProductListContainer';
 
 export default function Home() {
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
@@ -53,24 +54,34 @@ export default function Home() {
       <Header city={city} openCityModal={openCityModal} />
       <main>
         <AboutUs />
-        <ProductList title="Події у Києві" products={products} />
-        <ProductList title="Активний відпочинок в Києві" products={products} />
-        <ProductList title="Популярні хобі" products={products} />
-        <ProductList title="Курси в Києві" products={products} />
-        <ProductList title="Курси онлайн" products={products} />
+        <ProductListContainer title="Події у Києві">
+          <ProductList products={products} />
+        </ProductListContainer>
+        <ProductListContainer title="Активний відпочинок в Києві">
+          <ProductList products={products} />
+        </ProductListContainer>
+        <ProductListContainer title="Популярні хобі">
+          <ProductList products={products} />
+        </ProductListContainer>
+        <ProductListContainer title="Курси в Києві">
+          <ProductList products={products} />
+        </ProductListContainer>
+        <ProductListContainer title="Курси онлайн">
+          <ProductList products={products} />
+        </ProductListContainer>
       </main>
       <Footer />
       {showConfirmationModal && (
         <Backdrop>
-          <ConfirmationModal 
-            closeModal={()=>setShowConfirmationModal(false)}
-            handleBtnYes={()=>setShowConfirmationModal(false)}
+          <ConfirmationModal
+            closeModal={() => setShowConfirmationModal(false)}
+            handleBtnYes={() => setShowConfirmationModal(false)}
             handleBtnNo={openCityModal}
-            title={`Ваше місто ${city ? city : "Київ"} ?`}
+            title={`Ваше місто ${city ? city : 'Київ'} ?`}
           />
-        </Backdrop> 
-      )} 
-       {showCityModal && (
+        </Backdrop>
+      )}
+      {showCityModal && (
         <Backdrop>
           <ChooseCityModal closeCitiesModal={closeCitiesModal} chooseCity={chooseCity} />
         </Backdrop>

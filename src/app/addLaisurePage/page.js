@@ -11,7 +11,7 @@ const LaisurePage = () => {
       {/* <main> */}
         <AddActivityForm />
       {/* </main> */}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

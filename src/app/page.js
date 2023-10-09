@@ -59,7 +59,7 @@ export default function Home() {
         <ProductList title="Курси в Києві" products={products} />
         <ProductList title="Курси онлайн" products={products} />
       </main>
-      {/* <Footer /> */}
+      <Footer />
       {showConfirmationModal && (
         <Backdrop>
           <ConfirmationModal 

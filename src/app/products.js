@@ -12,6 +12,7 @@ export const products = [
       location: 'Some Location 1',
       time: '15:00',
       price:'100',
+      amountOfPeople:20,
     },
     {
       img: [img2,img1,img3],
@@ -22,6 +23,7 @@ export const products = [
       location: 'Some Location 1',
       time: '15:00',
       price:'100',
+      amountOfPeople:6,
     },
     {
       img: [img3,img2,img3],
@@ -32,6 +34,7 @@ export const products = [
       location: 'Some Location 1',
       time: '15:00',
       price:'100',
+      amountOfPeople:8,
     },
     {
       img: [img1,img2,img3],
@@ -42,6 +45,7 @@ export const products = [
       location: 'Some Location 1',
       time: '15:00',
       price:'100',
+      amountOfPeople:6,
     },
     {
       img: [img2,img2,img3],
@@ -52,6 +56,7 @@ export const products = [
       location: 'Some Location 1',
       time: '15:00',
       price:'100',
+      amountOfPeople:6,
     },
     {
       img:[img3,img2,img3],
@@ -62,6 +67,7 @@ export const products = [
       location: 'Some Location 1',
       time: '15:00',
       price:'100',
+      amountOfPeople:6,
     },
   ];
   

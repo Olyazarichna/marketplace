@@ -23,15 +23,14 @@ const Product = ({ params: { id } }) => {
               <li className={styles.list__item}>
                 <p className={styles.location}>{products[0].location}</p>
               </li>
-
               <li className={styles.list__item}>
-                <p className={styles.date}>{products[0].date}</p>
-              </li>
-              <li className={styles.list__item}>
-                <p className={styles.time}>{products[0].time}</p>
+                <p className={styles.amountOfPeople}>{products[0].amountOfPeople}</p>
               </li>
               <li className={styles.list__item}>
                 <p className={styles.price}>{products[0].price} грн.</p>
+              </li>
+              <li className={styles.list__item}>
+                <p className={styles.date}>{[products[0].date, ',', products[0].time]}</p>
               </li>
             </ul>
             <button className={styles.btn}>Замовити</button>

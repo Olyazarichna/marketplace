@@ -1,9 +1,10 @@
 @import '../../scss/utils/mixin';
 
 .cardWrapper {
-  margin-top: 97px;
+  margin-top: 20px;
   @include mq(tablet) {
     display: flex;
+    margin-top: 97px;
   }
 }
 .heading {
@@ -51,10 +52,10 @@
     background-repeat: no-repeat;
   }
 }
-.time {
+.amountOfPeople {
   @extend .date;
   &:before {
-    background: url('../../../public/icons/time.svg');
+    background: url('../../../public/icons/people.svg');
     background-size: contain;
     background-repeat: no-repeat;
   }

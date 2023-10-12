@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "../constants/apiUrls";
+import { API_BASE_URL } from '../constants/apiUrls';
 
 const logout = async () => {
   const url = `${API_BASE_URL}/auth/logout`;
@@ -6,7 +6,6 @@ const logout = async () => {
     const response = await fetch(url, {
       method: 'POST',
     });
-
     if (response.ok) {
       console.log('Logout successful');
     } else {

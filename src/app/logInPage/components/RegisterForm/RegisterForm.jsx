@@ -4,6 +4,8 @@ import { useState } from 'react';
 import register from '../../../services/auth';
 import { useRouter } from 'next/navigation';
 import InputField from '../../../components/InputField/InputField';
+import { useDispatch } from 'react-redux';
+import { setToken } from '@/redux/auth-slice';
 
 const RegisterForm = () => {
   const router = useRouter();
@@ -17,6 +19,7 @@ const RegisterForm = () => {
   const [passwordError, setPasswordError] = useState(false);
   const [emailOrPassError, setEmailOrPassError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const onPasswordClick = () => {
     setShowPassword(!showPassword);
@@ -74,7 +77,8 @@ const RegisterForm = () => {
     };
     setIsLoading(true);
     try {
-      await register(user);
+      const response = await register(user);
+      dispatch(setToken(response.accessToken));
       router.push('/');
       reset();
     } catch (error) {
@@ -83,7 +87,6 @@ const RegisterForm = () => {
       setIsLoading(false);
       setEmailOrPassError(false);
     }
-    console.log('ggh');
   };
   const reset = () => {
     setFirstName('');

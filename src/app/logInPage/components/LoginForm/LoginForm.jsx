@@ -4,8 +4,13 @@ import { useState } from 'react';
 import login from '../../../services/login';
 import { useRouter } from 'next/navigation';
 import InputField from '../../../components/InputField/InputField';
+import {useSelector, useDispatch} from 'react-redux';
+import { setToken } from '@/redux/auth-slice';
 
 const LoginForm = () => {
+  const token = useSelector(state=>state);
+  const dispatch= useDispatch();
+  console.log('token', token);
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -48,6 +53,7 @@ const LoginForm = () => {
     try {
       const response = await login(user);
 
+dispatch(setToken(response.accessToken))
       if (response?.accessToken) {
         router.push('/');
         reset();

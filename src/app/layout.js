@@ -2,6 +2,7 @@ import '../scss/main.scss';
 import { Open_Sans } from 'next/font/google';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import { ReduxProvider } from '@/redux/provider';
 
 export const metadata = {
   title: 'Navkolo Dozvillia',
@@ -18,7 +19,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={open_sans.className}>
         {/* <Header /> */}
-        {children}
+        <ReduxProvider>
+            {children}
+        </ReduxProvider>
         {/* <Footer /> */}
       </body>
     </html>

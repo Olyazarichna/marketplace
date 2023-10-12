@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "../constants/apiUrls";
+import { API_BASE_URL } from '../constants/apiUrls';
 
 const register = async ({ firstName, lastName, email, password }) => {
   const url = `${API_BASE_URL}/auth/register`;
@@ -23,11 +23,7 @@ const register = async ({ firstName, lastName, email, password }) => {
     });
     if (response.ok) {
       const data = await response.json();
-      const token = data.accessToken; 
-      console.log('Registration successful:', data);
-      console.log('token:', token);
-      localStorage.setItem('authToken', token);
-      
+      return data;
     } else {
       console.error('Registration failed');
     }
@@ -37,5 +33,3 @@ const register = async ({ firstName, lastName, email, password }) => {
 };
 
 export default register;
-
-

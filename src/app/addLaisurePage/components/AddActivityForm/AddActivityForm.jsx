@@ -11,6 +11,7 @@ const AddActivityForm = () => {
   const [aboutActivity, setAboutActivity] = useState('');
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState(null);
+
   const handleChange = event => {
     event.preventDefault();
     const name = event.target.name;

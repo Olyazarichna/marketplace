@@ -1,52 +1,38 @@
 @import '../../../scss/utils/mixin';
 
 .formWrapper {
-  position: relative;
-}
-.inputMob {
   position: absolute;
-  top: 26px;
-  right: 0;
+  top: 27px;
+  right: 10px;
+  @include mq(desktop) {
+ display: none;
+  }
+}
+.form{
+display: none;
+  @include mq(desktop) {
+position: static;
+display: flex;
+    // order:1;
+  }
+  
+  // order:1;
+}
+.input {
   display: block;
-  width: 286px;
+  width: 288px;
   padding: 10px 25px 10px 5px;
   border-radius: 5px;
   background-color: #efefef;
   border-color: transparent;
   transition: all ease-in-out 300ms;
   outline: none;
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.28);
-  }
-  &::placeholder {
-    color: #000000;
-  }
   @include mq(tablet) {
-    display: none;
-  }
-}
-.input {
-  display: none;
-  @include mq(tablet) {
-    display: block;
-    position: absolute;
-    top: 26px;
-    right: 0;
-    padding: 10px 25px 10px 5px;
-    border-radius: 5px;
-    background-color: #efefef;
-    border-color: transparent;
-    transition: all ease-in-out 300ms;
-    outline: none;
-    position: static;
     width: 256px;
     margin-left: 16px;
   }
   @include mq(desktop) {
     font-size: 20px;
-    margin-left: 25px;
     padding: 8px 25px 8px 5px;
   }
   &:hover,
@@ -58,17 +44,15 @@
     color: #000000;
   }
 }
-
+.inputWrapper {
+  position: relative;
+}
 .searchBtn {
-  display: none;
-
-  @include mq(tablet) {
-    display: block;
-    position: absolute;
-    padding: 0;
-    background-color: transparent;
-    border-color: transparent;
-    top: 10px;
-    right: 3px;
-  }
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 3px;
+  padding: 0;
+  background-color: transparent;
+  border-color: transparent;
 }

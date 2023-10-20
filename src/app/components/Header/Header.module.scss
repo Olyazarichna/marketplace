@@ -14,8 +14,15 @@
   padding: 0;
   background-color: transparent;
   border-color: transparent;
+  transition: all ease-in-out 300ms;
+  stroke: #000;
   @include mq(desktop) {
     display: none;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    stroke: var(--accent-btn-cl);
   }
 }
 
@@ -23,8 +30,15 @@
   display: block;
   border-color: transparent;
   background-color: transparent;
+  transition: all ease-in-out 300ms;
+  stroke: #000;
   @include mq(desktop) {
     display: none;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    stroke: var(--accent-btn-cl);
   }
 }
 .closeNavigation {
@@ -33,6 +47,13 @@
   position: absolute;
   top: 20px;
   z-index: 20;
+  transition: all ease-in-out 300ms;
+  stroke: #fff;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    stroke: var(--accent-btn-cl);
+  }
 }
 
 .logo {
@@ -54,8 +75,14 @@
 .openSearchFieldBtn {
   background-color: transparent;
   border-color: transparent;
+  transition: all ease-in-out 300ms;
   @include mq(desktop) {
     display: none;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    fill: var(--accent-btn-cl);
   }
 }
 
@@ -67,17 +94,15 @@
   height: 100%;
   padding: 60px 20px;
   background-color: rgba($color: #003049, $alpha: 0.9);
-
 }
 .nav {
   display: none;
-    @include mq(desktop) {
-      background-color: transparent;
-  display: flex;
-  justify-content: space-between;
-  padding: 0;  
+  @include mq(desktop) {
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
   }
-
 }
 .linkWrapper {
   position: relative;
@@ -104,7 +129,6 @@
   @include mq(desktop) {
     width: auto;
     border-bottom: none;
-    padding: 0;
     border-radius: 5px;
     padding: 8px 16px;
     background-color: var(--form-btn-bg);
@@ -140,6 +164,9 @@
   border-radius: 5px;
   border-color: transparent;
   transition: all ease-in-out 300ms;
+  @include mq(tablet) {
+    width: 286px;
+  }
   &::before {
     margin-right: 8px;
     content: '';
@@ -165,7 +192,6 @@
     padding: 10px 32px;
     margin-left: 18px;
     background-color: var(--accent-btn-cl);
-
     display: flex;
     align-items: center;
     border-radius: 5px;
@@ -182,20 +208,21 @@
   top: -110px;
   right: 0;
   transition: all ease-in-out 300ms;
+  fill: #fff;
   @include mq(desktop) {
     display: none;
   }
   &:hover,
   &:focus {
     cursor: pointer;
+    fill: var(--accent-btn-cl);
   }
 }
 .navListItem {
   @include mq(desktop) {
-    &:not(:first-child){
-       margin-left: 8px; 
+    &:not(:first-child) {
+      margin-left: 8px;
     }
-  
   }
 }
 .logoutBtn {
@@ -227,15 +254,20 @@
   top: -110px;
   right: 0;
   transition: all ease-in-out 300ms;
+  fill: #fff;
   @include mq(desktop) {
-    position: static;
+    fill: #000;
   }
   &:hover,
   &:focus {
-    cursor: pointer;
+    fill: var(--accent-btn-cl);
+  }
+  @include mq(desktop) {
+    position: static;
   }
 }
-.favBtn, .cart__btn{
+.favBtn,
+.cart__btn {
   display: flex;
   align-items: center;
   padding: 0;
@@ -244,25 +276,27 @@
   padding: 10px 0;
   border-bottom: 1px solid var(--accent-btn-cl);
   transition: all ease-in-out 300ms;
+  &:after {
+    display: inline-block;
+    content: '';
+    background: url('../../../../public/icons/moreAccent.svg');
+    width: 10px;
+    height: 9px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: auto;
+  }
   @include mq(desktop) {
     border: none;
     padding: 0;
     fill: #000;
+    &::after {
+      content: none;
+    }
   }
   &:hover,
   &:focus {
     cursor: pointer;
-  }
-}
-
-.login__icon {
-  fill: #fff;
-  transition: all ease-in-out 300ms;
-  @include mq(desktop) {
-    fill: #000;
-  }
-  &:hover,
-  &:focus {
     fill: var(--accent-btn-cl);
   }
 }
@@ -274,4 +308,3 @@
     display: none;
   }
 }
-

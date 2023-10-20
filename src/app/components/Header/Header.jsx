@@ -41,8 +41,8 @@ const Header = ({ city, openCityModal }) => {
   return (
     <header className={`${'container'} ${styles.header}`}>
       <button className={styles.openNavigation} onClick={() => setShowNavigation(true)}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" fill="none">
-          <path stroke="#000" strokeWidth="2" d="M0 1h20M0 8.3h20M0 15.5h20" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17">
+          <path strokeWidth="2" d="M0 1h20M0 8.3h20M0 15.5h20" />
         </svg>
       </button>
       <Link href="/" className={styles.logo}>
@@ -60,11 +60,9 @@ const Header = ({ city, openCityModal }) => {
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
-            fill="none"
             viewBox="0 0 24 24"
           >
             <path
-              stroke="#000"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
@@ -84,11 +82,9 @@ const Header = ({ city, openCityModal }) => {
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
-              fill="none"
               viewBox="0 0 24 24"
             >
               <path
-                stroke="#fff"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
@@ -119,7 +115,7 @@ const Header = ({ city, openCityModal }) => {
             <li className={styles.navListItem}>
               <Link href="/loginPage" className={styles.loginBtn}>
                 <svg
-                  className={styles.login__icon}
+                
                   xmlns="http://www.w3.org/2000/svg"
                   width="21"
                   height="20"
@@ -132,11 +128,8 @@ const Header = ({ city, openCityModal }) => {
           {isLoggedIn && (
             <li className={styles.navListItem}>
               <button className={styles.profileButton}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-                  <path
-                    fill="#fff"
-                    d="M13.5 2.5a.8.8 0 0 1 .7-.7h9a.8.8 0 1 1 0 1.5h-9a.8.8 0 0 1-.7-.8Zm9.7 3.8h-9a.8.8 0 0 0 0 1.5h9a.8.8 0 1 0 0-1.5Zm0 4.5h-6.7a.8.8 0 0 0 0 1.5h6.7a.8.8 0 1 0 0-1.5Zm-9 2a.8.8 0 0 1-1.4.4 5.5 5.5 0 0 0-10.6 0 .8.8 0 1 1-1.4-.4c.5-2 2-3.7 4-4.5a4.5 4.5 0 1 1 5.4 0c2 .8 3.5 2.5 4 4.5Zm-6.7-5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                  <path d="M13.5 2.5a.8.8 0 0 1 .7-.7h9a.8.8 0 1 1 0 1.5h-9a.8.8 0 0 1-.7-.8Zm9.7 3.8h-9a.8.8 0 0 0 0 1.5h9a.8.8 0 1 0 0-1.5Zm0 4.5h-6.7a.8.8 0 0 0 0 1.5h6.7a.8.8 0 1 0 0-1.5Zm-9 2a.8.8 0 0 1-1.4.4 5.5 5.5 0 0 0-10.6 0 .8.8 0 1 1-1.4-.4c.5-2 2-3.7 4-4.5a4.5 4.5 0 1 1 5.4 0c2 .8 3.5 2.5 4 4.5Zm-6.7-5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                 </svg>
               </button>
             </li>
@@ -144,7 +137,6 @@ const Header = ({ city, openCityModal }) => {
           <li className={styles.navListItem}>
             <Link href="/" className={styles.favBtn}>
               <svg
-                className={styles.btn__icon}
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="22"

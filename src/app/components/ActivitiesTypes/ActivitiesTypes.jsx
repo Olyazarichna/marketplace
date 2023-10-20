@@ -11,7 +11,7 @@ const ActivitiesTypes = () => {
   return (
     <div className={styles.categoryWrapper}>
       <button className={showCategory ? styles.btnOpen : styles.btn} onClick={chooseCategory}>
-        Види дозвілля
+    Види дозвілля
       </button>
 
       {showCategory && (

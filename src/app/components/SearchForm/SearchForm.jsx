@@ -25,7 +25,6 @@ const SearchForm = ({ showSearchField, onSubmit }) => {
           type="text"
           placeholder="Пошук"
           className={styles.input}
-          autoFocus
           value={searchField}
           onChange={e => setSearchField(e.target.value.toLowerCase())}
         />

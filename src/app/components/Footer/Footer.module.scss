@@ -48,28 +48,10 @@
     margin-top: 8px;
   }
   font-weight: 600;
+  transition: all 300ms ease-in-out;
+  &:hover,
+  &:focus{
+    cursor: pointer;
+    color: var(--accent-btn-cl);
+  }
 }
-// .iconList {
-//   display: flex;
-//   align-items: center;
-
-//   @include mq(desktop) {
-//   }
-// }
-// .iconList__item {
-//   &:not(:first-child) {
-//     margin-left: 10px;
-//   }
-
-//   @include mq(tablet) {
-//     &:first-child {
-//       margin-left: 48px;
-//     }
-//   }
-
-//   @include mq(desktop) {
-//     &:first-child {
-//       margin-left: 120px;
-//     }
-//   }
-// }

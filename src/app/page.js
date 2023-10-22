@@ -25,6 +25,7 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const data = await getCity();
+        console.log('data',data)
         setCity(data.city);
       } catch (error) {
         console.log(error);

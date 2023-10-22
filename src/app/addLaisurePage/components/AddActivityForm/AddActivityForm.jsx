@@ -204,7 +204,7 @@ const AddActivityForm = () => {
                 id="activityChoice1"
                 name="activity"
                 value="forAll"
-                checked
+           
               />
               Для всіх
             </label>

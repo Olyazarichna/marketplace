@@ -3,7 +3,7 @@ import styles from './LoginForm.module.scss';
 import { useState } from 'react';
 import login from '../../../services/login';
 import { useRouter } from 'next/navigation';
-import InputField from '../../../components/InputField/InputField';
+import InputField from '../../../../components/InputField/InputField';
 import { useDispatch } from 'react-redux';
 import { setToken } from '@/redux/auth-slice';
 
@@ -51,6 +51,7 @@ const LoginForm = () => {
     };
     try {
       const response = await login(user);
+      localStorage.setItem('accessToken', response.accessToken);
       dispatch(setToken(response.accessToken));
       if (response?.accessToken) {
         router.push('/');

@@ -3,7 +3,7 @@ import styles from './RegisterForm.module.scss';
 import { useState } from 'react';
 import register from '../../../services/auth';
 import { useRouter } from 'next/navigation';
-import InputField from '../../../components/InputField/InputField';
+import InputField from '../../../../components/InputField/InputField';
 import { useDispatch } from 'react-redux';
 import { setToken } from '@/redux/auth-slice';
 
@@ -78,6 +78,7 @@ const RegisterForm = () => {
     setIsLoading(true);
     try {
       const response = await register(user);
+      localStorage.setItem('accessToken', response.accessToken);
       dispatch(setToken(response.accessToken));
       router.push('/');
       reset();

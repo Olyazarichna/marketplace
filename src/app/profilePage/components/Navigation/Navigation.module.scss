@@ -1,0 +1,67 @@
+@import '../../../../scss/utils/mixin';
+
+.profileContainer {
+  background-color: rgba($color: #003049, $alpha: 0.9);
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 50px;
+}
+.closeBtn {
+  background-color: transparent;
+  border-color: transparent;
+  fill: #fff;
+  padding: 0;
+  stroke: #fff;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
+.heading {
+  color: #fff;
+  font-size: 24px;
+  margin-top: 8px;
+}
+
+.navigationList {
+  background-color: #fff;
+  margin-top: 10px;
+}
+
+.navigationList__item {
+  padding: 10px 16px;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &:after {
+    display: inline-block;
+    content: '';
+    background: url('../../../../../public/icons/moreAccent.svg');
+    width: 10px;
+    height: 9px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: auto;
+  }
+}
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  transition: all ease-in-out 300ms;
+  fill: #000;
+
+  @include mq(desktop) {
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
+
+.btn__text {
+  margin-left: 8px;
+}

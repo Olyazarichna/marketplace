@@ -1,0 +1,58 @@
+@import '../../scss/utils/mixin';
+
+.formWrapper {
+  position: absolute;
+  top: 27px;
+  right: 10px;
+  @include mq(desktop) {
+ display: none;
+  }
+}
+.form{
+display: none;
+  @include mq(desktop) {
+position: static;
+display: flex;
+    // order:1;
+  }
+  
+  // order:1;
+}
+.input {
+  display: block;
+  width: 288px;
+  padding: 10px 25px 10px 5px;
+  border-radius: 5px;
+  background-color: #efefef;
+  border-color: transparent;
+  transition: all ease-in-out 300ms;
+  outline: none;
+  @include mq(tablet) {
+    width: 256px;
+    margin-left: 16px;
+  }
+  @include mq(desktop) {
+    font-size: 20px;
+    padding: 8px 25px 8px 5px;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.28);
+  }
+  &::placeholder {
+    color: #000000;
+  }
+}
+.inputWrapper {
+  position: relative;
+}
+.searchBtn {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 3px;
+  padding: 0;
+  background-color: transparent;
+  border-color: transparent;
+}

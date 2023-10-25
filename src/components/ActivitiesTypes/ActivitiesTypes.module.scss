@@ -1,0 +1,165 @@
+@import '../../scss/utils/mixin';
+
+.categoryWrapper {
+  @include mq(desktop) {
+    position: relative;
+    margin-left: 18px;
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 14px;
+  background-color: transparent;
+  border: transparent;
+  transition: all ease-in-out 300ms;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--accent-btn-cl);
+  cursor: pointer;
+  &::before {
+    display: inline-block;
+    content: '';
+    background: url('../../../public/icons/activities.svg');
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  &:after {
+    display: inline-block;
+    content: '';
+    background: url('../../../public/icons/moreAccent.svg');
+    width: 10px;
+    height: 9px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: auto;
+  }
+
+  @include mq(desktop) {
+    padding: 10px 8px;
+    color: #000;
+    width: 175px;
+    font-size: 20px;
+    border-bottom: 1px solid transparent;
+    &::before {
+      content: none;
+    }
+    &:after {
+      background: url('../../../public/icons/more.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid var(--accent-btn-cl);
+  }
+}
+
+.btnOpen {
+  @extend .btn;
+  &:after {
+    display: inline-block;
+    content: '';
+    background: url('../../../public/icons/accentOpen.svg');
+    width: 10px;
+    height: 9px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  @include mq(desktop) {
+    &:after {
+      display: inline-block;
+      content: '';
+      background: url('../../../public/icons/menu.svg');
+      width: 10px;
+      height: 9px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.activityList {
+  @include mq(desktop) {
+    width: 175px;
+    position: absolute;
+    padding: 0 8px;
+    top: 35px;
+    left: 0;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: #fff;
+  }
+}
+.activityList__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--accent-btn-cl);
+  transition: all ease-in-out 300ms;
+  padding: 10px 0;
+  &::after {
+    display: inline-block;
+    content: '';
+    background: url('../../../public/icons/moreAccent.svg');
+    width: 10px;
+    height: 9px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  @include mq(desktop) {
+    border-bottom: 1px solid transparent;
+    &:first-child {
+      margin-top: 0;
+    }
+    &:after {
+      display: inline-block;
+      content: '';
+      background: url('../../../public/icons/more.svg');
+      width: 10px;
+      height: 9px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    border-bottom: 1px solid var(--accent-btn-cl);
+  }
+}
+
+.activityList__btn {
+  font-size: 14px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  &::before {
+    display: inline-block;
+    content: '';
+    background: url('../../../public/icons/activities.svg');
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  @include mq(desktop) {
+    font-size: 20px;
+    &::before {
+      content: none;
+    }
+    color: #000;
+    text-align: left;
+  }
+}

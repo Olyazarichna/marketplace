@@ -1,7 +1,7 @@
 import '../scss/main.scss';
 import { Open_Sans } from 'next/font/google';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import { ReduxProvider } from '@/redux/provider';
 
 export const metadata = {

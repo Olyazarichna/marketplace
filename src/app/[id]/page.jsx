@@ -1,11 +1,11 @@
 import { products } from '../products';
-import BtnBack from '../components/BtnBack/BtnBack';
+import BtnBack from '../../components/BtnBack/BtnBack';
 import Image from 'next/image';
-import ImageSlider from '../components/ImageSlider/ImageSlider';
+import ImageSlider from '../../components/ImageSlider/ImageSlider';
 import styles from './styles.module.scss';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import ProductList from '../components/ProductList/ProductList';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import ProductList from '../../components/ProductList/ProductList';
 
 const Product = ({ params: { id } }) => {
   return (

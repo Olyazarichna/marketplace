@@ -1,24 +1,30 @@
 'use client';
 import '../scss/main.scss';
 import 'normalize.css/normalize.css';
-import AboutUs from './components/AboutUs/AboutUs';
-import ProductList from './components/ProductList/ProductList';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import AboutUs from '../components/AboutUs/AboutUs';
+import ProductList from '../components/ProductList/ProductList';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import { useState, useEffect } from 'react';
-import Backdrop from './components/Backdrop/Backdrop.jsx';
-import ConfirmationModal from './components/ConfirmationModal/ConfirmationModal';
-import ChooseCityModal from './components/ChooseCityModal/ChooseCityModal.jsx';
+import Backdrop from '../components/Backdrop/Backdrop.jsx';
+import ConfirmationModal from '../components/ConfirmationModal/ConfirmationModal';
+import ChooseCityModal from '../components/ChooseCityModal/ChooseCityModal.jsx';
 import getCity from './services/getCity';
 import { products } from './products';
 import ProductListContainer from './ProductListContainer/ProductListContainer';
+import { useDispatch } from 'react-redux';
+import { setToken } from '@/redux/auth-slice';
 
 export default function Home() {
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [showCityModal, setShowCityModal] = useState(false);
   const [city, setCity] = useState(null);
-
+  const dispatch = useDispatch();
   useEffect(() => {
+    const storedToken = localStorage.getItem('accessToken');
+    if (storedToken) {
+      dispatch(setToken(storedToken));
+    }
     setTimeout(() => {
       setShowConfirmationModal(true);
     }, 3000);

@@ -1,0 +1,65 @@
+@import '../../scss/utils/mixin';
+
+.productList {
+  margin-top: 40px;
+  margin-bottom: 18px;
+  @include mq(tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  @include mq(desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.productList__item {
+  width: 280px;
+  height: auto;
+  box-shadow: 0 1px 20px 0 rgba(0, 19, 29, 0.25);
+  border-radius: 12px;
+  overflow: hidden;
+  &:not(:first-child) {
+    margin-top: 24px;
+  }
+  @include mq(tablet) {
+    width: 342px;
+    &:not(:first-child) {
+      margin-top: 0;
+    }
+  }
+}
+.listWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.btnWrapper {
+  position: absolute;
+  top: 140px;
+  display: flex;
+  width: 1000px;
+  justify-content: space-between;
+}
+.btn {
+  display: none;
+  @include mq(desktop) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    background-color: var(--accent-btn-cl);
+    border-color: transparent;
+    transition: all ease-in-out 300ms;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: #f77f00;
+  }
+}

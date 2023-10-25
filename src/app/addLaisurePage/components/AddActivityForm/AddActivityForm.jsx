@@ -1,6 +1,6 @@
 'use client';
 import styles from './AddActivityForm.module.scss';
-import BtnBack from '../../../../app/components/BtnBack/BtnBack';
+import BtnBack from '../../../../components/BtnBack/BtnBack';
 import { useState } from 'react';
 import AgreementRadioButton from '../AgreementRadioButton/AgreementRadioButton';
 

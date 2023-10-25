@@ -3,7 +3,7 @@ import styles from './Header.module.scss';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ActivitiesTypes from '../ActivitiesTypes/ActivitiesTypes';
 
 const Header = ({ city, openCityModal }) => {
@@ -82,9 +82,8 @@ const Header = ({ city, openCityModal }) => {
           {isLoggedIn ? (
             <li className={styles.navListItem}>
               <Link href="/profilePage" className={styles.profileButton}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20">
-                  <path d="M13.5 2.5a.8.8 0 0 1 .7-.7h9a.8.8 0 1 1 0 1.5h-9a.8.8 0 0 1-.7-.8Zm9.7 3.8h-9a.8.8 0 0 0 0 1.5h9a.8.8 0 1 0 0-1.5Zm0 4.5h-6.7a.8.8 0 0 0 0 1.5h6.7a.8.8 0 1 0 0-1.5Zm-9 2a.8.8 0 0 1-1.4.4 5.5 5.5 0 0 0-10.6 0 .8.8 0 1 1-1.4-.4c.5-2 2-3.7 4-4.5a4.5 4.5 0 1 1 5.4 0c2 .8 3.5 2.5 4 4.5Zm-6.7-5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20"><path d="M9.5 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM4 5.5a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0ZM6 14a4 4 0 0 0-4 4h7.8v2H0v-2a6 6 0 0 1 6-6h3.8v2H6Zm5.8-2h8.4v2h-8.4v-2Zm0 3h8.4v2h-8.4v-2Zm0 3h8.4v2h-8.4v-2Z"/></svg>
+               
               </Link>
             </li>
           ) : (

@@ -1,8 +1,8 @@
 'use client';
 import styles from './ImageSlider.module.scss';
-import img1 from '../../../../public/images/aboutUs1x.jpg';
-import img2 from '../../../../public/images/girls.jpg';
-import img3 from '../../../../public/images/group.jpg';
+import img1 from '../../../public/images/aboutUs1x.jpg';
+import img2 from '../../../public/images/girls.jpg';
+import img3 from '../../../public/images/group.jpg';
 
 import { useState } from 'react';
 import Image from 'next/image';

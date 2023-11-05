@@ -13,7 +13,7 @@ export const auth = createSlice({
       state.token = action.payload;
       state.isLoggedIn = true;
     },
-    unsetToken: (state) => {
+    unsetToken: state => {
       state.token = null;
       state.isLoggedIn = false;
     },

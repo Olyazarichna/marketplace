@@ -11,27 +11,24 @@ import ConfirmationModal from '../components/ConfirmationModal/ConfirmationModal
 import ChooseCityModal from '../components/ChooseCityModal/ChooseCityModal.jsx';
 import getCity from './services/getCity';
 import { products } from './products';
-import ProductListContainer from './ProductListContainer/ProductListContainer';
-import { useDispatch } from 'react-redux';
-import { setToken } from '@/redux/auth-slice';
+import ProductListContainer from '../components/ProductListContainer/ProductListContainer';
+import { useSelector } from 'react-redux';
 
 export default function Home() {
+  const user = useSelector(state => state.auth);
+  console.log('user', user);
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [showCityModal, setShowCityModal] = useState(false);
   const [city, setCity] = useState(null);
-  const dispatch = useDispatch();
+
   useEffect(() => {
-    const storedToken = localStorage.getItem('accessToken');
-    if (storedToken) {
-      dispatch(setToken(storedToken));
-    }
     setTimeout(() => {
       setShowConfirmationModal(true);
     }, 3000);
     const fetchData = async () => {
       try {
         const data = await getCity();
-        console.log('data',data)
+        console.log('data', data);
         setCity(data.city);
       } catch (error) {
         console.log(error);

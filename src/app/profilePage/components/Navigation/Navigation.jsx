@@ -1,27 +1,51 @@
 'use client';
 import styles from './Navigation.module.scss';
-import BtnBack from '@/components/BtnBack/BtnBack';
 import Backdrop from '@/components/Backdrop/Backdrop';
 import ConfirmationModal from '@/components/ConfirmationModal/ConfirmationModal';
-import { useState } from 'react';
-import { unsetToken } from '@/redux/auth-slice';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { unsetToken } from '@/redux/authSlice';
+import { useDispatch } from 'react-redux';
+import Link from 'next/link';
+import ContactInfo from '../../userInfo/components/ContactInfo/ContactInfo';
+import BtnBack from '@/components/BtnBack/BtnBack';
+import FavoriteCollection from '../../favorite/components/FavoriteCollection/FavoriteCollection';
 
 const Navigation = () => {
   const [showLogoutConfirmationModal, setShowLogoutConfirmationModal] = useState(false);
+  const [selectedLink, setSelectedLink] = useState('');
+  const [isDesktop, setIsDesktop] = useState(false);
+
   const dispatch = useDispatch();
   const router = useRouter();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const handleLinkClick = link => {
+    setSelectedLink(link);
+  };
+
   const logout = () => {
-    localStorage.removeItem('accessToken');
     dispatch(unsetToken());
     setShowLogoutConfirmationModal(false);
     router.push('/');
   };
 
   return (
-    <section className={`${'container'} ${styles.profileContainer}`}>
-      <button className={styles.closeBtn} onClick={()=>router.push('/')}>
+    <section className={styles.wrapper}>
+      <button className={styles.closeBtn} onClick={() => router.push('/')}>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
@@ -32,45 +56,67 @@ const Navigation = () => {
         </svg>
       </button>
       <div>
+        {/* <BtnBack route={'/'} className={styles.btnBack} /> */}
         <h2 className={styles.heading}>Особистий кабінет</h2>
+
         <nav>
           <ul className={styles.navigationList}>
             <li className={styles.navigationList__item}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
-                <g fill="#003049" clipPath="url(#a)">
-                  <path
-                    fillRule="evenodd"
-                    d="M10.3 1.9H3.7V0h-.9v1.9H1.4A1.4 1.4 0 0 0 0 3.3v7.4a1.4 1.4 0 0 0 1.4 1.4h11.2a1.4 1.4 0 0 0 1.4-1.4V3.3a1.4 1.4 0 0 0-1.4-1.4h-1.4V0h-1v1.9ZM2.8 5.6a1.9 1.9 0 1 1 3.7 0 1.9 1.9 0 0 1-3.7 0Zm-.6 4.3a2.7 2.7 0 0 1 5 0l.2.6a.5.5 0 0 1-.4.7H2.3a.5.5 0 0 1-.4-.7l.3-.6Zm6.2-4.3h2.8v-1H8.4v1Zm0 2.8h2.8v-1H8.4v1Z"
-                    clipRule="evenodd"
-                  />
-                  <path d="M14 13v1H0v-1h14Z" />
-                </g>
-              </svg>
-              <span className={styles.btn__text}>Контактні дані</span>
-         
+              {isDesktop ? (
+                <button
+                  onClick={() => handleLinkClick('/profilePage/userInfo')}
+                  className={styles.navBtn}
+                >
+                  Контактні дані
+                </button>
+              ) : (
+                <Link href="/profilePage/userInfo">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                    <g fill="#003049" clipPath="url(#a)">
+                      <path
+                        fillRule="evenodd"
+                        d="M10.3 1.9H3.7V0h-.9v1.9H1.4A1.4 1.4 0 0 0 0 3.3v7.4a1.4 1.4 0 0 0 1.4 1.4h11.2a1.4 1.4 0 0 0 1.4-1.4V3.3a1.4 1.4 0 0 0-1.4-1.4h-1.4V0h-1v1.9ZM2.8 5.6a1.9 1.9 0 1 1 3.7 0 1.9 1.9 0 0 1-3.7 0Zm-.6 4.3a2.7 2.7 0 0 1 5 0l.2.6a.5.5 0 0 1-.4.7H2.3a.5.5 0 0 1-.4-.7l.3-.6Zm6.2-4.3h2.8v-1H8.4v1Zm0 2.8h2.8v-1H8.4v1Z"
+                        clipRule="evenodd"
+                      />
+                      <path d="M14 13v1H0v-1h14Z" />
+                    </g>
+                  </svg>
+                  <span className={styles.btn__text}>Контактні дані</span>
+                </Link>
+              )}
             </li>
             <li className={styles.navigationList__item}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" fill="none">
-                <mask
-                  id="a"
-                  width="12"
-                  height="11"
-                  x="0"
-                  y="0"
-                  maskUnits="userSpaceOnUse"
-                  style={{ maskType: 'luminance' }}
+              {isDesktop ? (
+                <button
+                  onClick={() => handleLinkClick('/profilePage/favorite')}
+                  className={styles.navBtn}
                 >
-                  <path
-                    fill="#fff"
-                    d="M3.4.3A3.2 3.2 0 0 0 .2 3.5C.2 6.8 4 9.7 6 10.3c2-.6 5.8-3.5 5.8-6.8A3.2 3.2 0 0 0 6 1.7 3.2 3.2 0 0 0 3.4.3Z"
-                  />
-                </mask>
-                <g mask="url(#a)">
-                  <path fill="#003049" d="M-1-2h14v14H-1V-2Z" />
-                </g>
-              </svg>
-              <span className={styles.btn__text}> Вподобане</span>
-             
+                  Вподобане
+                </button>
+              ) : (
+                <Link href={'/profilePage/favorite'}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" fill="none">
+                    <mask
+                      id="a"
+                      width="12"
+                      height="11"
+                      x="0"
+                      y="0"
+                      maskUnits="userSpaceOnUse"
+                      style={{ maskType: 'luminance' }}
+                    >
+                      <path
+                        fill="#fff"
+                        d="M3.4.3A3.2 3.2 0 0 0 .2 3.5C.2 6.8 4 9.7 6 10.3c2-.6 5.8-3.5 5.8-6.8A3.2 3.2 0 0 0 6 1.7 3.2 3.2 0 0 0 3.4.3Z"
+                      />
+                    </mask>
+                    <g mask="url(#a)">
+                      <path fill="#003049" d="M-1-2h14v14H-1V-2Z" />
+                    </g>
+                  </svg>
+                  <span className={styles.btn__text}>Вподобане</span>
+                </Link>
+              )}
             </li>
             <li className={styles.navigationList__item}>
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" fill="none">
@@ -80,7 +126,6 @@ const Navigation = () => {
                 />
               </svg>
               <span className={styles.btn__text}> Мої замовлення</span>
-             
             </li>
             <li className={styles.navigationList__item}>
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
@@ -90,7 +135,6 @@ const Navigation = () => {
                 />
               </svg>
               <span className={styles.btn__text}> Мої Послуги</span>
-             
             </li>
             <li className={styles.navigationList__item}>
               <button
@@ -106,6 +150,7 @@ const Navigation = () => {
           </ul>
         </nav>
       </div>
+
       {showLogoutConfirmationModal && (
         <Backdrop>
           <ConfirmationModal
@@ -116,6 +161,10 @@ const Navigation = () => {
           />
         </Backdrop>
       )}
+      <section>{isDesktop && selectedLink === '/profilePage/userInfo' && <ContactInfo />}</section>
+      <section>
+        {isDesktop && selectedLink === '/profilePage/favorite' && <FavoriteCollection />}
+      </section>
     </section>
   );
 };

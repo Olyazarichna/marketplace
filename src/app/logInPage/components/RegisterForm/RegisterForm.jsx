@@ -1,11 +1,11 @@
 'use client';
 import styles from './RegisterForm.module.scss';
 import { useState } from 'react';
-import register from '../../../services/auth';
 import { useRouter } from 'next/navigation';
 import InputField from '../../../../components/InputField/InputField';
 import { useDispatch } from 'react-redux';
-import { setToken } from '@/redux/auth-slice';
+import { setToken } from '@/redux/authSlice';
+import { useRegisterMutation } from '@/redux/usersSlice';
 
 const RegisterForm = () => {
   const router = useRouter();
@@ -18,8 +18,10 @@ const RegisterForm = () => {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [emailOrPassError, setEmailOrPassError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+  const [register, status] = useRegisterMutation();
+
+  console.log('status', status);
 
   const onPasswordClick = () => {
     setShowPassword(!showPassword);
@@ -69,23 +71,19 @@ const RegisterForm = () => {
       setPasswordError(true);
       return;
     }
-    const user = {
-      firstName: firstName || '',
-      lastName: lastName || '',
-      email,
-      password,
-    };
-    setIsLoading(true);
     try {
-      const response = await register(user);
-      localStorage.setItem('accessToken', response.accessToken);
-      dispatch(setToken(response.accessToken));
-      router.push('/');
-      reset();
+      const {
+        data: { accessToken },
+      } = await register({ firstName: firstName || '', lastName: lastName || '', email, password });
+      dispatch(setToken(accessToken));
+      if (accessToken) {
+        router.push('/');
+        reset();
+      } else {
+      }
     } catch (error) {
       console.log(error);
     } finally {
-      setIsLoading(false);
       setEmailOrPassError(false);
     }
   };
@@ -185,10 +183,10 @@ const RegisterForm = () => {
       </div>
       <button
         type="submit"
-        className={isLoading ? styles.form__btnDisabled : styles.form__btn}
-        disabled={isLoading}
+        className={status?.isLoading ? styles.form__btnDisabled : styles.form__btn}
+        disabled={status?.isLoading}
       >
-        {isLoading ? 'Зачекайте...' : 'Зареєструватись'}
+        {status?.isLoading ? 'Зачекайте...' : 'Зареєструватись'}
       </button>
     </form>
   );

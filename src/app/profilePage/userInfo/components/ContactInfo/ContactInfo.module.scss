@@ -1,0 +1,56 @@
+@import '../../../../../scss/utils/mixin';
+
+.btnBack {
+  @include mq(tablet) {
+    display: none;
+  }
+}
+.heading {
+  margin-top: 22px;
+  font-size: 24px;
+  @include mq(tablet) {
+    display: none;
+  }
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  @include mq(tablet) {
+    width: 370px;
+    margin-top: 100px;
+  }
+}
+.form__wrapper {
+  &:first-child {
+    margin-right: 16px;
+  }
+}
+.nameWrapper {
+  display: flex;
+}
+.form__label {
+  font-size: 12px;
+  display: block;
+  margin-top: 16px;
+}
+.form__input {
+  width: 136px;
+  padding: 5px 12px;
+  font-size: 14px;
+  margin-top: 4px;
+}
+.email,
+.phone {
+  width: 212px;
+}
+
+.btn {
+  padding: 4px 15px;
+  background-color: #003049;
+  color: #fff;
+  font-size: 14px;
+  border-color: transparent;
+  border-radius: 2px;
+  margin-top: 50px;
+  align-self: flex-end;
+}

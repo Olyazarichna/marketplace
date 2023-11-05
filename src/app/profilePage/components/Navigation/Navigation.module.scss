@@ -1,10 +1,30 @@
 @import '../../../../scss/utils/mixin';
-
-.profileContainer {
+.wrapper{
   background-color: rgba($color: #003049, $alpha: 0.9);
   width: 100%;
   min-height: 100vh;
-  padding-top: 50px;
+  padding: 16px;
+  @include mq(tablet){
+    display: flex;
+  margin-top: 16px; 
+  padding: 0;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  }
+ 
+}
+.profileContainer {
+  // background-color: rgba($color: #003049, $alpha: 0.9);
+  // width: 100%;
+  // min-height: 100vh;
+  // padding-top: 50px;
+  padding: 17px;
+  @include mq(tablet){
+    // background-color: #fff;
+    // padding-top: 0;
+
+  }
 }
 .closeBtn {
   background-color: transparent;
@@ -16,16 +36,39 @@
   &:focus {
     cursor: pointer;
   }
+  @include mq(tablet){
+   display: none;
+  }
+}
+.btnBack{
+  display: none;
+  @include mq(tablet){
+    display: flex;
+    margin-top: 0;
+   }
 }
 .heading {
   color: #fff;
   font-size: 24px;
   margin-top: 8px;
+  @include mq(tablet){
+    color: #000;
+    // margin-top: 16px;
+    margin-top: 0;
+
+  }
 }
 
 .navigationList {
   background-color: #fff;
   margin-top: 10px;
+  // color: #fff;
+  color: #000;
+  @include mq(tablet){
+    // color: #000;
+  width: 256px;
+  margin-top: 32px;
+  }
 }
 
 .navigationList__item {
@@ -43,7 +86,12 @@
     background-size: contain;
     background-repeat: no-repeat;
     margin-left: auto;
+    
   }
+}
+.navBtn{
+  background-color: transparent;
+  border-color: transparent;
 }
 .logoutBtn {
   display: flex;
@@ -52,9 +100,12 @@
   background-color: transparent;
   border: none;
   transition: all ease-in-out 300ms;
-  fill: #000;
+  // fill: #fff;
+  // color: #fff;
 
-  @include mq(desktop) {
+  @include mq(tablet) {
+    fill: #000;
+    color: #000;
   }
   &:hover,
   &:focus {

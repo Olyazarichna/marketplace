@@ -10,7 +10,8 @@ const Header = ({ city, openCityModal }) => {
   const [showNavigation, setShowNavigation] = useState(false);
   const [showSearchField, setShowSearchField] = useState(false);
   const [activityName, setActivityName] = useState('');
-  const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  console.log('isLoggedIn', isLoggedIn);
 
   useEffect(() => {
     const handleResize = () => {
@@ -82,8 +83,9 @@ const Header = ({ city, openCityModal }) => {
           {isLoggedIn ? (
             <li className={styles.navListItem}>
               <Link href="/profilePage" className={styles.profileButton}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20"><path d="M9.5 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM4 5.5a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0ZM6 14a4 4 0 0 0-4 4h7.8v2H0v-2a6 6 0 0 1 6-6h3.8v2H6Zm5.8-2h8.4v2h-8.4v-2Zm0 3h8.4v2h-8.4v-2Zm0 3h8.4v2h-8.4v-2Z"/></svg>
-               
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20">
+                  <path d="M9.5 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM4 5.5a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0ZM6 14a4 4 0 0 0-4 4h7.8v2H0v-2a6 6 0 0 1 6-6h3.8v2H6Zm5.8-2h8.4v2h-8.4v-2Zm0 3h8.4v2h-8.4v-2Zm0 3h8.4v2h-8.4v-2Z" />
+                </svg>
               </Link>
             </li>
           ) : (

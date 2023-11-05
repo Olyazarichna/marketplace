@@ -12,7 +12,7 @@ const Product = ({ params: { id } }) => {
     <>
       <Header />
       <section className="container">
-        <BtnBack />
+        <BtnBack route={'/'}/>
         {/* <h1>Product {id}</h1> */}
         <div className={styles.cardWrapper}>
           <Image src={products[0].img[0]} alt={products[0].title} className={styles.img} />

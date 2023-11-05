@@ -1,0 +1,10 @@
+@import '../../scss/utils/mixin';
+.profilePageEWrapper {
+  display: flex;
+}
+.contactInfo {
+  display: none;
+  @include mq(tablet) {
+    display: block;
+  }
+}

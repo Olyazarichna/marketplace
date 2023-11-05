@@ -1,22 +1,21 @@
 'use client';
 import styles from './LoginForm.module.scss';
 import { useState } from 'react';
-import login from '../../../services/login';
 import { useRouter } from 'next/navigation';
 import InputField from '../../../../components/InputField/InputField';
 import { useDispatch } from 'react-redux';
-import { setToken } from '@/redux/auth-slice';
+import { setToken } from '@/redux/authSlice';
+import { useLoginMutation } from '@/redux/usersSlice';
 
 const LoginForm = () => {
- 
   const dispatch = useDispatch();
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [emailOrPassError, setEmailOrPassError] = useState(false);
+  const [login, status] = useLoginMutation();
 
   const onPasswordClick = () => {
     setShowPassword(!showPassword);
@@ -43,28 +42,24 @@ const LoginForm = () => {
       setEmailOrPassError(true);
       return;
     }
-
-    setIsLoading(true);
-    const user = {
-      email,
-      password,
-    };
+    // const user = {
+    //   email,
+    //   password,
+    // };
     try {
-      const response = await login(user);
-      localStorage.setItem('accessToken', response.accessToken);
-      dispatch(setToken(response.accessToken));
-      if (response?.accessToken) {
+      const {
+        data: { accessToken },
+      } = await login({ email, password });
+      dispatch(setToken(accessToken));
+      if (accessToken) {
         router.push('/');
         reset();
       } else {
         setEmailError(true);
         setEmailOrPassError(false);
-        setIsLoading(false);
       }
     } catch (error) {
       console.log(error);
-    } finally {
-      setIsLoading(false);
     }
   };
   const reset = () => {
@@ -115,8 +110,8 @@ const LoginForm = () => {
         </button>
       </div>
       {emailError && <p className={styles.error}>Пароль або електронна пошта не вірні</p>}
-      <button type="submit" className={styles.form__btn} disabled={isLoading}>
-        {isLoading ? 'Зачекайте...' : 'Увійти'}
+      <button type="submit" className={styles.form__btn} disabled={status.isLoading}>
+        {status.isLoading ? 'Зачекайте...' : 'Увійти'}
       </button>
     </form>
   );

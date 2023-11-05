@@ -15,7 +15,7 @@ const FormWrapper = () => {
 
   return (
     <div className={'container'}>
-      <BtnBack />
+      <BtnBack  route={'/'}/>
       <div className={styles.formContainer}>
         <div className={styles.btnWrapper}>
           <button

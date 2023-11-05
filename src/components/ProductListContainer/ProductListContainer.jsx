@@ -1,5 +1,5 @@
 import styles from './ProductListContainer.module.scss';
-import Button from '../../components/Button/Button';
+import Button from '../Button/Button';
 
 const ProductListContainer = ({ title, children }) => {
   const showMore = () => {

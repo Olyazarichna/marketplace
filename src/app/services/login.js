@@ -1,33 +1,33 @@
-import { API_BASE_URL } from '../constants/apiUrls';
+// import { API_BASE_URL } from '../constants/apiUrls';
 
-const login = async ({ email, password }) => {
-  const url = `${API_BASE_URL}/auth/authenticate`;
-  const user = {
-    email,
-    password,
-  };
+// const login = async ({ email, password }) => {
+//   const url = `${API_BASE_URL}/auth/authenticate`;
+//   const user = {
+//     email,
+//     password,
+//   };
 
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(user),
-    });
+//   try {
+//     const response = await fetch(url, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(user),
+//     });
 
-    if (response.ok || response.status === 200) {
-      const data = await response.json();
-      return data;
-    }
-    if (!response.ok || response.status === 401) {
-      console.error('Login failed: Incorrect email or password.');
-    } else {
-      console.error('Login failed');
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
+//     if (response.ok || response.status === 200) {
+//       const data = await response.json();
+//       return data;
+//     }
+//     if (!response.ok || response.status === 401) {
+//       console.error('Login failed: Incorrect email or password.');
+//     } else {
+//       console.error('Login failed');
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
-export default login;
+// export default login;

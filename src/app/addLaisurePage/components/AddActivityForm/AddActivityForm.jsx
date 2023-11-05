@@ -40,7 +40,7 @@ const AddActivityForm = () => {
   return (
     <main className={'container'}>
       <h2 className={styles.title}>Додавання події</h2>
-      <BtnBack />
+      <BtnBack route={'/'} />
 
       <form className={styles.form} autoComplete="off">
         <div className={styles.inputWrapper}>

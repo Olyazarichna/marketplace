@@ -1,9 +1,9 @@
 import styles from "./BtnBack.module.scss";
 import Link from "next/link";
 
-const BtnBack = () => {
+const BtnBack = ({route,className}) => {
   return (
-    <Link href="/" className={styles.btn}>
+    <Link href={route} className={`${styles.btn} ${className ? className : ''}`}>
       Назад
     </Link>
   );

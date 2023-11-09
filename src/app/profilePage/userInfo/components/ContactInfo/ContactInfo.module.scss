@@ -1,6 +1,7 @@
 @import '../../../../../scss/utils/mixin';
 
 .btnBack {
+  display: flex;
   @include mq(tablet) {
     display: none;
   }

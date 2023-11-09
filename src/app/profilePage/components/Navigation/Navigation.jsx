@@ -8,7 +8,6 @@ import { unsetToken } from '@/redux/authSlice';
 import { useDispatch } from 'react-redux';
 import Link from 'next/link';
 import ContactInfo from '../../userInfo/components/ContactInfo/ContactInfo';
-import BtnBack from '@/components/BtnBack/BtnBack';
 import FavoriteCollection from '../../favorite/components/FavoriteCollection/FavoriteCollection';
 
 const Navigation = () => {
@@ -56,9 +55,7 @@ const Navigation = () => {
         </svg>
       </button>
       <div>
-        {/* <BtnBack route={'/'} className={styles.btnBack} /> */}
         <h2 className={styles.heading}>Особистий кабінет</h2>
-
         <nav>
           <ul className={styles.navigationList}>
             <li className={styles.navigationList__item}>
@@ -119,30 +116,61 @@ const Navigation = () => {
               )}
             </li>
             <li className={styles.navigationList__item}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" fill="none">
-                <path
-                  fill="#003049"
-                  d="M10 9.5a1.2 1.2 0 1 1 0 2.3 1.2 1.2 0 0 1 0-2.3ZM.5.2h1.9L3 1.3h8.7a.6.6 0 0 1 .5.6v.3L10 6c-.2.3-.6.6-1 .6H4.7l-.5 1a.1.1 0 0 0 .1.1h6.8V9H4a1.2 1.2 0 0 1-1-1.7l.7-1.4-2-4.5H.5V.2ZM4 9.5a1.2 1.2 0 1 1 0 2.3 1.2 1.2 0 0 1 0-2.3Zm5.2-4 1.7-3H3.6l1.4 3h4.3Z"
-                />
-              </svg>
-              <span className={styles.btn__text}> Мої замовлення</span>
+              {isDesktop ? (
+                <button
+                  onClick={() => handleLinkClick('/profilePage/order')}
+                  className={styles.navBtn}
+                >
+                  Мої замовлення
+                </button>
+              ) : (
+                <Link href={'/profilePage/order'}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" fill="none">
+                    <path
+                      fill="#003049"
+                      d="M10 9.5a1.2 1.2 0 1 1 0 2.3 1.2 1.2 0 0 1 0-2.3ZM.5.2h1.9L3 1.3h8.7a.6.6 0 0 1 .5.6v.3L10 6c-.2.3-.6.6-1 .6H4.7l-.5 1a.1.1 0 0 0 .1.1h6.8V9H4a1.2 1.2 0 0 1-1-1.7l.7-1.4-2-4.5H.5V.2ZM4 9.5a1.2 1.2 0 1 1 0 2.3 1.2 1.2 0 0 1 0-2.3Zm5.2-4 1.7-3H3.6l1.4 3h4.3Z"
+                    />
+                  </svg>
+                  <span className={styles.btn__text}> Мої замовлення</span>
+                </Link>
+              )}
             </li>
             <li className={styles.navigationList__item}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
-                <path
-                  fill="#003049"
-                  d="M2.3 12.2c-.3 0-.6 0-.8-.3-.2-.2-.3-.5-.3-.8V4.7c0-.4 0-.6.3-.9.2-.2.5-.3.8-.3h2.4V2.3c0-.3 0-.6.3-.8.2-.2.5-.3.8-.3h2.4c.3 0 .6 0 .8.3.2.2.3.5.3.8v1.2h2.4c.3 0 .6.1.8.3.2.3.3.5.3.9V11c0 .3 0 .6-.3.8-.2.2-.5.4-.8.3H2.3Zm3.5-8.7h2.4V2.3H5.8v1.2Zm5.9 5.2h-3V10H5.4V8.7h-3v2.4h9.4V8.7Zm-5.3 0h1.2V7.6H6.4v1.1Zm-4-1.1h2.9V6.4h3.5v1.2h2.9v-3H2.3v3Z"
-                />
-              </svg>
-              <span className={styles.btn__text}> Мої Послуги</span>
+              {isDesktop ? (
+                <button
+                  onClick={() => handleLinkClick('/profilePage/offered')}
+                  className={styles.navBtn}
+                >
+                  Мої Послуги
+                </button>
+              ) : (
+                <Link href={'/profilePage/offered'}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                    <path
+                      fill="#003049"
+                      d="M2.3 12.2c-.3 0-.6 0-.8-.3-.2-.2-.3-.5-.3-.8V4.7c0-.4 0-.6.3-.9.2-.2.5-.3.8-.3h2.4V2.3c0-.3 0-.6.3-.8.2-.2.5-.3.8-.3h2.4c.3 0 .6 0 .8.3.2.2.3.5.3.8v1.2h2.4c.3 0 .6.1.8.3.2.3.3.5.3.9V11c0 .3 0 .6-.3.8-.2.2-.5.4-.8.3H2.3Zm3.5-8.7h2.4V2.3H5.8v1.2Zm5.9 5.2h-3V10H5.4V8.7h-3v2.4h9.4V8.7Zm-5.3 0h1.2V7.6H6.4v1.1Zm-4-1.1h2.9V6.4h3.5v1.2h2.9v-3H2.3v3Z"
+                    />
+                  </svg>
+                  <span className={styles.btn__text}> Мої Послуги</span>
+                </Link>
+              )}
             </li>
             <li className={styles.navigationList__item}>
               <button
                 className={styles.logoutBtn}
                 onClick={() => setShowLogoutConfirmationModal(true)}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-                  <path d="m14 5-1.4 1.4L14.2 8H6v2h8.2l-1.6 1.6L14 13l4-4-4-4ZM2 2h7V0H2a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h7v-2H2V2Z" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  fill="none"
+                  className={styles.logout__icon}
+                >
+                  <path
+                    fill="#003049"
+                    d="m10 4.7-.9.8 1 1H5.2v1H10l-.9 1 .8.8L12.2 7 10 4.7ZM3 2.9h4V1.8H3c-.7 0-1.3.5-1.3 1.1v8.2c0 .6.6 1.2 1.2 1.2H7V11H3V2.9Z"
+                  />
                 </svg>
                 <span className={styles.btn__text}>Вийти</span>
               </button>
@@ -165,6 +193,8 @@ const Navigation = () => {
       <section>
         {isDesktop && selectedLink === '/profilePage/favorite' && <FavoriteCollection />}
       </section>
+      <section>{isDesktop && selectedLink === '/profilePage/order' && <p>My order</p>}</section>
+      <section>{isDesktop && selectedLink === '/profilePage/offered' && <p>offered</p>}</section>
     </section>
   );
 };

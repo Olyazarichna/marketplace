@@ -11,7 +11,10 @@ const Header = ({ city, openCityModal }) => {
   const [showSearchField, setShowSearchField] = useState(false);
   const [activityName, setActivityName] = useState('');
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const user = useSelector(state=>state);
+
   console.log('isLoggedIn', isLoggedIn);
+console.log('USER',user)
 
   useEffect(() => {
     const handleResize = () => {
@@ -116,7 +119,8 @@ const Header = ({ city, openCityModal }) => {
         </ul>
         <ActivitiesTypes />
         <Link
-          href="/addLaisurePage"
+          // href="/addLaisurePage"
+          href={isLoggedIn ? "/addLaisurePage" : "/loginPage"}
           className={showNavigation ? styles.addActivityBtnMob : styles.addActivityBtn}
         >
           Пропоную дозвілля
